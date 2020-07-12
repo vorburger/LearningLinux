@@ -4,4 +4,4 @@ cd "$(dirname "$0")"
 
 ./build
 
-podman run --rm --hostname kernel-dev -it kernel-dev
+podman run --name kernel-dev --rm --hostname kernel-dev -it kernel-dev
