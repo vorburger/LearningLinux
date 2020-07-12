@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euox pipefail
+cd "$(dirname "$0")"
+
+# Build containers (this includes actually building the Kernel in that container image)
+./build
+podman build -t kernel-uml     -f containers/kernel-uml.Dockerfile     /tmp
+
+# Copy Kernel out of container image (by briefly running the container; TODO how to copy out of an image without run?)
+podman run --detach --name kernel-uml-cp kernel-uml
+podman cp kernel-uml-cp:/home/tux/linux-stable/linux /tmp/
+podman rm --force kernel-uml-cp
+
+# Actually run the UML container
+/tmp/linux
