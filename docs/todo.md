@@ -1,7 +1,4 @@
 
-* automate make run script copy the built /home/tux/linux-stable/linux out of the container using
-  `podman cp kernel-dev:/home/tux/linux-stable/linux /tmp/`
-
 * run under KVM instead of UML until UML crash fixed (optionally; also keep UML demo)
 
 * fix UML crashing on host (outside of container) with "Aborted (core dumped)" using

@@ -2,6 +2,13 @@
 set -euox pipefail
 cd "$(dirname "$0")"
 
+# Build container (this includes actually building the Kernel in that container image)
 ./build
 
-podman run --name kernel-dev --rm --hostname kernel-dev -it kernel-dev
+# Copy Kernel out of container image (by briefly running the container; TODO how to copy out of an image without run?)
+podman run --detach --name kernel-dev-cp kernel-dev
+podman cp kernel-dev-cp:/home/tux/linux-stable/linux /tmp/
+podman rm --force kernel-dev-cp
+
+# Actually run the UML container
+/tmp/linux
