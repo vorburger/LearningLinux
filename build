@@ -13,3 +13,7 @@ podman run --name hello --rm hello
 
 # Userland #2: busybox
 podman build -t busybox-init  -f containers/busybox-init.Dockerfile    ./containers/
+
+# buildroot.org
+# podman build -t buildroot -f containers/buildroot.Dockerfile
+# podman run --name buildroot-it --rm --hostname buildroot -it buildroot
