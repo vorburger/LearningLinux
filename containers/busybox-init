@@ -35,5 +35,14 @@ ln -sv /proc/kcore /dev/core
 # http://www.linuxfromscratch.org/lfs/view/10.0-rc1/chapter07/createfiles.html
 ln -sv /proc/self/mounts /etc/mtab
 
+# Networking
+hostname busybox
+ifconfig lo 127.0.0.1
+if [ -d /sys/class/net/eth0 ] ; then
+    dhcpcd -q
+fi
+
 # Enter interactive root shell on console
+export HOME=/root
+export TERM=linux
 /bin/sh
