@@ -3,7 +3,8 @@ set -euox pipefail
 cd "$(dirname "$0")"
 
 podman build -t fedora-updated -f containers/fedora-updated.Dockerfile /tmp
-podman build -t kernel-dev     -f containers/kernel-dev.Dockerfile     /tmp
+podman build -t fedora-dev     -f containers/fedora-dev.Dockerfile     /tmp
+podman build -t kernel-src     -f containers/kernel-src.Dockerfile     /tmp
 
 podman build -t hello          -f containers/hello.Dockerfile          ./containers/src/
 podman run --name hello --rm hello

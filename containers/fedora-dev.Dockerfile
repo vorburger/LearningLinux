@@ -7,8 +7,3 @@ RUN sudo dnf install -y git nano findutils file xz ncurses-devel bison flex elfu
 RUN useradd tux -G wheel -p U6aMy0wojraho
 WORKDIR /home/tux
 USER tux
-
-RUN git clone --branch=v5.7.8 --depth 1 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
-
-RUN cd linux-stable  && \
-    git checkout -b v5.7.8

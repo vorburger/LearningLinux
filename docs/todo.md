@@ -1,6 +1,9 @@
 NeXT
 
-* use `hello-static` as init (and automatically test that)
+* use `hello-static` as init
+* have a `test` script which automatically tests this all
+* have a `test-qemu` script which tests it through nested virtualization
+
 * boot into a https://busybox.net userland.. what init? Check out `/sbin/init` from Alpine on JSLinux
 * enable networking; will require dhcpd
 * support PXE booting it
