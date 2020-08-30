@@ -16,6 +16,7 @@ proc handle_eof {} {
 spawn ./run-qemu
 expect {
   "end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)*" {
+    # Ctrl-C
     send \x03
     expect eof
   }

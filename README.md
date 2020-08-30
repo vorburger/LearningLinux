@@ -11,7 +11,7 @@ Currently, it will crash fairly early (and mess up your console).
 [./run-dev](./run-dev) will run an interactive dev container to explore `[tux@kernel-dev ~]`.
 Its root password is empty, so you can e.g. `sudo dnf install -y ..`, but it's (intentionally) ephemeral - script it! ;)
 
-[./test](./test) automatically tests everything that's described above; run it after making any changes (and extend it when adding new features).
+[./test.tcl](./test.tcl) automatically tests everything that's described above; run it after making any changes (and extend it when adding new features).
 
 [docs/](docs/) has more background and details; including [TODO](docs/todo.md)s.
 
