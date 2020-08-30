@@ -1,0 +1,31 @@
+#!/usr/bin/expect -f
+# NB: Using `autoexpect` helps write `expect` scripts!
+
+set timeout 30
+
+proc handle_timeout {} {
+  puts "FAIL: Test timed out before completing succesfully :("
+  exit 1
+}
+
+proc handle_eof {} {
+  puts "FAIL: Spawned command returned before expected text was seen :("
+  exit 2
+}
+
+spawn ./run-qemu
+expect {
+  "end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)*" {
+    send \x03
+    expect eof
+  }
+  timeout { handle_timeout }
+  eof { handle_eof }
+}
+
+# TODO ./run-dev
+
+# TODO ./run-uml
+
+puts "PASS: All tests successfully completed."
+exit 0

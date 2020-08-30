@@ -1,4 +1,4 @@
-FROM kernel-dev
+FROM kernel-src
 
 RUN cd linux-stable  && \
     make x86_64_defconfig  && \
