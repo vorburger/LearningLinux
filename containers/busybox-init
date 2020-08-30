@@ -1,0 +1,39 @@
+#!/bin/sh
+set -euox pipefail
+
+# http://www.linuxfromscratch.org/lfs/view/6.1/chapter06/kernfs.html
+mkdir -p /dev /proc /sys /run
+
+# /dev
+mount -nvt tmpfs tmpfs /dev
+mkdir -vp /dev/pts
+mkdir -vp /dev/shm
+mount -nvt tmpfs tmpfs /dev/shm
+mknod -m 444 /dev/random c 1 8
+mknod -m 444 /dev/urandom c 1 9
+mknod -m 666 /dev/ptmx c 5 2
+mknod -m 666 /dev/tty c 5 0
+# As in ../image2initrd-fakeroot:
+mknod -m 666 /dev/null c 1 3
+mknod -m 666 /dev/zero c 1 5
+mknod -m 600 /dev/console c 5 1
+
+mount -nvt devpts -o gid=4,mode=620 devpts /dev/pts
+
+# /proc, /sys, /run
+mount -nvt proc proc /proc
+mount -nvt sysfs sysfs /sys
+mount -nvt tmpfs tmpfs /run
+
+# https://tldp.org/LDP/lfs/LFS-BOOK-6.1.1-HTML/chapter06/devices.html
+ln -sv /proc/self/fd /dev/fd
+ln -sv /proc/self/fd/0 /dev/stdin
+ln -sv /proc/self/fd/1 /dev/stdout
+ln -sv /proc/self/fd/2 /dev/stderr
+ln -sv /proc/kcore /dev/core
+
+# http://www.linuxfromscratch.org/lfs/view/10.0-rc1/chapter07/createfiles.html
+ln -sv /proc/self/mounts /etc/mtab
+
+# Enter interactive root shell on console
+/bin/sh

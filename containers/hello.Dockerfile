@@ -1,5 +1,5 @@
 FROM fedora-dev AS hello-dev
-ADD hello.c .
+ADD src/hello.c .
 
 RUN gcc hello.c -o hello
 RUN ./hello

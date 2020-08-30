@@ -8,8 +8,8 @@ podman build -t fedora-dev     -f containers/fedora-dev.Dockerfile     /tmp
 podman build -t kernel-src     -f containers/kernel-src.Dockerfile     /tmp
 
 # Userland #1: "hello, world" demo
-podman build -t hello          -f containers/hello.Dockerfile          ./containers/src/
+podman build -t hello          -f containers/hello.Dockerfile          ./containers/
 podman run --name hello --rm hello
 
 # Userland #2: busybox
-podman build -t busybox-init  -f containers/busybox-init.Dockerfile    /tmp
+podman build -t busybox-init  -f containers/busybox-init.Dockerfile    ./containers/

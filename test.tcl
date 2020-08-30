@@ -37,9 +37,10 @@ puts "\n\n"
 spawn ./run-qemu busybox-init
 expect {
   "Please press Enter to activate this console." {
-    send "\r"
+    send "hey ho"
+    send "\nls /dev\nmount"
   }
-  # This doesn't work, and I don't understand why
+  # This doesn't work, and I don't understand why.. see above, none of this appears
   "/ #" {
     send "poweroff"
   }
