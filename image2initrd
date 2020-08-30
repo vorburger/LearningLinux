@@ -10,13 +10,13 @@ podman export $ID | tar xv --directory=$DIR
 podman rm $ID
 
 # Clean up system files added by container runtime
-rm $DIR/etc/hosts
-rm $DIR/etc/resolv.conf
-rm $DIR/run/.containerenv
-rm -rf $DIR/run/secrets/
+rm $DIR/etc/hosts || true
+rm $DIR/etc/resolv.conf || true
+rm $DIR/run/.containerenv || true
+rm -rf $DIR/run/secrets/ || true
 
 # Create Initial RAM Disk CPIO archive
-TARGET="$(dirname "$0")"/initrd.gz
+TARGET="$(dirname "$0")"/$1-initrd.gz
 ( cd $DIR/ && find . | cpio -o -H newc ) | gzip > $TARGET
 rm -rf $DIR
 echo "Initial RAM Disk CPIO archive written to $TARGET"

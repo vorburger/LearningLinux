@@ -1,11 +1,15 @@
 NeXT
 
-* boot into a https://busybox.net userland.. what init? Check out `/sbin/init` from Alpine on JSLinux
+* boot into a https://busybox.net userland.. fix errors from /bin/sh as /init
+* is `/sbin/init` from Alpine on JSLinux better?
+*  `/init` should be added in `image2initrd` from the `CMD` in the `Dockerfile` obtained by `podman inspect`
+
+* upstream contribute better error message if no /init
 * enable networking; will require dhcpd
-* Init? systemd, http://smarden.org/runit/, ...
 
 * support PXE booting it
 * add Podman
+* study gvisor
 
 * https://godarch.com ?
 

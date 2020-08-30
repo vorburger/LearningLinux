@@ -22,7 +22,7 @@ expect {
 }
 puts "\n\n"
 
-spawn ./run-qemu
+spawn ./run-qemu hello
 expect {
   # NO LONGER "end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)*"
   "hello, world" {
@@ -33,6 +33,8 @@ expect {
   eof { handle_eof }
 }
 puts "\n\n"
+
+# TODO ./run-qemu busybox-init
 
 spawn ./run-dev
 expect {
