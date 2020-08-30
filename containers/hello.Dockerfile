@@ -9,6 +9,6 @@ RUN ./hello-static
 
 
 FROM scratch
-COPY --from=hello-dev /home/tux/hello-static .
-RUN ["./hello-static"]
-ENTRYPOINT ["./hello-static"]
+COPY --from=hello-dev /home/tux/hello-static /init
+RUN ["/init"]
+ENTRYPOINT ["/init"]

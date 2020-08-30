@@ -11,5 +11,11 @@ podman run --detach --name kernel-qemu-cp kernel-qemu
 podman cp kernel-qemu-cp:/home/tux/linux-stable/arch/x86/boot/bzImage /tmp/
 podman rm --force kernel-qemu-cp
 
-# Actually run the Kernel
-qemu-system-x86_64 -kernel /tmp/bzImage -append "console=ttyS0" -m 512 --enable-kvm -serial stdio -display none
+# Prepare InitRD (from container image named "hello" which was created in `./build`)
+./image2initrd hello
+
+# Actually run Kernel + InitRD
+qemu-system-x86_64 \
+    -kernel /tmp/bzImage  -append "console=ttyS0"    -initrd initrd.gz\
+    --enable-kvm  -m 512 \
+    -serial stdio  -display none  -nic none

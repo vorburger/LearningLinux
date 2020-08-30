@@ -1,12 +1,13 @@
 NeXT
 
-* use `hello-static` as init
-* have a `test-qemu` script which runs `test` through nested virtualization (later for PRs)
-
 * boot into a https://busybox.net userland.. what init? Check out `/sbin/init` from Alpine on JSLinux
 * enable networking; will require dhcpd
+* Init? systemd, http://smarden.org/runit/, ...
+
 * support PXE booting it
 * add Podman
+
+* https://godarch.com ?
 
 
 Workstation
@@ -18,13 +19,20 @@ Workstation
 
 Physical (Bare Metal)
 
+* https://buildroot.org ?
+* Dracut? https://fedoramagazine.org/initramfs-dracut-and-the-dracut-emergency-shell/
+  https://github.com/dracutdevs/dracut (also https://fedoraproject.org/wiki/Dracut)
 * make an ISO, burn to USB, boot from it
 * boot a NUC with it (through BIOS' PXE, or iPXE)
 * boot an old laptop with it
+* [import disk image to Google Cloud](https://cloud.google.com/compute/docs/import/import-existing-image),
+  similarly to e.g. https://thekev.in/blog/2019-08-05-dockerfile-bootable-vm/index.html
+  Automate this, and offer CI/CD?
 
 
 Fun
 
+* have a `test-qemu` script which runs `test` through nested virtualization (later, for CI PRs)
 * start it using https://bellard.org/jslinux/
 * LOW: shared FS? like https://vfsync.org
 
@@ -35,6 +43,8 @@ Dev
 * use side car data volume container (see podman's Pod support..) to keep Kernel sources persistent
 * make script set some "Kernel Hacking" options in `/home/tux/linux-stable/.config` as per
   https://medium.com/@daeseok.youn/prepare-the-environment-for-developing-linux-kernel-with-qemu-c55e37ba8ade
+* gdb: ./scripts/config -e DEBUG_INFO -e GDB_SCRIPTS, -append nokaslr, as in:
+https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-in-qemu-and-debugging-it-with-gdb/
 
 
 Optimize

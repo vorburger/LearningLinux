@@ -3,7 +3,6 @@ Learning Linux Kernel Development
 
 [`./run-qemu`](./run-qemu) builds a Linux Kernel `bzImage` in a container and starts it in a virtual machine
 (using KVM, with QEMU; [enable virtualization](docs/setup-virtualization.md) first).
-Currently, it will get up to, and crash at, where it needs a userland.
 
 [`./run-uml`](./run-uml) builds a User Mode Linux Kernel image in a container and then starts it in user mode.
 Currently, it will crash fairly early (and mess up your console).

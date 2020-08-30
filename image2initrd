@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euox pipefail
+
+DIR=/tmp/image2initrd/$$
+mkdir -p $DIR
+
+# Extract container image to directory (through temporary non-running container)
+ID=$(podman create $1)
+podman export $ID | tar xv --directory=$DIR
+podman rm $ID
+
+# Clean up system files added by container runtime
+rm $DIR/etc/hosts
+rm $DIR/etc/resolv.conf
+rm $DIR/run/.containerenv
+rm -rf $DIR/run/secrets/
+
+# Create Initial RAM Disk CPIO archive
+TARGET="$(dirname "$0")"/initrd.gz
+( cd $DIR/ && find . | cpio -o -H newc ) | gzip > $TARGET
+rm -rf $DIR
+echo "Initial RAM Disk CPIO archive written to $TARGET"
