@@ -22,7 +22,7 @@ Physical (Bare Metal)
 * https://buildroot.org ?
 * Dracut? https://fedoramagazine.org/initramfs-dracut-and-the-dracut-emergency-shell/
   https://github.com/dracutdevs/dracut (also https://fedoraproject.org/wiki/Dracut)
-* make an ISO, burn to USB, boot from it
+* make an ISO, burn to USB, boot from it; test it with qemu* -cdrom IMAGE.iso
 * boot a NUC with it (through BIOS' PXE, or iPXE)
 * boot an old laptop with it
 * [import disk image to Google Cloud](https://cloud.google.com/compute/docs/import/import-existing-image),
