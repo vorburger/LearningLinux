@@ -9,7 +9,7 @@
 * UML NB `ldd linux` - make statically linked (otherwise it may not work on an Ubuntu host, given build on Fedora?)
   by making script set `CONFIG_STATIC_LINK` in /home/tux/linux-stable/.config
 
-* fix UML crashing in-container (not on host) due to:
+* fix UML crashing in-container (not on host) due to (it may be because of `tinyconfig`?):
 
     Checking that ptrace can change system call numbers...ptrace: Operation not permitted
     check_ptrace : expected SIGSTOP, got status = 9_
