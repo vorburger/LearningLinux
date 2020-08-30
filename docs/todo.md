@@ -1,39 +1,67 @@
 NeXT
 
-* mount all /dev/*, /dev/urandom
-* Fedora?!
-* Alpine? is `/sbin/init` from Alpine on JSLinux better?
-*  `/init` should be added in `image2initrd` from the `CMD` in the `Dockerfile` obtained by `podman inspect`
+* busybox with networking; will require dhcpd
 
+* https://godarch.com
+
+
+Dev
+
+* make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
 * upstream contribute better error message if no /init
-* enable networking; will require dhcpd
-* contribute this e.g. to http://www.linuxfromscratch.org ?
+* build hello.c with klibc instead of glibc
+* where does https://git.kernel.org/pub/scm/libs/klibc/klibc.git/tree/usr/klibc
+  or e.g. https://elixir.bootlin.com/glibc/latest/source/io/symlink.c "call the kernel"?
 
-* support PXE booting it
-* add Podman
-* study gvisor
-
-* https://godarch.com ?
+* https://buildroot.org/downloads/manual/manual.html#_init_system
+  https://git.busybox.net/busybox/tree/init/init.c?h=1_25_stable
+* https://bootlin.com/docs/ ?
+* use side car data volume container (see podman's Pod support..) to keep Kernel sources persistent
+* make script set some "Kernel Hacking" options in `/home/tux/linux-stable/.config` as per
+  https://medium.com/@daeseok.youn/prepare-the-environment-for-developing-linux-kernel-with-qemu-c55e37ba8ade
+* gdb: ./scripts/config -e DEBUG_INFO -e GDB_SCRIPTS, -append nokaslr, as in:
+https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-in-qemu-and-debugging-it-with-gdb/
+* mount devtmpfs /dev?
+* Arch?
+* Alpine? https://wiki.archlinux.org/index.php/intel_graphics
+* Fedora?
+* https://en.wikipedia.org/wiki/C_standard_library#Implementations...
+  https://en.wikipedia.org/wiki/GNU_C_Library, VS
+  https://en.wikipedia.org/wiki/Musl, VS
+  (https://en.wikipedia.org/wiki/UClibc, VS)
+  https://en.wikipedia.org/wiki/Bionic_(software), VS
+  https://en.wikipedia.org/wiki/Klibc
 
 
 Workstation
 
 * qemu graphical, console with framebuffer (with Linux on top), not old text one
+* https://wiki.archlinux.org/index.php/intel_graphics
 * Wayland
 * VM that, pass through graphics card access
 
 
 Physical (Bare Metal)
 
+* support PXE booting in qemu
 * https://buildroot.org ?
 * Dracut? https://fedoramagazine.org/initramfs-dracut-and-the-dracut-emergency-shell/
   https://github.com/dracutdevs/dracut (also https://fedoraproject.org/wiki/Dracut)
 * make an ISO, burn to USB, boot from it; test it with qemu* -cdrom IMAGE.iso
 * boot a NUC with it (through BIOS' PXE, or iPXE)
+* make an old Android boot
+* consider  http://www.linuxfromscratch.org/blfs/view/svn/postlfs/firmware.html
+  and https://01.org/linuxgraphics/downloads/firmware/
 * boot an old laptop with it!  powertop and throttle CPU when not typing or touching screen or moving mouse?
 * [import disk image to Google Cloud](https://cloud.google.com/compute/docs/import/import-existing-image),
   similarly to e.g. https://thekev.in/blog/2019-08-05-dockerfile-bootable-vm/index.html
   Automate this, and offer CI/CD?
+
+
+Cloud
+
+* add Podman
+* study gvisor
 
 
 Fun
@@ -41,17 +69,6 @@ Fun
 * have a `test-qemu` script which runs `test` through nested virtualization (later, for CI PRs)
 * start it using https://bellard.org/jslinux/
 * LOW: shared FS? like https://vfsync.org
-
-
-Dev
-
-* make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
-* use side car data volume container (see podman's Pod support..) to keep Kernel sources persistent
-* make script set some "Kernel Hacking" options in `/home/tux/linux-stable/.config` as per
-  https://medium.com/@daeseok.youn/prepare-the-environment-for-developing-linux-kernel-with-qemu-c55e37ba8ade
-* gdb: ./scripts/config -e DEBUG_INFO -e GDB_SCRIPTS, -append nokaslr, as in:
-https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-in-qemu-and-debugging-it-with-gdb/
-* mount devtmpfs /dev?
 
 
 Optimize
