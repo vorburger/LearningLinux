@@ -1,7 +1,9 @@
 Learning Linux Kernel Development
 =================================
 
-[`./run-qemu`](./run-qemu) builds a Linux Kernel `bzImage` in a container and starts it in a virtual machine
+[`./build`](./build) builds a Linux Kernel `bzImage` (and a "hello, world" userland demo) inside a container.
+
+[`./run-qemu`](./run-qemu) and starts this Kernel + Hello World initrd in a virtual machine
 (using KVM, with QEMU; [enable virtualization](docs/setup-virtualization.md) first).
 
 [`./run-uml`](./run-uml) builds a User Mode Linux Kernel image in a container and then starts it in user mode.

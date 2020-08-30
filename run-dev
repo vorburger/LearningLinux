@@ -2,6 +2,4 @@
 set -euox pipefail
 cd "$(dirname "$0")"
 
-./build
-
 podman run --name kernel-dev-run-it --rm --hostname kernel-dev -it kernel-src

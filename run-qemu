@@ -3,7 +3,6 @@ set -euox pipefail
 cd "$(dirname "$0")"
 
 # Build containers (this includes actually building the Kernel in that container image)
-./build
 podman build -t kernel-qemu     -f containers/kernel-qemu.Dockerfile     /tmp
 
 # Copy Kernel out of container image (by briefly running the container; TODO how to copy out of an image without run?)

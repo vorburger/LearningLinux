@@ -13,17 +13,26 @@ proc handle_eof {} {
   exit 2
 }
 
+spawn ./build
+expect {
+  "podman run --name hello --rm hello" { }
+  "hello, world" { }
+  timeout { handle_timeout }
+  eof { handle_eof }
+}
+puts "\n\n"
+
 spawn ./run-qemu
 expect {
   # NO LONGER "end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)*"
   "hello, world" {
-    # Ctrl-C
-    send \x03
+    # Ctrl-C (`send \x03`) not required here, since hello.c does a clean ACPI Shutdown.
     expect eof
   }
   timeout { handle_timeout }
   eof { handle_eof }
 }
+puts "\n\n"
 
 spawn ./run-dev
 expect {
@@ -34,6 +43,7 @@ expect {
   timeout { handle_timeout }
   eof { handle_eof }
 }
+puts "\n\n"
 
 puts "./run-uml launched in background, because it messes up the console; output is in run-uml.log"
 log_user 0
