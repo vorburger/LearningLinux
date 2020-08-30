@@ -1,6 +1,7 @@
 NeXT
 
 * busybox with networking; will require dhcpd
+  https://www.qemu.org/docs/master/system/net.html
 
 * https://godarch.com
 
@@ -9,6 +10,9 @@ Dev
 
 * make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
 * upstream contribute better error message if no /init
+
+* build busybox myself; debug why poweroff doesn't work (anymore; it used to)
+
 * build hello.c with klibc instead of glibc
 * where does https://git.kernel.org/pub/scm/libs/klibc/klibc.git/tree/usr/klibc
   or e.g. https://elixir.bootlin.com/glibc/latest/source/io/symlink.c "call the kernel"?
@@ -35,7 +39,10 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
 
 Workstation
 
-* qemu graphical, console with framebuffer (with Linux on top), not old text one
+* https://wiki.archlinux.org/index.php/QEMU#virtio qemu graphical console with framebuffer (with Linux on top)
+  `qemu-system-x86_64 -kernel /tmp/bzImage -append "" -initrd busybox-init-initrd.gz --enable-kvm -m 512 -nic none -vga virtio [-display sdl,gl=on]`
+  but keyboard layout needs to be fixed (and font is very ugly);
+  Ctrl-Alt-F makes it feel very real! ;)
 * https://wiki.archlinux.org/index.php/intel_graphics
 * Wayland
 * VM that, pass through graphics card access
