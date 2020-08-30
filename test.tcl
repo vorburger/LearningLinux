@@ -34,7 +34,19 @@ expect {
 }
 puts "\n\n"
 
-# TODO ./run-qemu busybox-init
+spawn ./run-qemu busybox-init
+expect {
+  "Please press Enter to activate this console." {
+    send "\r"
+  }
+  # This doesn't work, and I don't understand why
+  "/ #" {
+    send "poweroff"
+  }
+  timeout { handle_timeout }
+  eof { handle_eof }
+}
+puts "\n\n"
 
 spawn ./run-dev
 expect {

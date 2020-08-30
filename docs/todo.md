@@ -1,11 +1,13 @@
 NeXT
 
-* boot into a https://busybox.net userland.. fix errors from /bin/sh as /init
-* is `/sbin/init` from Alpine on JSLinux better?
+* mount all /dev/*, /dev/urandom
+* Fedora?!
+* Alpine? is `/sbin/init` from Alpine on JSLinux better?
 *  `/init` should be added in `image2initrd` from the `CMD` in the `Dockerfile` obtained by `podman inspect`
 
 * upstream contribute better error message if no /init
 * enable networking; will require dhcpd
+* contribute this e.g. to http://www.linuxfromscratch.org ?
 
 * support PXE booting it
 * add Podman
@@ -28,7 +30,7 @@ Physical (Bare Metal)
   https://github.com/dracutdevs/dracut (also https://fedoraproject.org/wiki/Dracut)
 * make an ISO, burn to USB, boot from it; test it with qemu* -cdrom IMAGE.iso
 * boot a NUC with it (through BIOS' PXE, or iPXE)
-* boot an old laptop with it
+* boot an old laptop with it!  powertop and throttle CPU when not typing or touching screen or moving mouse?
 * [import disk image to Google Cloud](https://cloud.google.com/compute/docs/import/import-existing-image),
   similarly to e.g. https://thekev.in/blog/2019-08-05-dockerfile-bootable-vm/index.html
   Automate this, and offer CI/CD?
@@ -49,6 +51,7 @@ Dev
   https://medium.com/@daeseok.youn/prepare-the-environment-for-developing-linux-kernel-with-qemu-c55e37ba8ade
 * gdb: ./scripts/config -e DEBUG_INFO -e GDB_SCRIPTS, -append nokaslr, as in:
 https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-in-qemu-and-debugging-it-with-gdb/
+* mount devtmpfs /dev?
 
 
 Optimize

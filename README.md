@@ -9,7 +9,6 @@ as well as a `busybox` container which has an `/init` symlink to `/bin/sh`.
 (using KVM, with QEMU; [enable virtualization](docs/setup-virtualization.md) first),
 using either our `hello` demo or the busybox container image as initrd.
 You can use any Docker Container image as User Land, see [image2initrd](image2initrd).
-_For busybox this doesn't entirely work yet; there are still some errors._
 
 [`./run-uml`](./run-uml) builds a User Mode Linux Kernel image in a container and then starts it in user mode.
 _Currently, the UML kernel will crash fairly early (and mess up your console)._
