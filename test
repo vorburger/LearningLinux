@@ -4,12 +4,12 @@
 set timeout 30
 
 proc handle_timeout {} {
-  puts "FAIL: Test timed out before completing succesfully :("
+  puts "\n\nFAIL: Test timed out before completing succesfully :(\n"
   exit 1
 }
 
 proc handle_eof {} {
-  puts "FAIL: Spawned command returned before expected text was seen :("
+  puts "\n\nFAIL: Spawned command returned before expected text was seen :(\n"
   exit 2
 }
 
@@ -23,9 +23,27 @@ expect {
   eof { handle_eof }
 }
 
-# TODO ./run-dev
+spawn ./run-dev
+expect {
+  "tux@kernel-dev ~]$ " {
+    send "exit\n"
+    expect eof
+  }
+  timeout { handle_timeout }
+  eof { handle_eof }
+}
 
-# TODO ./run-uml
+puts "./run-uml launched in background, because it messes up the console; output is in run-uml.log"
+log_user 0
+log_file -noappend -a run-uml.log
+spawn ./run-uml
+expect {
+  "(core dumped) /tmp/linux" {
+    puts "run-uml core dumped, as expected"
+  }
+  timeout { handle_timeout }
+  eof { handle_eof }
+}
 
-puts "PASS: All tests successfully completed."
+puts "\n\nPASS: All tests successfully completed.\n"
 exit 0

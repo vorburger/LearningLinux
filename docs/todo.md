@@ -1,13 +1,27 @@
 NeXT
 
 * use `hello-static` as init
-* have a `test` script which automatically tests this all
-* have a `test-qemu` script which tests it through nested virtualization
+* have a `test-qemu` script which runs `test` through nested virtualization (later for PRs)
 
 * boot into a https://busybox.net userland.. what init? Check out `/sbin/init` from Alpine on JSLinux
 * enable networking; will require dhcpd
 * support PXE booting it
-* add Podman?
+* add Podman
+
+
+Workstation
+
+* qemu graphical, console with framebuffer (with Linux on top), not old text one
+* Wayland
+* VM that, pass through graphics card access
+
+
+Physical (Bare Metal)
+
+* make an ISO, burn to USB, boot from it
+* boot a NUC with it (through BIOS' PXE, or iPXE)
+* boot an old laptop with it
+
 
 Fun
 
