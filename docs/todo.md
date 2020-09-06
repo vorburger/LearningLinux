@@ -23,8 +23,6 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
 
     qemu-system-x86_64 -machine microvm -no-reboot -kernel /tmp/bzImage -append "console=ttyS0 reboot=t" -initrd hello-initrd.gz -enable-kvm -m 512 -serial stdio -display none -nic none
 
-* `poweroff -f`? build busybox myself; debug why poweroff doesn't work (anymore; it used to)
-
 * build hello.c with klibc instead of glibc
 * where does https://git.kernel.org/pub/scm/libs/klibc/klibc.git/tree/usr/klibc
   or e.g. https://elixir.bootlin.com/glibc/latest/source/io/symlink.c "call the kernel"? (`man syscalls`)

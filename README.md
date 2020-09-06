@@ -5,9 +5,12 @@ Learning Linux Kernel Development
 and a userland demo image with minimal "hello, world" `/init` static binary runnable in a `FROM scratch` demo container,
 as well as a `busybox` container which has an `/init` symlink to `/bin/sh`.
 
-[`./run-qemu hello | busybox-init`](./run-qemu) and starts this Kernel in a virtual machine
+[`./run-qemu hello`](./run-qemu) starts this Kernel in a virtual machine
 (using KVM, with QEMU; [enable virtualization](docs/setup-virtualization.md) first),
-using either our `hello` demo or the busybox container image as initrd.
+using our own `hello` demo as initrd.
+
+[`./run-qemu busybox-init`](./run-qemu) starts this Kernel in a virtual machine
+using the busybox container image as initrd (quit it using `poweroff -f`).
 You can use any Docker Container image as User Land, see [image2initrd](image2initrd).
 
 [`./run-uml`](./run-uml) builds a User Mode Linux Kernel image in a container and then starts it in user mode.
