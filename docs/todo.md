@@ -19,7 +19,7 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
 * make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
 * upstream contribute better error message if no /init
 
-* make microvm shutdown cleanly; https://github.com/qemu/qemu/blob/master/docs/microvm.rst#triggering-a-guest-initiated-shut-down, this remains stuck:
+* make microvm shutdown cleanly; https://github.com/qemu/qemu/blob/master/docs/microvm.rst#triggering-a-guest-initiated-shut-down, Kernel should use https://en.wikipedia.org/wiki/Triple_fault, but this remains stuck:
 
     qemu-system-x86_64 -machine microvm -no-reboot -kernel /tmp/bzImage -append "console=ttyS0 reboot=t" -initrd hello-initrd.gz -enable-kvm -m 512 -serial stdio -display none -nic none
 
@@ -109,6 +109,7 @@ Fun
 Optimize
 
 * build much smaller kernel than `x86_64_defconfig` (but not as small as `tinyconfig`, which doesn't work)
+* apply https://github.com/qemu/qemu/blob/master/docs/microvm.rst#triggering-a-guest-initiated-shut-down
 
 
 UML

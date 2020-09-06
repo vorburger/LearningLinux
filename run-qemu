@@ -15,6 +15,7 @@ podman rm --force kernel-qemu-cp
 
 # Actually run Kernel + InitRD
 qemu-system-x86_64 \
+    -nodefaults -no-user-config \
     -enable-kvm  -cpu host  -m 512  -smp 2 \
-    -serial stdio  -display none  -nic none \
+    -serial stdio  -nographic  -display none  -nic none \
     -kernel /tmp/bzImage  -append "console=ttyS0"  -initrd $1-initrd.gz
