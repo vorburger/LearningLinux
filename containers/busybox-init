@@ -2,7 +2,7 @@
 set -euox pipefail
 
 # http://www.linuxfromscratch.org/lfs/view/6.1/chapter06/kernfs.html
-mkdir -p /dev /proc /sys /run
+mkdir -p /dev /proc /sys /run /var
 
 # /dev
 mount -nvt tmpfs tmpfs /dev
@@ -24,6 +24,7 @@ mount -nvt devpts -o gid=4,mode=620 devpts /dev/pts
 mount -nvt proc proc /proc
 mount -nvt sysfs sysfs /sys
 mount -nvt tmpfs tmpfs /run
+ln -s /run /var/run
 
 # https://tldp.org/LDP/lfs/LFS-BOOK-6.1.1-HTML/chapter06/devices.html
 ln -sv /proc/self/fd /dev/fd
@@ -38,8 +39,10 @@ ln -sv /proc/self/mounts /etc/mtab
 # Networking
 hostname busybox
 ifconfig lo 127.0.0.1
+echo auto eth0 >>/etc/network/interfaces
+echo iface eth0 inet dhcp >>/etc/network/interfaces
 if [ -d /sys/class/net/eth0 ] ; then
-    dhcpcd -q
+    ifup -v eth0
 fi
 
 # Enter interactive root shell on console

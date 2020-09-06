@@ -10,7 +10,8 @@ as well as a `busybox` container which has an `/init` symlink to `/bin/sh`.
 using our own `hello` demo as initrd.
 
 [`./run-qemu busybox-init`](./run-qemu) starts this Kernel in a virtual machine
-using the busybox container image as initrd (quit it using `poweroff -f`).
+using the busybox container image as initrd (quit it using `poweroff -f`).  Also see [networking](docs/networking.md)).
+
 You can use any Docker Container image as User Land, see [image2initrd](image2initrd).
 
 [`./run-uml`](./run-uml) builds a User Mode Linux Kernel image in a container and then starts it in user mode.

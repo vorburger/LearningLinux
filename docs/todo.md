@@ -1,9 +1,15 @@
 NeXT
 
-* busybox with networking; will require dhcpd
-  https://www.qemu.org/docs/master/system/net.html
+* https://wiki.syslinux.org/wiki/index.php?title=Development/Testing
+* make an ISO, burn to USB, boot from it; test it with qemu* -cdrom IMAGE.iso
 
-* https://godarch.com
+* capture network traffice with `-net dump`, inspect `qemu-vlan0.pcap` with.. wireshark?
+* busybox with networking..
+  why does it only get an IPv6, no IPv4? `ifconfig` (`ip addr show`) Just compile Kernel with IPv4 only.. ;)
+  why does `ping 8.8.8.8` not work? `route -a` (`ip route`)
+  check out https://git.busybox.net/busybox/tree/networking/ifupdown.c
+
+* https://godarch.com?
 
 
 Dev
@@ -44,6 +50,12 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
   https://en.wikipedia.org/wiki/Klibc
 
 
+Networking
+
+* replace `-net user` with a TUN/TAP network bridged to the host's https://wiki.syslinux.org/wiki/index.php?title=Development/Testing#TUN.2FTAP_network
+* connect several VMs among themselves, using `-netdev socket` (or `-nic socket` or `-net socket`), see https://www.qemu.org/docs/master/system/net.html#connecting-emulated-networks-between-qemu-instances
+
+
 Workstation
 
 * https://wiki.archlinux.org/index.php/QEMU#virtio qemu graphical console with framebuffer (with Linux on top)
@@ -61,7 +73,6 @@ Physical (Bare Metal)
 * https://buildroot.org ?
 * Dracut? https://fedoramagazine.org/initramfs-dracut-and-the-dracut-emergency-shell/
   https://github.com/dracutdevs/dracut (also https://fedoraproject.org/wiki/Dracut)
-* make an ISO, burn to USB, boot from it; test it with qemu* -cdrom IMAGE.iso
 * boot a NUC with it (through BIOS' PXE, or iPXE)
 * consider  http://www.linuxfromscratch.org/blfs/view/svn/postlfs/firmware.html
   and https://01.org/linuxgraphics/downloads/firmware/
