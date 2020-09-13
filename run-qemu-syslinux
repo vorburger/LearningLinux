@@ -15,19 +15,15 @@ CPIO="$(dirname "$0")"/$2-initrd.gz
 IMG=$1-$2.img
 rm -f $IMG
 qemu-img create -f raw $IMG 20M
+mkfs.ext4 -v -L LinuxRootFS $IMG
 udisksctl loop-setup --no-user-interaction -f $IMG
-# TODO We asume that we're /dev/loop0, which is only the case if there is no loopback already :(
-sudo mkfs.ext4 -v -L LinuxRootFS /dev/loop0
-# It takes a second for udiskd to detecte and mount the new filesystem..
-sleep 1
 sudo extlinux --install /run/media/$USER/LinuxRootFS
 sudo cp syslinux/* /run/media/$USER/LinuxRootFS
 sudo mkdir /run/media/$USER/LinuxRootFS/boot/
 sudo cp $1 /run/media/$USER/LinuxRootFS/boot/bzImage
 sudo cp $CPIO /run/media/$USER/LinuxRootFS/boot/initrd.gz
 sudo ls -alR /run/media/$USER/LinuxRootFS/
-udisksctl unmount --no-user-interaction -f -b /dev/loop0
-# TODO use https://unix.stackexchange.com/a/527217/103272 instead..
+umount /run/media/$USER/LinuxRootFS/
 
 # Actually run Kernel + InitRD
 qemu-system-x86_64 \

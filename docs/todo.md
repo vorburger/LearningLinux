@@ -1,7 +1,6 @@
 NeXT
 
 * make an ISO, burn to USB, boot from it; test it with qemu* -cdrom IMAGE.iso
-* how to make `run-qemu-syslinux` not require any `sudo`, if possible? Uncomment in test.tcl
 
 * instead of fiddling with networking, just use basic Arch/Gentoo/Fedora/Debian?!
 * capture network traffic with `-net dump`, inspect `qemu-vlan0.pcap` with.. wireshark?
