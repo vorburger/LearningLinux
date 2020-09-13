@@ -10,7 +10,7 @@ podman run --detach --name kernel-qemu-cp kernel-qemu
 podman cp kernel-qemu-cp:/home/tux/linux-stable/arch/x86/boot/bzImage /tmp/
 podman rm --force kernel-qemu-cp
 
-# Prepare InitRD (from container image named "hello" which was created in `./build`)
+# Prepare InitRD (from container image which was created in `./build`)
 ./image2initrd $1
 
 # Actually run Kernel + InitRD

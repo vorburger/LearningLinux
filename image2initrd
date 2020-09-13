@@ -9,6 +9,6 @@ ID=$(podman create $1)
 podman export $ID | gzip > $TAR
 podman rm $ID
 
-fakeroot ./image2initrd-fakeroot $TAR  $CPIO
+fakeroot ./image2initrd-fakeroot $TAR $CPIO
 
 echo "Initial RAM Disk CPIO archive written to $CPIO"

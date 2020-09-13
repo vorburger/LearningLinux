@@ -1,9 +1,10 @@
 NeXT
 
-* https://wiki.syslinux.org/wiki/index.php?title=Development/Testing
 * make an ISO, burn to USB, boot from it; test it with qemu* -cdrom IMAGE.iso
+* how to make `run-qemu-syslinux` not require any `sudo`, if possible? Uncomment in test.tcl
 
-* capture network traffice with `-net dump`, inspect `qemu-vlan0.pcap` with.. wireshark?
+* instead of fiddling with networking, just use basic Arch/Gentoo/Fedora/Debian?!
+* capture network traffic with `-net dump`, inspect `qemu-vlan0.pcap` with.. wireshark?
 * busybox with networking..
   why does it only get an IPv6, no IPv4? `ifconfig` (`ip addr show`) Just compile Kernel with IPv4 only.. ;)
   why does `ping 8.8.8.8` not work? `route -a` (`ip route`)

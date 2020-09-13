@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euox pipefail
+cd "$(dirname "$0")"
+
+# Skipping Kernel re-build (so this is different from run-qemu, which still does that)
+# $1 is that path of a Kernel bzImage
+# $2 of the userland container image
+
+# Prepare InitRD (from container image named "hello" which was created in `./build`)
+./image2initrd $2
+CPIO="$(dirname "$0")"/$2-initrd.gz
+
+# Create boot disk image
+# inspired by https://wiki.syslinux.org/wiki/index.php?title=Development/Testing
+IMG=$1-$2.img
+rm -f $IMG
+qemu-img create -f raw $IMG 20M
+# parted -s $IMG mklabel msdos
+# parted -s -a optimal $IMG mkpart primary fat32 0 10M
+# parted -s -a optimal $IMG mkpart primary ext4 10M 20M
+udisksctl loop-setup --no-user-interaction -f $IMG
+# TODO We asume that we're /dev/loop0, which is only the case if there is no loopback already :(
+# sudo mkfs.fat -n BOOT -m "hello, world! No Bootloader, no what?! :-(" /dev/loop0p1
+# sudo mkfs.ext4 -v -L LinuxRootFS /dev/loop0p2
+sudo mkfs.ext4 -v -L LinuxRootFS /dev/loop0
+# It takes a second for udiskd to detecte and mount the new filesystem..
+sleep 1
+sudo extlinux --install /run/media/$USER/LinuxRootFS
+sudo cp syslinux/* /run/media/$USER/LinuxRootFS
+sudo mkdir /run/media/$USER/LinuxRootFS/boot/
+sudo cp $1 /run/media/$USER/LinuxRootFS/boot/bzImage
+sudo cp $CPIO /run/media/$USER/LinuxRootFS/boot/initrd.gz
+sudo ls -alR /run/media/$USER/LinuxRootFS/
+udisksctl unmount --no-user-interaction -f -b /dev/loop0
+# udisksctl loop-delete --no-user-interaction -b /dev/loop0
+# TODO use https://unix.stackexchange.com/a/527217/103272 instead..
+
+# Actually run Kernel + InitRD
+qemu-system-x86_64 \
+    -nodefaults -no-user-config \
+    -enable-kvm  -cpu host  -m 512  -smp 2 \
+    -serial stdio  -nographic  -display none  -nic user,ipv6=off \
+    -drive file=$IMG,format=raw

@@ -24,7 +24,6 @@ puts "\n\n"
 
 spawn ./run-qemu hello
 expect {
-  # NO LONGER "end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)*"
   "hello, world" {
     # Ctrl-C (`send \x03`) not required here, since hello.c does a clean ACPI Shutdown.
     expect eof
@@ -48,6 +47,20 @@ expect {
   eof { handle_eof }
 }
 puts "\n\n"
+
+# TODO re-enable when ./run-qemu-syslinux does nto require sudo anymore..
+if 0 {
+spawn ./run-qemu-syslinux /tmp/bzImage hello
+expect {
+  "hello, world" {
+    # Ctrl-C (`send \x03`) not required here, since hello.c does a clean ACPI Shutdown.
+    expect eof
+  }
+  timeout { handle_timeout }
+  eof { handle_eof }
+}
+puts "\n\n"
+}
 
 spawn ./run-dev
 expect {
