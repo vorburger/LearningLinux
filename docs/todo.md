@@ -1,18 +1,16 @@
 NeXT
 
-* make an ISO, burn to USB, boot from it; test it with qemu* -cdrom IMAGE.iso
+* use an Alpine/Arch/Gentoo/Fedora/Debian userland!
 
-* instead of fiddling with networking, just use basic Arch/Gentoo/Fedora/Debian?!
-* capture network traffic with `-net dump`, inspect `qemu-vlan0.pcap` with.. wireshark?
-* busybox with networking..
-  why does it only get an IPv6, no IPv4? `ifconfig` (`ip addr show`) Just compile Kernel with IPv4 only.. ;)
-  why does `ping 8.8.8.8` not work? `route -a` (`ip route`)
-  check out https://git.busybox.net/busybox/tree/networking/ifupdown.c
+* figure out why busybox DHCP doesn't work, see [networking](networking.md)
 
 * https://godarch.com?
 
 
 Dev
+
+* make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
+* upstream contribute better error message if no /init
 
 * read https://0xax.gitbooks.io/linux-insides/content/
 * read https://tldp.org/HOWTO/Linux-i386-Boot-Code-HOWTO/index.html
@@ -22,17 +20,12 @@ Dev
 * gdb: ./scripts/config -e DEBUG_INFO -e GDB_SCRIPTS, -append nokaslr, as in:
 https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-in-qemu-and-debugging-it-with-gdb/
 
-* make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
-* upstream contribute better error message if no /init
-
-* make microvm shutdown cleanly; https://github.com/qemu/qemu/blob/master/docs/microvm.rst#triggering-a-guest-initiated-shut-down, Kernel should use https://en.wikipedia.org/wiki/Triple_fault, but this remains stuck:
-
-    qemu-system-x86_64 -machine microvm -no-reboot -kernel /tmp/bzImage -append "console=ttyS0 reboot=t" -initrd hello-initrd.gz -enable-kvm -m 512 -serial stdio -display none -nic none
-
 * build hello.c with klibc instead of glibc
 * where does https://git.kernel.org/pub/scm/libs/klibc/klibc.git/tree/usr/klibc
   or e.g. https://elixir.bootlin.com/glibc/latest/source/io/symlink.c "call the kernel"? (`man syscalls`)
 * build a "hello, world" without any *lib* just "raw direct syscall" (`man syscall`)
+
+* strace
 
 * https://buildroot.org/downloads/manual/manual.html#_init_system
   https://git.busybox.net/busybox/tree/init/init.c?h=1_25_stable
@@ -52,6 +45,8 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
 
 Networking
 
+* capture network traffic with `-net dump`, inspect `qemu-vlan0.pcap` with.. wireshark?
+* learn details about `/etc/nsswitch.conf` and `/etc/resolv.conf`.. where's the "resolver"- in the libc? If "the Linux kernel doesn't care about DNS" and it's userspace libraries to do lookups, then what is https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/dns_resolver/dns_query.c?h=v5.6-rc5 for?
 * replace `-net user` with a TUN/TAP network bridged to the host's https://wiki.syslinux.org/wiki/index.php?title=Development/Testing#TUN.2FTAP_network
 * connect several VMs among themselves, using `-netdev socket` (or `-nic socket` or `-net socket`), see https://www.qemu.org/docs/master/system/net.html#connecting-emulated-networks-between-qemu-instances
 

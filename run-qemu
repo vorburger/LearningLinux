@@ -17,5 +17,5 @@ podman rm --force kernel-qemu-cp
 qemu-system-x86_64 \
     -nodefaults -no-user-config \
     -enable-kvm  -cpu host  -m 512  -smp 2 \
-    -serial stdio  -nographic  -display none  -nic user,ipv6=off \
+    -serial stdio  -nographic  -display none  -net user  -nic user,ipv6=off \
     -kernel /tmp/bzImage  -append "console=ttyS0"  -initrd $1-initrd.gz

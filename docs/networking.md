@@ -6,7 +6,17 @@
 
     / # ping fec0::5054:ff:fe12:3456
 
-_TODO IPv4?  Route Default Gateway?_
+For some reason _(to be investigated; likely missing `/etc/network/if-up.d` ?)_
+the IPv4 address obtained by DHCP is not automatically assigned out of the box in Busybox,
+so we currently have to manually do the following to get fully working networkig set up:
+(knowing [QEMU's Network Emulation](https://www.qemu.org/docs/master/system/net.html))
+
+    / # ifconfig eth0 10.0.2.15
+    / # ping -w 3 10.0.2.15
+    / # route add default gw 10.0.2.2 eth0
+    / # ping -w 3 8.8.8.8
+    / # echo nameserver 8.8.8.8 >/etc/resolv.conf
+    / # ping -w google.com
 
 
 ## Background
@@ -29,3 +39,4 @@ We can fix this with `echo auto eth0 >/etc/network/interfaces` and `echo iface e
 
 * https://www.qemu.org/docs/master/system/net.html
 * https://wiki.qemu.org/Documentation/Networking
+* https://zwischenzugs.com/2018/06/08/anatomy-of-a-linux-dns-lookup-part-i/
