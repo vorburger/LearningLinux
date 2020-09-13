@@ -27,7 +27,7 @@ umount /run/media/$USER/LinuxRootFS/
 
 # Actually run Kernel + InitRD
 qemu-system-x86_64 \
-    -nodefaults -no-user-config \
+    -no-user-config \
     -enable-kvm  -cpu host  -m 512  -smp 2 \
-    -serial stdio  -nographic  -display none  -nic user,ipv6=off \
+    -nic user,ipv6=off \
     -drive file=$IMG,format=raw

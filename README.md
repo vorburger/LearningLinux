@@ -14,7 +14,9 @@ using the busybox container image as initrd (quit it using `poweroff -f`).  Also
 
 You can use any Docker Container image as User Land, see [image2initrd](image2initrd).
 
-[`./run-qemu-syslinux hello`](./run-qemu-syslinux) starts this Kernel and the hello container initrd in a virtual machine by building a real disk image with a SYSLINUX bootloader.  (Whereas `run-qemu` uses `qemu* -kernel -initrd`.)
+[`./run-qemu-syslinux /tmp/bzImage hello | busybox-init`](./run-qemu-syslinux) then starts this Kernel and the hello container initrd in a virtual machine by building a real disk image with a SYSLINUX bootloader.  (Whereas `run-qemu` uses `qemu* -kernel -initrd`.)
+
+The `/tmp/bzImage-busybox-init.img` disk image can be written to a USB key (e.g. using `dd`, or, easier, GNOME Disks), and will boot on bare metal.
 
 [`./run-uml`](./run-uml) builds a User Mode Linux Kernel image in a container and then starts it in user mode.
 _Currently, the UML kernel will crash fairly early (and mess up your console)._
