@@ -1,10 +1,15 @@
 NeXT
 
-* hello.asm
+* make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
+* upstream contribute better error message if no /init
 
-* figure out why busybox DHCP doesn't work, see [networking](networking.md)
+* continue like this, or use existing distro as base? Much better to contribute..
 
-* containers
+* packages, just tar; make a "base" FS package, instead doing that during `init`
+
+* sshd
+
+* containers?
 
 * logging with [graylog](https://docs.graylog.org/) (alternative: [logstash](https://www.elastic.co/guide/en/logstash/master/index.html)), fed by:
   * https://github.com/syslog-ng/syslog-ng
@@ -13,9 +18,6 @@ NeXT
 
 
 Dev
-
-* make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
-* upstream contribute better error message if no /init
 
 * read https://0xax.gitbooks.io/linux-insides/content/
 * read https://tldp.org/HOWTO/Linux-i386-Boot-Code-HOWTO/index.html

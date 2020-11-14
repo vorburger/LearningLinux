@@ -2,21 +2,21 @@
 
 ## Usage
 
-`ifconfig` shows the (currently only) `inet6 addr`, which we can ping:
+`ifconfig` shows our `inet6 addr`, which we can ping:
 
     / # ping fec0::5054:ff:fe12:3456
 
-For some reason _(to be investigated; likely missing `/etc/network/if-up.d` ?)_
-the IPv4 address obtained by DHCP is not automatically assigned out of the box in Busybox,
-so we currently have to manually do the following to get fully working networkig set up:
-(knowing [QEMU's Network Emulation](https://www.qemu.org/docs/master/system/net.html))
+as well as an IPv4 (e.g. `10.0.2.15` obtained by DHCP from
+[QEMU's Network Emulation](https://www.qemu.org/docs/master/system/net.html)), so we can also do:
 
-    / # ifconfig eth0 10.0.2.15
-    / # ping -w 3 10.0.2.15
-    / # route add default gw 10.0.2.2 eth0
+    / # route
+    / # cat /etc/resolv.conf
     / # ping -w 3 8.8.8.8
-    / # echo nameserver 8.8.8.8 >/etc/resolv.conf
     / # ping -w google.com
+
+This works because [`udhcp` runs `/usr/share/udhcpc/default.script`](https://udhcp.busybox.net/README.udhcpc)
+which our build [copied from git.busybox.net](https://git.busybox.net/busybox/plain/examples/udhcp/simple.script).
+Note that the message re. `/etc/network/if-up.d` is a red herring (that's probably from `ifup`, not from `udhcp`).
 
 
 ## Background

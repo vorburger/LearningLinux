@@ -37,7 +37,6 @@ ln -sv /proc/kcore /dev/core
 ln -sv /proc/self/mounts /etc/mtab
 
 # Networking
-hostname busybox
 ifconfig lo 127.0.0.1
 echo auto eth0 >>/etc/network/interfaces
 echo iface eth0 inet dhcp >>/etc/network/interfaces
