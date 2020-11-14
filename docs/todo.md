@@ -1,10 +1,15 @@
 NeXT
 
-* use an Alpine/Arch/Gentoo/Fedora/Debian userland!
+* hello.asm
 
 * figure out why busybox DHCP doesn't work, see [networking](networking.md)
 
-* https://godarch.com?
+* containers
+
+* logging with [graylog](https://docs.graylog.org/) (alternative: [logstash](https://www.elastic.co/guide/en/logstash/master/index.html)), fed by:
+  * https://github.com/syslog-ng/syslog-ng
+  * https://www.rsyslog.com/category/guides-for-rsyslog/ (and https://www.rsyslog.com/doc/master/)
+  * https://www.fluentd.org
 
 
 Dev
@@ -25,16 +30,12 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
   or e.g. https://elixir.bootlin.com/glibc/latest/source/io/symlink.c "call the kernel"? (`man syscalls`)
 * build a "hello, world" without any *lib* just "raw direct syscall" (`man syscall`)
 
-* strace
-
 * https://buildroot.org/downloads/manual/manual.html#_init_system
   https://git.busybox.net/busybox/tree/init/init.c?h=1_25_stable
 * https://bootlin.com/docs/ ?
 * use side car data volume container (see podman's Pod support..) to keep Kernel sources persistent
 * mount devtmpfs /dev?
-* Arch?
-* Alpine? https://wiki.archlinux.org/index.php/intel_graphics
-* Fedora?
+
 * https://en.wikipedia.org/wiki/C_standard_library#Implementations...
   https://en.wikipedia.org/wiki/GNU_C_Library, VS
   https://en.wikipedia.org/wiki/Musl, VS
@@ -99,7 +100,6 @@ Android
 * https://elinux.org/Android_Portal
 
 
-
 Chrome OS
 
 * TBD
@@ -131,3 +131,14 @@ UML
 
     Checking that ptrace can change system call numbers...ptrace: Operation not permitted
     check_ptrace : expected SIGSTOP, got status = 9_
+
+
+Later (if ever)
+
+* https://godarch.com?
+
+* use an Alpine/Arch/Gentoo/Fedora/Debian userland!
+
+* Arch?
+* Alpine? https://wiki.archlinux.org/index.php/intel_graphics
+* Fedora?
