@@ -11,8 +11,11 @@ podman build -t kernel-src     -f containers/kernel-src.Dockerfile     /tmp
 podman build -t hello          -f containers/hello.Dockerfile          ./containers/
 podman run --name hello --rm hello
 
+# ASM
+podman build -t pause.asm      -f containers/pause.asm.Dockerfile      ./containers/
+
 # Userland #2: busybox
-podman build -t busybox-init  -f containers/busybox-init.Dockerfile    ./containers/
+podman build -t busybox-init   -f containers/busybox-init.Dockerfile   ./containers/
 
 # buildroot.org
 # podman build -t buildroot -f containers/buildroot.Dockerfile
