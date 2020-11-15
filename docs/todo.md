@@ -1,15 +1,22 @@
 NeXT
 
+_see also GTasks_
+
+* replace `expect` with https://github.com/vorburger/vexpect
+
 * make it possible to mount kernel sources from host (use `podman mount`; as UID mapping is PITA)
 * upstream contribute better error message if no /init
 
 * continue like this, or use existing distro as base? Much better to contribute..
 
-* packages, just tar; make a "base" FS package, instead doing that during `init`
+* packages! ;) KISS - just TAR! Start with making 2 packages for busybox + bas, instead doing that during `init`
+  AKA "Docker Mods" https://github.com/linuxserver/docker-mods
 
-* sshd
+* systemd, or another init system? _(Either way, KEEP current busybox demo as-is!)_
 
-* containers?
+* sshd https://docs.linuxserver.io/images/docker-openssh-server
+
+* containers.. _see also GTasks_
 
 * logging with [graylog](https://docs.graylog.org/) (alternative: [logstash](https://www.elastic.co/guide/en/logstash/master/index.html)), fed by:
   * https://github.com/syslog-ng/syslog-ng

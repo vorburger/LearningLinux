@@ -35,13 +35,19 @@ puts "\n\n"
 
 spawn ./run-qemu busybox-init
 expect {
-  "Please press Enter to activate this console." {
-    send "hey ho"
-    send "\nls /dev\nmount"
+  # TODO Needed? "[-Please press Enter to activate this console-]"
+  "/ # " {
+    send "ping -c 1 8.8.8.8\r"
+    expect "1 packets transmitted, 1 packets received, 0% packet loss"
+    exp_continue
   }
-  # This doesn't work, and I don't understand why.. see above, none of this appears
-  "/ #" {
-    send "poweroff"
+  "/ # " {
+    send "ping -c 1 google.com\r"
+    exp_continue
+  }
+  "1 packets transmitted, 1 packets received, 0% packet loss" {
+    send "poweroff\r"
+    #TODO expect "...VM exited?"
   }
   timeout { handle_timeout }
   eof { handle_eof }
