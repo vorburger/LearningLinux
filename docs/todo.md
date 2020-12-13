@@ -1,22 +1,31 @@
 NeXT _(see also GTasks)_
 
-* use existing mkinitramfs?
-  * https://wiki.archlinux.org/index.php/Mkinitcpio
-  * https://manpages.ubuntu.com/manpages/hirsute/en/man8/mkinitramfs.8.html
+* arch root user password?
+* https://wiki.archlinux.org/index.php/Install_Arch_Linux_from_existing_Linux
+* arch-minimal?
 
-* continue like this, or use existing distro as base? Much better to contribute..
-* use a minimal Alpine/Arch/Gentoo/Fedora/Debian userland!
-
-* systemd, or another init system? _(Either way, KEEP current busybox demo as-is!)_
+* arch VM from ISO
+* hide kernel logs, journalctl only
 
 * sshd https://docs.linuxserver.io/images/docker-openssh-server
 * pubkey as feed-in from outside, through... kernel param?
 
+* pacstrap without chroot?
+
+* use existing mkinitramfs?
+  * https://wiki.archlinux.org/index.php/Mkinitcpio
+  * https://manpages.ubuntu.com/manpages/hirsute/en/man8/mkinitramfs.8.html
+
+
+After
+
 * readonly root filesystem?
 
-* containers.. _see also GTasks_
+* containers.. _see also GTasks_ https://wiki.archlinux.org/index.php/Linux_Containers
 
 * PXE
+
+* also try a minimal Fedora userland, like Arch? (also Alpine/Gentoo/Fedora/Debian)
 
 
 Later
