@@ -1,5 +1,9 @@
 NeXT _(see also GTasks)_
 
+* use existing mkinitramfs?
+  * https://wiki.archlinux.org/index.php/Mkinitcpio
+  * https://manpages.ubuntu.com/manpages/hirsute/en/man8/mkinitramfs.8.html
+
 * continue like this, or use existing distro as base? Much better to contribute..
 * use a minimal Alpine/Arch/Gentoo/Fedora/Debian userland!
 
