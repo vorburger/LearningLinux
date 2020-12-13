@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euox pipefail
+
+qemu-system-x86_64 \
+    -nodefaults -no-user-config \
+    -enable-kvm  -cpu host  -m 2048  -smp 2 \
+    -serial stdio  -nographic  -display none  -net user  -nic user,ipv6=off \
+    -kernel /tmp/bzImage  -append " console=ttyS0 root=/dev/ram rdinit=/init"  -initrd $1
+
+# NB: Must use rdinit= instead of init= for -initrd! ;)
