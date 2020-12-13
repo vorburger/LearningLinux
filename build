@@ -21,3 +21,6 @@ podman build -t hello.asm      -f containers/hello.asm.Dockerfile      ./contain
 # buildroot.org
 # podman build -t buildroot -f containers/buildroot.Dockerfile
 # podman run --name buildroot-it --rm --hostname buildroot -it buildroot
+
+# https://www.archlinux.org
+podman build -t archlinux-dev  -f containers/archlinux-dev.Dockerfile  ./containers/

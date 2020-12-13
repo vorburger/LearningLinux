@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euox pipefail
+cd "$(dirname "$0")"
+
+podman create --name arch1 --hostname arch1 archlinux-dev sleep infinity || true
+podman start arch1
+
+podman exec -it arch1 bash
