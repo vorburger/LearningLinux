@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+set -euox pipefail
+
+qemu-img create -f raw $1 10G
+
+qemu-system-x86_64 \
+     -no-user-config \
+     -display gtk,zoom-to-fit=on \
+     -enable-kvm  -cpu host  -m 2047  -smp 2 \
+     -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
+     -cdrom ~/Downloads/archlinux-2020.12.01-x86_64.iso \
+     -drive file=$1,format=raw

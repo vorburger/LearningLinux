@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+# https://wiki.archlinux.org/index.php/Installation_guide
+set -euox pipefail
+
+parted --script /dev/sda \
+    mklabel msdos \
+    mkpart primary ext4 0G 100%
+
+mkfs.ext4 /dev/sda1
+
+mount /dev/sda1 /mnt
+
+pacstrap /mnt base linux linux-firmware openssh syslinux
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+cp -r /root/.ssh /mnt/root/
+
+cp arch-install-chroot /mnt/
+chmod +x /mnt/arch-install-chroot
+arch-chroot /mnt ./arch-install-chroot
+rm /mnt/arch-install-chroot
