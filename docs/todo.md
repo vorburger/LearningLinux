@@ -43,6 +43,8 @@ Later
   * https://www.rsyslog.com/category/guides-for-rsyslog/ (and https://www.rsyslog.com/doc/master/)
   * https://www.fluentd.org
 
+* https://www.kernel.org/doc/html/latest/networking/netconsole.html
+
 
 Dev
 

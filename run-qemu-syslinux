@@ -12,6 +12,7 @@ CPIO="$(dirname "$0")"/$2-initrd.gz
 
 # Create boot disk image
 # inspired by https://wiki.syslinux.org/wiki/index.php?title=Development/Testing
+# TODO use guestfish (guestmount) here, like in archlinux/*.sh?
 IMG=$1-$2.img
 rm -f $IMG
 qemu-img create -f raw $IMG 20M
