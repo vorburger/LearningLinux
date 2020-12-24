@@ -1,6 +1,16 @@
 # Networking
 
-## Usage
+## With systemd, e.g. in archlinux
+
+    networkctl
+    networkctl status ens3cat
+
+Note the `Network File`, e.g. `/etc/systemd/network/20-ethernet.network`.
+
+
+## Without systemd, e.g. in busybox
+
+### Usage
 
 `ifconfig` shows our `inet6 addr`, which we can ping:
 
@@ -19,7 +29,7 @@ which our build [copied from git.busybox.net](https://git.busybox.net/busybox/pl
 Note that the message re. `/etc/network/if-up.d` is a red herring (that's probably from `ifup`, not from `udhcp`).
 
 
-## Background
+### Background
 
 With `qemu* ... -nic none`, we can see that `ls /sys/class/net/`
 (and `ifconfig -a`, under our _busybox_) shows that we only have a `lo`

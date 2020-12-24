@@ -1,4 +1,6 @@
-Scripts to play with Arch Linux:
+# Arch Linux scripts
+
+## Create VM
 
     ./arch-create arch1
 
@@ -11,11 +13,16 @@ Scripts to play with Arch Linux:
 
     scp -P 2222 arch-install* root@localhost:  &&  ssh -p 2222 root@localhost bash ./arch-install
 
-    ssh -p 2222 root@localhost umount -R /mnt && reboot
+    ssh -p 2222 root@localhost umount -R /mnt
 
 
-TODO
+## Launch and enter VM
 
-1. ssh -p 2222 root@localhost umount -R /mnt && reboot
-1. script enter
+    ./start ~/VM-Disks/arch1
+    ssh -p 2222 root@localhost
+
+
+# TODO
+
+1. ssh NOT working?
 1. https://wiki.archlinux.org/index.php/Security#SSH

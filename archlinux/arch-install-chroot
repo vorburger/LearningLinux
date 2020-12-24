@@ -1,10 +1,14 @@
 #!/usr/bin/bash
 # https://wiki.archlinux.org/index.php/Installation_guide
+# https://wiki.archlinux.org/index.php/Systemd-networkd
+# https://wiki.archlinux.org/index.php/Systemd-resolved
 set -euox pipefail
 
 ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 hwclock --systohc
 
 systemctl enable sshd
+systemctl enable systemd-networkd
+systemctl enable systemd-resolved
 
 syslinux-install_update -i -a -m

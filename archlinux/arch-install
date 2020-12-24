@@ -10,7 +10,7 @@ mkfs.ext4 /dev/sda1
 
 mount /dev/sda1 /mnt
 
-pacstrap /mnt base linux linux-firmware openssh syslinux
+pacstrap /mnt base linux linux-firmware openssh syslinux nano
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -20,3 +20,6 @@ cp arch-install-chroot /mnt/
 chmod +x /mnt/arch-install-chroot
 arch-chroot /mnt ./arch-install-chroot
 rm /mnt/arch-install-chroot
+
+cp arch-install-syslinux.cfg /mnt/boot/syslinux.cfg
+cp arch-install-20-ethernet.network /mnt/etc/systemd/network/
