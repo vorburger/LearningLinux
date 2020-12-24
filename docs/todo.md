@@ -1,34 +1,24 @@
 NeXT _(see also GTasks)_
 
-* arch root user password?
-* https://wiki.archlinux.org/index.php/Install_Arch_Linux_from_existing_Linux
-* arch-minimal?
+* retest archlinux new VM script.. does it actually fully work end to end, now? (I had clobbered it together.)
 
-* arch VM from ISO
-* hide kernel logs, journalctl only
+* arch custom ISO
+* where is archlinux/*20-ethernet.network source?
+* https://wiki.archlinux.org/index.php/Security#SSH
 
-* sshd https://docs.linuxserver.io/images/docker-openssh-server
 * pubkey as feed-in from outside, through... kernel param?
 
-* pacstrap without chroot?
-
-* use existing mkinitramfs?
-  * https://wiki.archlinux.org/index.php/Mkinitcpio
-  * https://manpages.ubuntu.com/manpages/hirsute/en/man8/mkinitramfs.8.html
-
-
-After
-
-* readonly root filesystem?
-
 * containers.. _see also GTasks_ https://wiki.archlinux.org/index.php/Linux_Containers
+* sshd as systemd container https://docs.linuxserver.io/images/docker-openssh-server
 
-* PXE
+* readonly root filesystem!
 
-* also try a minimal Fedora userland, like Arch? (also Alpine/Gentoo/Fedora/Debian)
+* new _archlinux-cn_ repo, with initial text from Notes/ToDo/MyOS.md
 
 
 Later
+
+* PXE
 
 * replace `expect` with https://github.com/vorburger/vexpect
 
