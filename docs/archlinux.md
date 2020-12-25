@@ -19,4 +19,4 @@
 ## Launch and enter VM
 
     ./start ~/VM-Disks/arch1
-    ssh -p 2222 root@localhost
+    ssh -A -p 2222 root@localhost

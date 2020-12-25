@@ -5,8 +5,12 @@ NeXT _(see also GTasks)_
 * arch custom ISO
 * where is archlinux/*20-ethernet.network source?
 * https://wiki.archlinux.org/index.php/Security#SSH
+* https://wiki.archlinux.org/index.php/OpenSSH#Deny
 
-* pubkey as feed-in from outside, through... kernel param?
+* pubkey as feed-in from outside, using https://cloud-init.io,
+  note https://wiki.archlinux.org/index.php/Cloud-init
+  and (something like) `-fw_cfg name=opt/com.coreos/config,file=path/to/example.ign`
+  seen on https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-qemu/
 
 * containers.. _see also GTasks_ https://wiki.archlinux.org/index.php/Linux_Containers
 * sshd as systemd container https://docs.linuxserver.io/images/docker-openssh-server
@@ -16,9 +20,20 @@ NeXT _(see also GTasks)_
 * new _archlinux-cn_ repo, with initial text from Notes/ToDo/MyOS.md
 
 
+NeXT
+
+* add kubelet with systemd unit, from https://wiki.archlinux.org/index.php/Kubernetes
+
+* use https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/ for first demo
+
+* build 2nd demo from source in-container, using https://wiki.archlinux.org/index.php/Buildah
+
+* read https://cluster-api.sigs.k8s.io
+
+
 Later
 
-* PXE
+* PXE https://wiki.archlinux.org/index.php/Diskless_system
 
 * replace `expect` with https://github.com/vorburger/vexpect
 

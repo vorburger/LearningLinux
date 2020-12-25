@@ -10,7 +10,7 @@ mkfs.ext4 /dev/sda1
 
 mount /dev/sda1 /mnt
 
-pacstrap /mnt base linux linux-firmware openssh syslinux nano
+pacstrap /mnt base linux linux-firmware openssh syslinux nano archiso
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
