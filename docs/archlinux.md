@@ -20,3 +20,10 @@
 
     ./start ~/VM-Disks/arch1
     ssh -A -p 2222 root@localhost
+
+
+## Build
+
+Rebuild the default ISO image:
+
+    mkarchiso -v -w /tmp/archiso1 /usr/share/archiso/configs/releng/

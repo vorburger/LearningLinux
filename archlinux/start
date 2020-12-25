@@ -1,9 +1,17 @@
 #!/usr/bin/bash
 set -euox pipefail
 
+TMP=$1.tmp
+if [ ! -f $TMP ]; then
+  qemu-img create -f raw $TMP 10G
+  parted $TMP mklabel msdos mkpart primary ext4 0G 100%
+  guestfish add $TMP : run : mkfs ext4 /dev/sda1
+fi
+
 qemu-system-x86_64 \
      -no-user-config \
      -display gtk,zoom-to-fit=on \
      -enable-kvm  -cpu host  -m 2047  -smp 2 \
      -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
-     -drive file=$1,format=raw
+     -drive file=$1,format=raw \
+     -drive file=$TMP,format=raw

@@ -12,7 +12,11 @@ mount /dev/sda1 /mnt
 
 pacstrap /mnt base linux linux-firmware openssh syslinux nano archiso
 
-genfstab -U /mnt >> /mnt/etc/fstab
+# genfstab -U /mnt >> /mnt/etc/fstab
+cat <<EOT >>/mnt/etc/fstab
+/dev/sda1               /               ext4            rw,relatime     0 1
+/dev/sdb1               /tmp            ext4            rw,relatime     0 2
+EOT
 
 cp -r /root/.ssh /mnt/root/
 
