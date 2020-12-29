@@ -12,3 +12,7 @@ systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 
 syslinux-install_update -i -a -m
+
+echo "en_US.UTF-8 UTF-8" >>/etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" >/etc/locale.conf
