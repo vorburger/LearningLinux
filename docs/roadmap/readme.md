@@ -12,9 +12,10 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 
 ## Containers :whale:
 
-1. ISO includes `runc` (`crun`?), `cri-o` and `kubelet` with self-test samle container
+1. ISO includes `runc` (`crun`?), `cri-o` and `kubelet` with self-test sample micro container baked into container.
+   (We may not support pulling from "traditional" registry.)
 
-1. ISO can build containers traditionally ("outside")
+1. ISO can build simple "hello, world" container using source `Dockerfile` and `FROM: scratch` (traditionally, "outside")
 
 1. ISO has `sshd` shell container with fixed image (pubkey from Cloud Init)
 
@@ -25,7 +26,9 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
    Post or pre Kube? Pre, ideally. Declarative, not imperative!
    Use git repo pushed from within container to host, and actuated by systemd FS watch.
 
-1. Buildpacks et al.
+1. Run container from IPFS (simple v1; probably just `ipfs tar`)
+
+1. [Buildpacks](https://buildpacks.io)
 
 1. Shell container name/hash is dynamic instead of fixed, read from DID, and built on demand on the fly
 
@@ -34,6 +37,20 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 1. ISO has read-only root filesystem
 
 1. ISO has [gVisor](https://github.com/google/gvisor)
+
+
+## CI, CD & CMS
+
+1. Protocol (?) for obtaining any "content" (on IPFS) which was created by "transforming" a "source" (on IPFS).
+   Static [HTML "CMS" for docs](https://docs.ipfs.io/how-to/websites-on-ipfs/static-site-generators/) or a container build
+   are exactly the same thing.  Try to find it, and if it's not available in fixed time, it launches rebuilds on the fly.
+   Must have a way to rebuild in fixed intervals. Probably somehow "pass through" arguments such Git tag version numbers?
+
+1. Run container from source, given an URI like git and BuildPack, build on demand, if not already available cached on IPFS.
+
+1. CMS like thing for self-hosting doc, starting with a MD to HTML transformation of this file? ;) #dogfood
+
+1. Git web browser, simply implemented as above.
 
 
 ## IPFS 🧊 #storage
@@ -66,7 +83,8 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
    implementation of https://github.com/ipfs/go-datastore.
 
 1. [IPFS Git Remote Helper](https://www.google.com/search?q=ipfs+git+remote+helper),
-   AND a corresponding server gateway ([`jgit`](https://www.eclipse.org/jgit/)?), for ease of use.
+   AND a corresponding server gateway ([`jgit`](https://www.eclipse.org/jgit/)?),
+   like https://github.com/meyer1994/ipgit for ease of use.
    Either find a working one among the many attempts, or contribute to creating it on the most promising foundation.
    Note https://github.com/ipfs/roadmap/issues/43, and e.g. https://github.com/ipfs-shipyard/git-remote-ipld
    and https://github.com/whyrusleeping/git-ipfs-rehost, or https://github.com/cryptix/git-remote-ipfs,
@@ -80,17 +98,17 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
    This would, eventually, make a lot of sense for https://identity.foundation/working-groups/secure-data-storage.html...
 
 
-## CI, CD & CMS
-
-1. _TODO something like https://gogs.io - but see CMS!_
-
-
 ## Identity 🆔
+
+[Self-sovereign identity](https://en.wikipedia.org/wiki/Self-sovereign_identity).
 
 1. `did:ipfs:` Decentralized Identifier (DID) for IPFS [Method Specification](https://identity.foundation/peer-did-method-spec/)
    and [Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver/blob/master/docs/driver-development.md).
    See https://identity.foundation, specifically https://identity.foundation/working-groups/identifiers-discovery.html
    and https://www.w3.org/TR/did-core/
+
+1. Machine Identity is an IPFS DID.
+   Either simply re-using IPFS PeerID, or have a separate key, but interlink them.
 
 1. Shell container accepts anyone with a W3C DID, instead of requiring a pubkey from Cloud Init
    Works with any DID TBD from TBD, e.g. https://w3c-ccg.github.io/did-method-web/ or
@@ -101,7 +119,7 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 
 1. How to [WebAuthn](https://www.google.com/search?q=webauthn) <=> DID?
 
-1. [Cloud Web Shell](https://github.com/vorburger/cloudshell), as above, using WebAuthn isntead of YubiKey
+1. [Cloud Web Shell](https://github.com/vorburger/cloudshell), as above, but using WebAuthn instead of YubiKey
 
 1. Research how to do Permissions/Grants/Privileges right?
    Not just black/white true/false, but with an economic model, for initial use cases:
@@ -112,12 +130,23 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 
 1. ISO can easily turn into a working basic Kube Node (with master & etcd)
 
+1. Three ISO booted form a Kube cluster. Figure out auth.
+
 1. [Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/) work out-of-the-box
+
+1. Persistent volumes on IPFS? See above.
+
+1. Log collections thing
+
+1. Metrics thing
 
 
 ## Infra 🌐 :cloud: 🌌
 
-1. Classical DNS server which resolves to 🖧 LB IP of Kube Service?
+1. Simple Kube Ingress tooling to serve IPFS content on custom DNS names,
+   using https://docs.ipfs.io/how-to/address-ipfs-on-web or https://docs.ipfs.io/concepts/ipfs-gateway.
+
+1. Classical DNS server which resolves to 🖧 LB IP of Kube Service on federated clusters.
 
 1. `ssh term.dev` (TBD) gives anyone having a public key on any DID a shell (with limits)
 
@@ -148,6 +177,15 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 
 1. Messaging: Decentralized :mailbox_with_mail: "Email" and IM.
    Perhaps https://identity.foundation/working-groups/did-comm.html?
+
+
+## Hardware
+
+1. protoype custom ARM (and RISC V?) mini cluster boards
+
+1. figure out sustainable economic model to "give out" boards for free ;)
+
+1. see also https://github.com/ipfs/roadmap/issues/48
 
 
 _[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)._
