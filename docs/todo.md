@@ -1,4 +1,6 @@
-NeXT _(see also GTasks)_
+_see also [Roadmap](roadmap/) & GTasks!_
+
+First
 
 * retest archlinux new VM script.. does it actually fully work end to end, now? (I had clobbered it together.)
 
