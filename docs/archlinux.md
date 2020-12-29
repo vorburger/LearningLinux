@@ -27,3 +27,7 @@
 Rebuild the default ISO image:
 
     mkarchiso -v -w /tmp/archiso1 /usr/share/archiso/configs/releng/
+
+    ./run_archiso -v -i out/archlinux-2020.12.25-x86_64.iso
+
+NB the `-v` was contributed to arch in https://bugs.archlinux.org/task/69142.

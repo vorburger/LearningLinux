@@ -2,12 +2,11 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 First
 
-* retest archlinux new VM script.. does it actually fully work end to end, now? (I had clobbered it together.)
-
 * arch custom ISO
-* where is archlinux/*20-ethernet.network source?
 * https://wiki.archlinux.org/index.php/Security#SSH
 * https://wiki.archlinux.org/index.php/OpenSSH#Deny
+
+* retest archlinux new VM script.. does it actually fully work end to end, now? (I had clobbered it together.)
 
 * pubkey as feed-in from outside, using https://cloud-init.io,
   note https://wiki.archlinux.org/index.php/Cloud-init

@@ -10,7 +10,7 @@ mkfs.ext4 /dev/sda1
 
 mount /dev/sda1 /mnt
 
-pacstrap /mnt base linux linux-firmware openssh syslinux nano archiso qemu-headless edk2-ovmf which
+pacstrap /mnt base linux linux-firmware openssh syslinux nano archiso qemu-headless edk2-ovmf which git
 
 # genfstab -U /mnt >> /mnt/etc/fstab
 cat <<EOT >>/mnt/etc/fstab
