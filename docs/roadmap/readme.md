@@ -1,6 +1,6 @@
 # Roadmap
 
-_see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
+_See also [TODO](../todo.md) for a more "nitty gritty" level view._
 
 
 ## Arch ⩓
@@ -44,7 +44,7 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 1. Protocol (?) for obtaining any "content" (on IPFS) which was created by "transforming" a "source" (on IPFS).
    Static [HTML "CMS" for docs](https://docs.ipfs.io/how-to/websites-on-ipfs/static-site-generators/) or a container build
    are exactly the same thing.  Try to find it, and if it's not available in fixed time, it launches rebuilds on the fly.
-   Must have a way to rebuild in fixed intervals. Probably somehow "pass through" arguments such Git tag version numbers?
+   Must have a way to rebuild in fixed intervals. Probably somehow "pass through" arguments such as Git tag version numbers?
 
 1. Run container from source, given an URI like git and BuildPack, build on demand, if not already available cached on IPFS.
 
@@ -63,9 +63,8 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 1. Two ISO form an IPFS cluster together
 
 1. Container proc can [pin on node](https://docs.ipfs.io/how-to/pin-files) and [in cluster](https://docs.ipfs.io/how-to/pin-files)
-1. `ipfs mount` FUSE `/ipmfs` for `ipfs files` [Mutable File System (MFS)](https://docs.ipfs.io/concepts/file-systems/) #gap
-   E.g. https://github.com/piedar/js-ipfs-mount or https://github.com/jfmherokiller/ipfs-mfs-fuse, done right.
-   Note https://github.com/ipfs/notes/issues/131, also NFS idea on https://github.com/ipfs/roadmap/issues/83.
+
+1. `ipfs mount` FUSE `/ipmfs` for `ipfs files` [Mutable File System (MFS)](https://docs.ipfs.io/concepts/file-systems/) #gap, see https://github.com/ipfs/roadmap/issues/90. (One would expect this, and the `ipfs files` CLI, to have a way to support several "roots".)
 
 1. [Kubernetes Container Storage Interface](https://kubernetes-csi.github.io) (CSI) implementation on IPFS,
    idea also raised e.g. on https://discuss.ipfs.io/t/ipfs-as-a-storage-option-on-kubernetes/4506/2.
@@ -79,23 +78,23 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 1. Backup WIP files by pinning to IPFS cluster running at some friends
 
 1. Create `ipfs/go-ds-blkdev` IPFS datastore directly backed by a Linux `/dev/` block device #performance #scale #efficiency.
-   An alternative to https://github.com/ipfs?q=go-ds, notably the default https://github.com/ipfs/go-ds-flatfs
-   implementation of https://github.com/ipfs/go-datastore.
+    An alternative to https://github.com/ipfs?q=go-ds, notably the default https://github.com/ipfs/go-ds-flatfs
+    implementation of https://github.com/ipfs/go-datastore.
 
 1. [IPFS Git Remote Helper](https://www.google.com/search?q=ipfs+git+remote+helper),
-   AND a corresponding server gateway ([`jgit`](https://www.eclipse.org/jgit/)?),
-   like https://github.com/meyer1994/ipgit for ease of use.
-   Either find a working one among the many attempts, or contribute to creating it on the most promising foundation.
-   Note https://github.com/ipfs/roadmap/issues/43, and e.g. https://github.com/ipfs-shipyard/git-remote-ipld
-   and https://github.com/whyrusleeping/git-ipfs-rehost, or https://github.com/cryptix/git-remote-ipfs,
-   or https://developer.aliyun.com/mirror/npm/package/git-remote-ipfs-mam or https://github.com/dhappy/git-remote-ipfs
-   or https://hackage.haskell.org/package/git-remote-ipfs, but see https://github.com/martindbp/ipvc#why-not-just-use-git
-   for RW as RO like https://docs.ipfs.io/how-to/host-git-style-repo is obviously dumb.
-   Git Browse Web UI is out of scope, here.
+    AND a corresponding server gateway ([`jgit`](https://www.eclipse.org/jgit/)?),
+    like https://github.com/meyer1994/ipgit for ease of use.
+    Either find a working one among the many attempts, or contribute to creating it on the most promising foundation.
+    Note https://github.com/ipfs/roadmap/issues/43, and e.g. https://github.com/ipfs-shipyard/git-remote-ipld
+    and https://github.com/whyrusleeping/git-ipfs-rehost, or https://github.com/cryptix/git-remote-ipfs,
+    or https://developer.aliyun.com/mirror/npm/package/git-remote-ipfs-mam or https://github.com/dhappy/git-remote-ipfs
+    or https://hackage.haskell.org/package/git-remote-ipfs, but see https://github.com/martindbp/ipvc#why-not-just-use-git
+    for RW as RO like https://docs.ipfs.io/how-to/host-git-style-repo is obviously dumb.
+    Git Browse Web UI is out of scope, here.
 
 1. Encrypted IPFS blocks, as a separate overlay concept not baked into core, using DID.
-   _Until this is available, this entire project is only suitable for public open code and content that is on the public web._
-   This would, eventually, make a lot of sense for https://identity.foundation/working-groups/secure-data-storage.html...
+    _Until this is available, this entire project is only suitable for public open code and content that is on the public web._
+    This would, eventually, make a lot of sense for https://identity.foundation/working-groups/secure-data-storage.html...
 
 
 ## Identity 🆔
@@ -181,7 +180,7 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 
 ## Hardware
 
-1. protoype custom ARM (and RISC V?) mini cluster boards
+1. protoype custom ARM (and RISC V?) mini cluster boards, e.g. [with Gumstix](https://www.gumstix.com)
 
 1. figure out sustainable economic model to "give out" boards for free ;)
 
@@ -189,3 +188,7 @@ _see also [TODO](../todo.md), and Notes/ToDo/WorldCloud/apps.md_
 
 
 _[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)._
+
+
+<!-- Do NOT use https://marktext.app to edit this nicely, because it keeps changing ordered list markers,
+     see https://github.com/marktext/marktext/issues/2007; and other formatting like extra empty lines. -->
