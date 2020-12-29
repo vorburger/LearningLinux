@@ -11,9 +11,12 @@ fi
 qemu-system-x86_64 \
      -no-user-config \
      -display gtk,zoom-to-fit=on \
-     -enable-kvm  -cpu host  -m 5120  -smp 2 \
+     -enable-kvm  -cpu host  -m 5120  -smp 8 \
      -nic user,model=virtio,hostfwd=tcp::2222-:22,hostfwd=tcp::5900-:5900,ipv6=off \
      -drive file=$1,format=raw \
      -drive file=$TMP,format=raw
 
 # Memory 5120 MB = 2048 (for us) + 3072 (for run_archiso)
+# SMP 8 instead of 2 makes mkarchiso much faster; it takes only 2m2s instead of 5m39s for baseline ISO,
+# due to the parallel mksquashfs.  Not using xz but default gzip in mkinitcpio.conf saves another 30s,
+# so baseline ISO now builds in ca. 100s.
