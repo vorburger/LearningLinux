@@ -1,6 +1,6 @@
 # Arch Linux scripts
 
-## Create VM
+## Create Initial VM
 
     ./arch-create arch1
 
@@ -16,13 +16,13 @@
     ssh -p 2222 root@localhost umount -R /mnt
 
 
-## Launch and enter VM
+## Launch and enter Initial VM
 
     ./start ~/VM-Disks/arch1
     ssh -A -p 2222 root@localhost
 
 
-## Build
+## Build archiso's releng
 
 Rebuild the default ISO image:
 
@@ -31,3 +31,18 @@ Rebuild the default ISO image:
     run_archiso -v -i out/archlinux*.iso
 
 NB the `-v` was contributed to arch in https://bugs.archlinux.org/task/69142.
+
+
+# Build my own distro's ISO
+
+This is a custom distro to work on implementing [the Roadmap](../docs/roadmap):
+
+For now, [pending the integration](https://gitlab.archlinux.org/archlinux/archiso/-/merge_requests?scope=all&utf8=%E2%9C%93&state=opened&author_username=vorburger)
+of some [code on my `archiso` fork](https://github.com/archlinux/archiso/compare/master...vorburger:cloud-init-vorburger-full):
+
+    git clone https://github.com/archlinux/archiso.git; cd archiso; git checkout cloud-init-vorburger-full; cd ..
+    git clone https://github.com/vorburger/LearningLinux.git; cd LearningLinux/archlinux/iso
+
+    mkarchiso -v -w /tmp/newos.work -o /tmp/ .
+
+    ../../../archiso/scripts/run_archiso.sh -c -b -i /tmp/newos*.iso
