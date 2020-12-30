@@ -8,11 +8,6 @@ First
 
 * retest archlinux new VM script.. does it actually fully work end to end, now? (I had clobbered it together.)
 
-* pubkey as feed-in from outside, using https://cloud-init.io,
-  note https://wiki.archlinux.org/index.php/Cloud-init
-  and (something like) `-fw_cfg name=opt/com.coreos/config,file=path/to/example.ign`
-  seen on https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-qemu/
-
 * containers.. _see also GTasks_ https://wiki.archlinux.org/index.php/Linux_Containers
 * sshd as systemd container https://docs.linuxserver.io/images/docker-openssh-server
 
@@ -30,6 +25,8 @@ NeXT
 * build 2nd demo from source in-container, using https://wiki.archlinux.org/index.php/Buildah
 
 * read https://cluster-api.sigs.k8s.io
+
+* kubevirt? Note https://github.com/kubevirt/kubevirt/blob/master/docs/cloud-init.md
 
 
 Later

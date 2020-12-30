@@ -5,7 +5,8 @@ _See also [what's done](done.md), as well as [TODO](../todo.md) for a more "nitt
 
 ## Arch ⩓
 
-1. ISO has SSHD & Cloud Init
+1. ISO has SSHD & Cloud Init.
+   See https://gitlab.archlinux.org/archlinux/archiso/-/issues/27.
 
 1. ISO can rebuild itself (and self-test, nested KVM) #dogfood
 
