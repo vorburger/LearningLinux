@@ -45,4 +45,8 @@ of some [code on my `archiso` fork](https://github.com/archlinux/archiso/compare
 
     mkarchiso -v -w /tmp/newos.work -o /tmp/ .
 
-    ../../../archiso/scripts/run_archiso.sh -c -b -i /tmp/newos*.iso
+    ../../../archiso/scripts/create_cloudinit.sh
+
+    ../../../archiso/scripts/run_archiso.sh -v -c -b -i /tmp/newos*.iso
+
+    ssh -o StrictHostKeyChecking=no -o "UserKnownHostsFile /dev/null" -p 2222 localhost
