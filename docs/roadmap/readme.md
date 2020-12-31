@@ -1,6 +1,6 @@
 # Roadmap
 
-_See also [TODO](../todo.md) for a more "nitty gritty" level view._
+_See also [what's done](done.md), as well as [TODO](../todo.md) for a more "nitty gritty" level view._
 
 
 ## Arch ⩓
@@ -9,48 +9,63 @@ _See also [TODO](../todo.md) for a more "nitty gritty" level view._
 
 1. ISO can rebuild itself (and self-test, nested KVM) #dogfood
 
+1. ISO has read-only root filesystem
+
 
 ## Containers :whale:
 
-1. ISO includes `runc` (`crun`?), `cri-o` and `kubelet` with self-test sample micro container baked into container.
+1. ISO has [gVisor](https://github.com/google/gvisor)
+1. ISO includes `runc` (`crun`?), `cri-o` and `kubelet` with self-test sample
+   [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) micro container baked into container.
    (We may not support pulling from "traditional" registry.)
 
-1. ISO can build simple "hello, world" container using source `Dockerfile` and `FROM: scratch` (traditionally, "outside")
+1. ~~ISO can build simple "hello, world" container using source `Dockerfile` and `FROM: scratch` (traditionally, "outside")~~
 
 1. ISO has `sshd` shell container with fixed image (pubkey from Cloud Init)
 
-1. ISO can build containers from within containers #dogfood
-   Using [buildah](https://github.com/containers/buildah) & [kaniko](https://github.com/GoogleContainerTools/kaniko).
-
 1. New containers can be started from within other containers
    Post or pre Kube? Pre, ideally. Declarative, not imperative!
-   Use git repo pushed from within container to host, and actuated by systemd FS watch.
+   Use git repo pushed from within container to host, and actuated by systemd.path.
 
-1. Run container from IPFS (simple v1; probably just `ipfs tar`)
+1. ISO can build containers from within containers #dogfood
+   Using [kaniko](https://github.com/GoogleContainerTools/kaniko) (not [buildah](https://github.com/containers/buildah))
 
-1. [Buildpacks](https://buildpacks.io)
+1. Run container cached and distributed from IPFS cache, using https://github.com/miguelmota/ipdr.
 
-1. Shell container name/hash is dynamic instead of fixed, read from DID, and built on demand on the fly
+1. Shell image is read from DID (buildable by SCR)
 
 1. Shell container can replace itself #dogfood #inception
-
-1. ISO has read-only root filesystem
-
-1. ISO has [gVisor](https://github.com/google/gvisor)
 
 
 ## CI, CD & CMS
 
-1. Protocol (?) for obtaining any "content" (on IPFS) which was created by "transforming" a "source" (on IPFS).
-   Static [HTML "CMS" for docs](https://docs.ipfs.io/how-to/websites-on-ipfs/static-site-generators/) or a container build
-   are exactly the same thing.  Try to find it, and if it's not available in fixed time, it launches rebuilds on the fly.
-   Must have a way to rebuild in fixed intervals. Probably somehow "pass through" arguments such as Git tag version numbers?
+1. Git server container:
+   Initially simple/trivial, sshd with auth from cloud-init, like term, /data storage without IPFS yet,
+   repo list configured in a YAML that is under Git itself, an "Operator" run by a Hook (or systemd.path?) actuates it
+   (LATER ditto as Kube CRD); also see
+   [old idea](https://github.com/vorburger/vorburger-dotfiles-bin-etc/tree/master/container/sshd).
 
-1. Run container from source, given an URI like git and BuildPack, build on demand, if not already available cached on IPFS.
+1. [Source Container Registry](https://github.com/vorburger/SourceContainerRegistry) (SCR) which can build Images from Source.
 
-1. CMS like thing for self-hosting doc, starting with a MD to HTML transformation of this file? ;) #dogfood
+1. Learn about [Buildpacks](https://buildpacks.io), ArgoCD/TektonCD relationship?
 
-1. Git web browser, simply implemented as above.
+1. CMS like buildback for doc container images, starting with a MD to HTML transformation of this file? ;) #dogfood
+   Basically a native [HTML "CMS" for static docs](https://docs.ipfs.io/how-to/websites-on-ipfs/static-site-generators/).
+
+1. KISS static content shortcut, just a convention to have container images filled only with HTML (no web server `ENTRYPOINT`),
+   plus [a `CNAME` file](https://github.com/lastnpe/lastnpe.github.io/blob/master/CNAME).  Then adding 1 line to `serving.yaml`,
+   in some other Git repo, should suffice something (a "template operator"?) push that into IPFS (if it's not always already,
+   as all container images will be?), and set up an ingress route to IPFS GW.
+
+1. Maven repository, implemented simply using above
+
+1. Git web browser, implemented simply as static site generator, as above.
+
+1. _Generalize run image? Not just content, but any service, through some KISS shortcut, instead of YAML? (opt. from source, using SCR)_
+
+1. Serve our ISO using above #dogfood
+
+1. Container Registry Proxy: Proxies to other registry/-ies, ; stateless. #performance #scalability
 
 
 ## IPFS 🧊 #storage
@@ -59,6 +74,8 @@ _See also [TODO](../todo.md) for a more "nitty gritty" level view._
 
 1. Container proc can add content to nodes' IPFS
    Just forward daemon port into containers? Doc/demo.
+
+1. https://blog.ipfs.io
 
 1. Two ISO form an IPFS cluster together
 
