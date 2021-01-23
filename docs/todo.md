@@ -15,6 +15,8 @@ First
 
 * new _archlinux-cn_ repo, with initial text from Notes/ToDo/MyOS.md
 
+* RAM? https://gitlab.archlinux.org/archlinux/archiso/-/merge_requests/118/diffs
+
 
 NeXT
 

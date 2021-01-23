@@ -37,4 +37,6 @@ Its root password is empty, so you can e.g. `sudo dnf install -y ..`, but it's (
 
 [`docs/`](docs/) has more background and details; including [TODO](docs/todo.md)s.
 
+[`archlinux`](archlinux/) has my [Arch Linux](https://archlinux.org) based distro.
+
 by [Michael Vorburger.ch](https://www.vorburger.ch)
