@@ -2,11 +2,8 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 First
 
-* arch custom ISO
 * https://wiki.archlinux.org/index.php/Security#SSH
 * https://wiki.archlinux.org/index.php/OpenSSH#Deny
-
-* retest archlinux new VM script.. does it actually fully work end to end, now? (I had clobbered it together.)
 
 * containers.. _see also GTasks_ https://wiki.archlinux.org/index.php/Linux_Containers
 * sshd as systemd container https://docs.linuxserver.io/images/docker-openssh-server
@@ -90,6 +87,7 @@ Networking
 
 Workstation
 
+* what is https://github.com/containers/bubblewrap?
 * https://wiki.archlinux.org/index.php/QEMU#virtio qemu graphical console with framebuffer (with Linux on top)
   `qemu-system-x86_64 -kernel /tmp/bzImage -append "" -initrd busybox-init-initrd.gz --enable-kvm -m 512 -nic none -vga virtio [-display sdl,gl=on]`
   but keyboard layout needs to be fixed (and font is very ugly);
@@ -112,13 +110,6 @@ Physical (Bare Metal)
 * [import disk image to Google Cloud](https://cloud.google.com/compute/docs/import/import-existing-image),
   similarly to e.g. https://thekev.in/blog/2019-08-05-dockerfile-bootable-vm/index.html
   Automate this, and offer CI/CD?
-
-
-Cloud
-
-* add Podman
-* study gVisor
-* what is https://github.com/containers/bubblewrap?
 
 
 ARM

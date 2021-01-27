@@ -1,16 +1,23 @@
 # Roadmap
 
-_See also [what's done](done.md), as well as [TODO](../todo.md) for a more "nitty gritty" level view._
+_See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "nitty gritty" level view._
 
 
-## Arch ⩓
+## Arch ⩓ Kube :wheel_of_dharma:
 
-1. ISO has SSHD & Cloud Init.
-   See https://gitlab.archlinux.org/archlinux/archiso/-/issues/27.
+1. `kubeadm` _no space left on device_ - increase RAM? Or just start writing the "Installer" already?
 
-1. ISO can rebuild itself (and self-test, nested KVM) #dogfood
+1. ~~ISO has read-only root filesystem~~
 
-1. ISO has read-only root filesystem
+1. ~~ISO can easily turn into a working basic Kube Node (with master & etcd)~~
+
+1. Three ISO booted form a Kube cluster. Figure out auth.
+
+1. [Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/) work out-of-the-box
+
+1. Log collections thing
+
+1. Metrics thing
 
 
 ## Containers :whale:
@@ -33,7 +40,7 @@ _See also [what's done](done.md), as well as [TODO](../todo.md) for a more "nitt
 
 1. Run container cached and distributed from IPFS cache, using https://github.com/miguelmota/ipdr.
 
-1. Shell image is read from DID (buildable by SCR)
+1. Shell image name is read from DID (buildable by SCR)
 
 1. Shell container can replace itself #dogfood #inception
 
@@ -143,21 +150,6 @@ _See also [what's done](done.md), as well as [TODO](../todo.md) for a more "nitt
    Pinned permanent storage space, and right to spawn new containers.
 
 
-## Kube :wheel_of_dharma:
-
-1. ISO can easily turn into a working basic Kube Node (with master & etcd)
-
-1. Three ISO booted form a Kube cluster. Figure out auth.
-
-1. [Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/) work out-of-the-box
-
-1. Persistent volumes on IPFS? See above.
-
-1. Log collections thing
-
-1. Metrics thing
-
-
 ## Infra 🌐 :cloud: 🌌
 
 1. Simple Kube Ingress tooling to serve IPFS content on custom DNS names,
@@ -194,6 +186,16 @@ _See also [what's done](done.md), as well as [TODO](../todo.md) for a more "nitt
 
 1. Messaging: Decentralized :mailbox_with_mail: "Email" and IM.
    Perhaps https://identity.foundation/working-groups/did-comm.html?
+
+
+## Security
+
+1. selinux/apparmor? (cri-o supported)
+
+
+## Networking Opimizations
+
+1. do not hard-code `8.8.8.8` for DNS anymore
 
 
 ## Hardware
