@@ -7,3 +7,15 @@ mkinitcpio-archiso
 syslinux
 openssh
 cloud-init
+
+# Containers & Kubernetes
+cri-o
+kubelet
+kubeadm
+
+# This will be removed later, when switching to fully pre-baked read-only
+crictl
+kubectl
+reflector
+nano
+yq

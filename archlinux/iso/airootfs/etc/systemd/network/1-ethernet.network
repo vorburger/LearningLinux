@@ -8,6 +8,9 @@ Name=eth*
 [Network]
 DHCP=yes
 IPv6PrivacyExtensions=yes
+# using this and UseDNS=false below works around DNS not working in nested virtualization (TODO find better solution)
+DNS=8.8.8.8
 
 [DHCP]
+UseDNS=false
 RouteMetric=512
