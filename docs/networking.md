@@ -8,6 +8,19 @@
 Note the `Network File`, e.g. `/etc/systemd/network/20-ethernet.network`.
 
 
+## DNS in nested VMs
+
+`resolvectl` DNS in nested VMs does not just work:
+
+`systemctl status systemd-resolved` shows `Using degraded feature set TCP instead of UDP for DNS server 10.0.2.3.` (and UDP).
+
+Somehow the "inner" DNS doesn't manage to speak to the "outer" one (double NAT issue?).
+
+The easiest workaround is to use `resolvectl dns enp0s4 8.8.8.8`, made permanent with `DNS=8.8.8.8` in `[Network]` **AND** `UseDNS=false` in `[DHCP]` in a `/etc/systemd/network/1-ethernet.network`,  [lexically sorted earlier](https://superuser.com/a/1354974/66965) than the default configs in `/run/systemd/network` which are prefixed with `10-`.  _(TODO find a better permanent solution for this.)_
+
+Using `-nic user,net=10.0.99.0/24` on qemu to have a separate network on the nested VM does not fix this (but is clearer).
+
+
 ## Without systemd, e.g. in busybox
 
 ### Usage
