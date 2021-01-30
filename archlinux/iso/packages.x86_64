@@ -13,6 +13,10 @@ cri-o
 kubelet
 kubeadm
 
+# /usr/local/sbin/dinstall
+parted
+rsync
+
 # This will be removed later, when switching to fully pre-baked read-only
 crictl
 kubectl

@@ -13,4 +13,5 @@ pacman_conf="pacman.conf"
 airootfs_image_tool_options=('-b' '1M')
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
+  ["/usr/local/sbin/dinstall"]="0:0:700"
 )
