@@ -200,6 +200,11 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 ## Hardware
 
+1. [PC Engines APU2](https://pcengines.ch/apu2.htm), e.g. as (HAProxy? [seesaw](https://github.com/google/seesaw)?) LB/router!
+   See [Arch Wiki](https://wiki.archlinux.org/index.php/PC_Engines),
+   [this bug](https://gitlab.archlinux.org/archlinux/archiso/-/issues/75)
+   and [their cheap prices](https://www.pcengines.ch/newshop.php?c=48881).
+
 1. protoype custom ARM (and RISC V?) mini cluster boards, e.g. [with Gumstix](https://www.gumstix.com)
 
 1. figure out sustainable economic model to "give out" boards for free ;)
