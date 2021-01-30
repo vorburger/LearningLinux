@@ -43,7 +43,7 @@ of some [code on my `archiso` fork](https://github.com/archlinux/archiso/compare
     git clone https://github.com/archlinux/archiso.git; cd archiso; git checkout cloud-init-vorburger-full; cd ..
     git clone https://github.com/vorburger/LearningLinux.git; cd LearningLinux/archlinux/iso
 
-    rm -rf /tmp/newos.work; mkarchiso -v -w /tmp/newos.work -o /tmp/ .
+    rm -rf /tmp/newos*.iso /tmp/newos.work; mkarchiso -v -w /tmp/newos.work -o /tmp/ .
 
     ../../../archiso/scripts/cloud-init.sh
 
@@ -53,6 +53,14 @@ of some [code on my `archiso` fork](https://github.com/archlinux/archiso/compare
 
 
 ## Using my own distro's ISO
+
+Install the ISO on a new disk:
+
+    dinstall /dev/sda
+
+then boot from that disk:
+
+    ../../bin/run-cloud-init.sh /tmp/newos*.iso.raw
 
 Test cri-o, as per ("my!") https://wiki.archlinux.org/index.php/CRI-O#Testing.
 
