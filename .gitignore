@@ -3,3 +3,4 @@
 *.iso
 meta-data
 user-data
+.vagrant/
