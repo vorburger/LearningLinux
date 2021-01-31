@@ -9,6 +9,9 @@ kubeadm init --pod-network-cidr='10.85.0.0/16' --cri-socket='unix:///run/crio/cr
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# similarly in vagrant.sh
 
 kubectl version
-kubectl get nodes
+kubectl get nodes -o wide
+
+kubectl taint nodes --all node-role.kubernetes.io/master-
