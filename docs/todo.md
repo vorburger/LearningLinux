@@ -5,9 +5,6 @@ First
 * https://wiki.archlinux.org/index.php/Security#SSH
 * https://wiki.archlinux.org/index.php/OpenSSH#Deny
 
-* containers.. _see also GTasks_ https://wiki.archlinux.org/index.php/Linux_Containers
-* sshd as systemd container https://docs.linuxserver.io/images/docker-openssh-server
-
 * readonly root filesystem!
 
 * new _archlinux-cn_ repo, with initial text from Notes/ToDo/MyOS.md
@@ -20,8 +17,6 @@ NeXT
 * add kubelet with systemd unit, from https://wiki.archlinux.org/index.php/Kubernetes
 
 * use https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/ for first demo
-
-* build 2nd demo from source in-container, using https://wiki.archlinux.org/index.php/Buildah
 
 * read https://cluster-api.sigs.k8s.io
 

@@ -5,31 +5,38 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 ## Arch ⩓ Kube :wheel_of_dharma:
 
-1. `kubeadm` _no space left on device_ - increase RAM? Or just start writing the "Installer" already?
+1. Few `kubeadm join` Vagrant VMs, with different hostnames, on same subnet, form a working Kube cluster
 
-1. ~~ISO has read-only root filesystem~~
+1. Host & [Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/) work out-of-the-box
 
-1. ~~ISO can easily turn into a working basic Kube Node (with master & etcd)~~
+1. installer script using ArchISO with cloud-init instead of using arch-boxes cloud image
+   (when its released tomorrow on Feb 1st; else need to build in VM and scp out of it),
+   tested using https://gitlab.archlinux.org/archlinux/archiso/-/issues/93,
+   basically just cleaning up https://github.com/vorburger/LearningLinux/tree/develop/archlinux;
+   ditch custom ISO idea?  Remove https://github.com/vorburger/LearningLinux/compare/WIP-arch-iso-dinstall?
 
-1. Three ISO booted form a Kube cluster. Figure out auth.
+1. first baremetal install - easy, now -- or is it, with x2 USB keys for Arch ISO & cloud-init; git clone and launch?
 
-1. [Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/) work out-of-the-box
+1. Service, LoadBalancer, Ingress.. how to expose on LAN and external public IP?!  VIIP? (HAProxy? [seesaw](https://github.com/google/seesaw)?)
 
-1. Log collections thing
+1. trim down installed packages - it shouldn't have (need) `pacman` or most of `base` (IFF we can `pacstrap` without?)
 
-1. Metrics thing
+1. make an AUR package of `kube-prepare.sh`, `kube-init.sh` (but why? ask on IRC releng if any real interest)
+
+1. Security: installer partitions disk and puts `/bin` and `/usr` etc. into [SquashFS read-only filesystem](https://wiki.archlinux.org/index.php/File_systems#Read-only_file_systems),
+   and mounts other BTRFS partitions [with `noexec` flag](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
 
 
 ## Containers :whale:
 
-1. ISO has [gVisor](https://github.com/google/gvisor)
-1. ISO includes `runc` (`crun`?), `cri-o` and `kubelet` with self-test sample
-   [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) micro container baked into container.
-   (We may not support pulling from "traditional" registry.)
+1. Flux https://toolkit.fluxcd.io/get-started/
 
-1. ~~ISO can build simple "hello, world" container using source `Dockerfile` and `FROM: scratch` (traditionally, "outside")~~
+1. Metrics: Node Agent, cAdvisor, Prometheus, Grafana
 
-1. ISO has `sshd` shell container with fixed image (pubkey from Cloud Init)
+1. Logs?! Hm, research.
+
+1. `sshd` shell container with fixed image (pubkey from Cloud Init)
+   sshd as systemd container https://docs.linuxserver.io/images/docker-openssh-server
 
 1. New containers can be started from within other containers
    Post or pre Kube? Pre, ideally. Declarative, not imperative!
@@ -38,11 +45,17 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 1. ISO can build containers from within containers #dogfood
    Using [kaniko](https://github.com/GoogleContainerTools/kaniko) (not [buildah](https://github.com/containers/buildah))
 
+1. Source Container Registry
+
 1. Run container cached and distributed from IPFS cache, using https://github.com/miguelmota/ipdr.
 
 1. Shell image name is read from DID (buildable by SCR)
 
 1. Shell container can replace itself #dogfood #inception
+
+1. kube auth
+
+1. ISO has [gVisor](https://github.com/google/gvisor)
 
 
 ## CI, CD & CMS

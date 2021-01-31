@@ -3,9 +3,9 @@
 _See also [Roadmap](index.md)._
 
 
-## v0.0.2 (2021.02.?)
+## v0.0.2 (2021.01.31)
 
-* _TBD_ working single node basic `kubeadm`
+* [vagrant.sh](https://github.com/vorburger/LearningLinux/tree/bfd1359a3cb4e8fef4bc2274e828885090e0d7b6/archlinux/kubernetes) working single node basic `kubeadm` in VM
 
 
 ## v0.0.1 (2021.01.23)
