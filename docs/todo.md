@@ -162,3 +162,6 @@ Later (if ever)
 * Arch?
 * Alpine? https://wiki.archlinux.org/index.php/intel_graphics
 * Fedora?
+
+* OLD https://github.com/vorburger/cloud.labs.learn.study/blob/master/TODO.txt
+* 
