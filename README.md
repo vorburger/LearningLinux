@@ -35,7 +35,7 @@ Its root password is empty, so you can e.g. `sudo dnf install -y ..`, but it's (
 
 1. [`./test.tcl`](./test.tcl) automatically tests everything that's described above; run it after making any changes (and extend it when adding new features).
 
-[`docs/`](docs/) has more background and details; including [TODO](docs/todo.md)s.
+[`docs/`](docs/) has more background and details; **including a [Roadmap](docs/roadmap)** and [TODO](docs/todo.md)s.
 
 [`archlinux`](archlinux/) has my [Arch Linux](https://archlinux.org) based distro.
 
