@@ -7,6 +7,8 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 1. Few `kubeadm join` Vagrant VMs, with different hostnames, on same subnet, form a working Kube cluster
 
+1. [Cluster API-based](https://cluster-api.sigs.k8s.io) machine management, notably [CABPK](https://cluster-api.sigs.k8s.io/tasks/kubeadm-bootstrap.html)
+
 1. Host & [Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/) work out-of-the-box
 
 1. installer script using ArchISO with cloud-init instead of using arch-boxes cloud image
@@ -26,14 +28,17 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 1. Security: installer partitions disk and puts `/bin` and `/usr` etc. into [SquashFS read-only filesystem](https://wiki.archlinux.org/index.php/File_systems#Read-only_file_systems),
    and mounts other BTRFS partitions [with `noexec` flag](https://man.archlinux.org/man/mount.8#FILESYSTEM-INDEPENDENT_MOUNT_OPTIONS)
 
+1. [Certify it](https://www.cncf.io/certification/software-conformance/)? ;)
+
 
 ## Containers :whale:
 
-1. Flux https://toolkit.fluxcd.io/get-started/
+1. [Learning Kubernetes CodeLabs ToDo](https://github.com/vorburger/LearningKubernetes-CodeLabs/blob/develop/TODO.md)
 
+1. Flux https://toolkit.fluxcd.io/get-started/ (with [Kustomize](https://kustomize.io)?)
 1. Metrics: Node Agent, cAdvisor, Prometheus, Grafana
 
-1. Logs?! Hm, research.
+1. [Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/)?!
 
 1. `sshd` shell container with fixed image (pubkey from Cloud Init)
    sshd as systemd container https://docs.linuxserver.io/images/docker-openssh-server
@@ -44,8 +49,6 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 1. ISO can build containers from within containers #dogfood
    Using [kaniko](https://github.com/GoogleContainerTools/kaniko) (not [buildah](https://github.com/containers/buildah))
-
-1. Source Container Registry
 
 1. Run container cached and distributed from IPFS cache, using https://github.com/miguelmota/ipdr.
 
@@ -60,6 +63,8 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 ## CI, CD & CMS
 
+1. [Skaffold](https://skaffold.dev)-, [Draft](https://draft.sh)- and/or [Garden](https://garden.io)-like (which?) dev model
+
 1. Git server container:
    Initially simple/trivial, sshd with auth from cloud-init, like term, /data storage without IPFS yet,
    repo list configured in a YAML that is under Git itself, an "Operator" run by a Hook (or systemd.path?) actuates it
@@ -68,7 +73,7 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 1. [Source Container Registry](https://github.com/vorburger/SourceContainerRegistry) (SCR) which can build Images from Source.
 
-1. Learn about [Buildpacks](https://buildpacks.io), ArgoCD/TektonCD relationship?
+1. Learn about [Buildpacks](https://buildpacks.io), [ArgoCD](https://argoproj.github.io/argo-cd/) and [TektonCD](https://tekton.dev)'s [Pipelines](https://github.com/tektoncd/pipeline/blob/main/docs/tutorial.md) relationship?
 
 1. CMS like buildback for doc container images, starting with a MD to HTML transformation of this file? ;) #dogfood
    Basically a native [HTML "CMS" for static docs](https://docs.ipfs.io/how-to/websites-on-ipfs/static-site-generators/).
@@ -93,6 +98,8 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 1. ISO has `ipfs` (systemd) _(and `/ipfs` & `/ipns` ?)_
 
+1. Container Registry on IPFS, with [IPDR](https://github.com/ipdr/ipdr)?
+
 1. Container proc can add content to nodes' IPFS
    Just forward daemon port into containers? Doc/demo.
 
@@ -102,7 +109,7 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 1. Container proc can [pin on node](https://docs.ipfs.io/how-to/pin-files) and [in cluster](https://docs.ipfs.io/how-to/pin-files)
 
-1. `ipfs mount` FUSE `/ipmfs` for `ipfs files` [Mutable File System (MFS)](https://docs.ipfs.io/concepts/file-systems/) #gap, see https://github.com/ipfs/roadmap/issues/90. (One would expect this, and the `ipfs files` CLI, to have a way to support several "roots".)
+1. `ipfs mount` FUSE `/ipmfs` for `ipfs files` [Mutable File System (MFS)](https://docs.ipfs.io/concepts/file-systems/) #gap, see https://github.com/ipfs/roadmap/issues/90. (One would expect this, and the `ipfs files` CLI, to have a way to support several "roots".) More like a [JGitFS](https://github.com/centic9/JGitFS)?
 
 1. [Kubernetes Container Storage Interface](https://kubernetes-csi.github.io) (CSI) implementation on IPFS,
    idea also raised e.g. on https://discuss.ipfs.io/t/ipfs-as-a-storage-option-on-kubernetes/4506/2.
@@ -120,7 +127,7 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
     implementation of https://github.com/ipfs/go-datastore.
 
 1. [IPFS Git Remote Helper](https://www.google.com/search?q=ipfs+git+remote+helper),
-    AND a corresponding server gateway ([`jgit`](https://www.eclipse.org/jgit/)?),
+    AND a corresponding server gateway ([`jgit`](https://www.eclipse.org/jgit/), see [cookbook](https://github.com/centic9/jgit-cookbook)),
     like https://github.com/meyer1994/ipgit for ease of use.
     Either find a working one among the many attempts, or contribute to creating it on the most promising foundation.
     Note https://github.com/ipfs/roadmap/issues/43, and e.g. https://github.com/ipfs-shipyard/git-remote-ipld
@@ -137,7 +144,7 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 ## Identity 🆔
 
-[Self-sovereign identity](https://en.wikipedia.org/wiki/Self-sovereign_identity).
+[Self-sovereign identity](https://en.wikipedia.org/wiki/Self-sovereign_identity) with [Decentralized Identifiers](https://www.w3.org/TR/did-core/) (DIDs).
 
 1. `did:ipfs:` Decentralized Identifier (DID) for IPFS [Method Specification](https://identity.foundation/peer-did-method-spec/)
    and [Universal Resolver Driver](https://github.com/decentralized-identity/universal-resolver/blob/master/docs/driver-development.md).
