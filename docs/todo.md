@@ -72,6 +72,11 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
   https://en.wikipedia.org/wiki/Klibc
 
 
+Storage
+
+* fully IPFS-based, see [Roadmap](roadmap/) - on [Local Persistent Volumes](https://www.google.com/search?q=Kubernetes+Local+Persistent+Volumes)? With [sig-storage-local-static-provisioner](https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner)
+* [Longhorn](https://longhorn.io)?
+
 Networking
 
 * capture network traffic with `-net dump`, inspect `qemu-vlan0.pcap` with.. wireshark?
