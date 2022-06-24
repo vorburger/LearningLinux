@@ -1,5 +1,13 @@
 _see also [Roadmap](roadmap/) & GTasks!_
 
+[ArchInstall](archinstall.md)
+
+1. setup.sh: ssh-copy-id, disable password login, and doc to change vorburger's password
+1. desktop.sh
+1. sudo with yubikey (through PAM)
+1. avoid `passwd` through cloudinit
+
+
 First
 
 * https://wiki.archlinux.org/index.php/Security#SSH

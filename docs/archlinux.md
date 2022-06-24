@@ -1,5 +1,7 @@
 # Arch Linux scripts
 
+This is for "my own distro"; whereas [archinstall](archinstall.md) documents a "normal install".
+
 ## Create Initial VM
 
     ./arch-create ~/VM-Disks/arch1

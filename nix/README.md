@@ -4,7 +4,7 @@
 
 1. READ! Manual, Pills, ... from _Learning_ links at the bottom
 1. https://github.com/nix-community/home-manager
-1. nix-shell --pure without reading existing dotfiles? Or simple to just full containerize?
+1. nix-shell --pure without reading existing dotfiles seems PITA... so use a container!
 1. https://nixos.org/manual/nix/stable/command-ref/new-cli/nix.html#examples
 1. dotfiles: How to isolate from host? Then: Nano, [Starship](https://starship.rs/installing/#nix), ...
 1. [`nix build`](https://nixos.org/manual/nix/stable/command-ref/nix-build.html)
@@ -16,7 +16,7 @@
 1. containers build?
 1. create a NixOS VM: `nixos-rebuild build-vm`, and then `./result/bin/run-*-vm`
 1. install NixOS baremetal server, fully automated
-1. install NixOS server on GCP GCE
+1. install NixOS server on GCP GCE, using https://nixops.readthedocs.io/en/latest/?
 1. create a simple bare minimal server config with a SSH container (as local VM & GCP GCE)
 1. https://nixbuild.net/#pricing
 1. https://github.com/nixos/hydra

@@ -1,0 +1,31 @@
+{
+    "audio": "No audio server",
+    "config_version": "2.5.0",
+    "debug": false,
+    "harddrives": [
+        "/dev/vda"
+    ],
+    "keyboard-layout": "de_CH-latin1",
+    "mount_point": null,
+    "nic": {
+        "dhcp": true,
+        "dns": null,
+        "gateway": null,
+        "iface": null,
+        "ip": null,
+        "type": "iso"
+    },
+    "packages": [
+        "openssh"
+    ],
+    "plugin": null,
+    "profile": {
+        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/minimal.py"
+        
+    },
+    "services": ["sshd"],
+    "script": "guided",
+    "silent": false,
+    "swap": false,
+    "version": "2.5.0"
+}

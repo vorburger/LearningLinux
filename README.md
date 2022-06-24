@@ -17,7 +17,7 @@ with an _initrd_ containing our [`hello`](containers/src/hello.c) demo.
 using the busybox container image plus our own [`init`](containers/busybox-init)
 as initrd.  You can quit it using `poweroff -f`.  Also see [networking](docs/networking.md).
 
-1. [`./run-qemu archlinux-dev`](./run-qemu) starts Arch Linux (with systemd)
+1. [`./run-qemu archlinux-dev`](./run-qemu) starts Arch Linux (with systemd); but see also [archinstall](docs/archinstall.md)
 
 1. [`./run-qemu-syslinux /tmp/bzImage hello | busybox-init`](./run-qemu-syslinux) starts this Kernel
 and the hello | busybox-init container initrd in a virtual machine by building a real disk image

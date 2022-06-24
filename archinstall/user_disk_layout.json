@@ -1,0 +1,42 @@
+{
+    "/dev/vda": {
+        "partitions": [
+            {
+                "boot": true,
+                "encrypted": false,
+                "filesystem": {
+                    "format": "fat32"
+                },
+                "mountpoint": "/boot",
+                "size": "203MiB",
+                "start": "3MiB",
+                "type": "primary",
+                "wipe": true
+            },
+            {
+                "btrfs": {
+                    "subvolumes": {
+                        "@": "/",
+                        "@.snapshots": "/.snapshots",
+                        "@home": "/home",
+                        "@log": "/var/log",
+                        "@pkg": "/var/cache/pacman/pkg"
+                    }
+                },
+                "encrypted": false,
+                "filesystem": {
+                    "format": "btrfs",
+                    "mount_options": [
+                        "compress=zstd"
+                    ]
+                },
+                "mountpoint": null,
+                "size": "100%",
+                "start": "206MiB",
+                "type": "primary",
+                "wipe": true
+            }
+        ],
+        "wipe": true
+    }
+}
