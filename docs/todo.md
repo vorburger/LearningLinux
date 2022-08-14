@@ -1,5 +1,13 @@
 _see also [Roadmap](roadmap/) & GTasks!_
 
+New
+
+1. Replace https://github.com/vorburger/LearningLinux/tree/develop/archlinux by [creating FS in container](https://wiki.archlinux.org/title/Install_Arch_Linux_via_Docker), and boot .img in qemu, like on https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md (cp Kernel from /boot in .img, later mounted separately)
+1. Try [booster](https://wiki.archlinux.org/title/Booster)
+1. Try [pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore) from qemu
+1. Test autoation with... bash? ch.vorburger.exec? https://github.com/anatol/vmtest?
+
+
 [ArchInstall](archinstall.md)
 
 1. setup.sh: ssh-copy-id, disable password login, and doc to change vorburger's password
@@ -82,11 +90,14 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
 
 Storage
 
+* https://github.com/anatol/smart.go for monitoring, unless Prometheus Node monitoring thing already does this?
 * fully IPFS-based, see [Roadmap](roadmap/) - on [Local Persistent Volumes](https://www.google.com/search?q=Kubernetes+Local+Persistent+Volumes)? With [sig-storage-local-static-provisioner](https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner)
 * [Longhorn](https://longhorn.io)?
 
+
 Networking
 
+* https://www.gsocket.io
 * capture network traffic with `-net dump`, inspect `qemu-vlan0.pcap` with.. wireshark?
 * learn details about `/etc/nsswitch.conf` and `/etc/resolv.conf`.. where's the "resolver"- in the libc? If "the Linux kernel doesn't care about DNS" and it's userspace libraries to do lookups, then what is https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/dns_resolver/dns_query.c?h=v5.6-rc5 for?
 * replace `-net user` with a TUN/TAP network bridged to the host's https://wiki.syslinux.org/wiki/index.php?title=Development/Testing#TUN.2FTAP_network
@@ -171,10 +182,5 @@ UML
 Later (if ever)
 
 * https://godarch.com?
-
-* Arch?
-* Alpine? https://wiki.archlinux.org/index.php/intel_graphics
-* Fedora?
-
+* https://wiki.archlinux.org/index.php/intel_graphics
 * OLD https://github.com/vorburger/cloud.labs.learn.study/blob/master/TODO.txt
-* 
