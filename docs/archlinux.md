@@ -15,11 +15,14 @@ This is for "my own distro"; whereas [archinstall](archinstall.md) documents a "
 TODO:
 
 1. use Reflector, like on https://github.com/vorburger/LearningLinux/compare/pacstrap-from-container?expand=1
-1. trim image (no qemu etc, add all that later)
+1. boot using `qemu -kernel` as on https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md
+   Obtaining bzImage extracted from container like on https://github.com/vorburger/LearningLinux/compare/pacstrap-from-container?expand=1
 1. why does it boot from sda3?! Switch from BIOS to UEFI? Use [booster](https://wiki.archlinux.org/title/Booster)?
 1. ssh-copy-id from host into vm:/mnt/
 1. ssh from host into rebooted VM
 1. mv archiso stuff below to Archive/
+1. ssh "harden", like on dotfiles, or https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md#build-an-arch-linux-rootfs
+1. remove pacman completely, incl. sudo rm rootfs/var/cache/pacman/pkg/*
 
 
 ## Build archiso's releng

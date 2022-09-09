@@ -7,7 +7,13 @@ if [ ! -f Arch-Linux-x86_64-basic.qcow2 ]; then
           -o Arch-Linux-x86_64-basic.qcow2
 fi
 
-[[ -s $1 ]] || qemu-img create -f raw $1 10G
+rm -f Arch-Linux-x86_64-basic_OVERLAY.cow && \
+  qemu-img create -o backing_file=Arch-Linux-x86_64-basic.qcow2,backing_fmt=qcow2 \
+  -f qcow2 Arch-Linux-x86_64-basic_OVERLAY.cow
+
+# TODO truncate instead dd?
+# TODO? dd if=/dev/zero of=rootfs.raw bs=1G count=1
+rm $1 || true && qemu-img create -f raw $1 10G
 
 qemu-system-x86_64 \
      -no-user-config \
@@ -15,22 +21,21 @@ qemu-system-x86_64 \
      -enable-kvm  -cpu host  -m 2047  -smp 2 \
      -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
      -drive file=$1,format=raw,index=0 \
-     -drive file=Arch-Linux-x86_64-basic.qcow2,index=1,if=none,id=disk2 \
+     -drive file=Arch-Linux-x86_64-basic_OVERLAY.cow,index=1,if=none,id=disk2 \
      -device virtio-blk-pci,drive=disk2,bootindex=1 &
 #    -cdrom ~/Downloads/archlinux-2020.12.01-x86_64.iso
 # https://www.qemu.org/docs/master/system/bootindex.html
 
-# https://stackoverflow.com/a/70985361/421602
-while (! (: </dev/tcp/localhost/2222) &> /dev/null); do
-    sleep 3;
-done
+# NB: It's pointless to await port 2222 (e.g. à la https://stackoverflow.com/a/70985361/421602),
+# because QEMU is immediately forwarding it already anyway - even if the VM isn't actually listening, yet.
+sleep 3
 
-sshpass -p arch scp -P 2222 -o StrictHostKeyChecking=no -o ConnectTimeout=60 arch-install* arch@localhost:
-sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no arch@localhost sudo bash ./arch-install
+sshpass -p arch scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=60 arch-install* arch@localhost:
+sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo bash ./arch-install
 
-sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no arch@localhost sudo umount -R /mnt
-sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no arch@localhost sudo shutdown now || true
+sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo umount -R /mnt
 
+sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo shutdown now || true
 sleep 3
 
 ./start $1
