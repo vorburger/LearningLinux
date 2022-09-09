@@ -6,22 +6,20 @@ This is for "my own distro"; whereas [archinstall](archinstall.md) documents a "
 
     ./arch-create ~/VM-Disks/arch1
 
-    root@archiso ~ # systemctl start sshd
-    root@archiso ~ # passwd
-
-    vorburger@laptop$
-    ssh -p 2222 root@localhost
-    ssh-copy-id -p 2222 root@localhost
-
-    scp -P 2222 arch-install* root@localhost:  &&  ssh -p 2222 root@localhost bash ./arch-install
-
-    ssh -p 2222 root@localhost umount -R /mnt
-
 
 ## Launch and enter Initial VM
 
     ./start ~/VM-Disks/arch1
     ssh -A -p 2222 root@localhost
+
+TODO:
+
+1. use Reflector, like on https://github.com/vorburger/LearningLinux/compare/pacstrap-from-container?expand=1
+1. trim image (no qemu etc, add all that later)
+1. why does it boot from sda3?! Switch from BIOS to UEFI? Use [booster](https://wiki.archlinux.org/title/Booster)?
+1. ssh-copy-id from host into vm:/mnt/
+1. ssh from host into rebooted VM
+1. mv archiso stuff below to Archive/
 
 
 ## Build archiso's releng

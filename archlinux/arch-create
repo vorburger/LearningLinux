@@ -1,6 +1,12 @@
 #!/usr/bin/bash
 set -euox pipefail
 
+# https://gitlab.archlinux.org/archlinux/arch-boxes
+if [ ! -f Arch-Linux-x86_64-basic.qcow2 ]; then
+  curl -fsSL https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 \
+          -o Arch-Linux-x86_64-basic.qcow2
+fi
+
 [[ -s $1 ]] || qemu-img create -f raw $1 10G
 
 qemu-system-x86_64 \
@@ -8,6 +14,23 @@ qemu-system-x86_64 \
      -display gtk,zoom-to-fit=on \
      -enable-kvm  -cpu host  -m 2047  -smp 2 \
      -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
-     -cdrom ~/Downloads/archlinux-2020.12.01-x86_64.iso \
-     -drive file=$1,format=raw \
-     -boot d
+     -drive file=$1,format=raw,index=0 \
+     -drive file=Arch-Linux-x86_64-basic.qcow2,index=1,if=none,id=disk2 \
+     -device virtio-blk-pci,drive=disk2,bootindex=1 &
+#    -cdrom ~/Downloads/archlinux-2020.12.01-x86_64.iso
+# https://www.qemu.org/docs/master/system/bootindex.html
+
+# https://stackoverflow.com/a/70985361/421602
+while (! (: </dev/tcp/localhost/2222) &> /dev/null); do
+    sleep 3;
+done
+
+sshpass -p arch scp -P 2222 -o StrictHostKeyChecking=no -o ConnectTimeout=60 arch-install* arch@localhost:
+sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no arch@localhost sudo bash ./arch-install
+
+sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no arch@localhost sudo umount -R /mnt
+sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no arch@localhost sudo shutdown now || true
+
+sleep 3
+
+./start $1

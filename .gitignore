@@ -1,6 +1,7 @@
 *.log
 *.gz
 *.iso
+*.qcow2
 meta-data
 user-data
 .vagrant/

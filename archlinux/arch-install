@@ -2,6 +2,8 @@
 # https://wiki.archlinux.org/index.php/Installation_guide
 set -euox pipefail
 
+pacman -Sy --noconfirm arch-install-scripts parted
+
 parted --script /dev/sda \
     mklabel msdos \
     mkpart primary ext4 0G 100%
@@ -15,10 +17,10 @@ pacstrap /mnt base linux linux-firmware openssh syslinux nano archiso qemu-headl
 # genfstab -U /mnt >> /mnt/etc/fstab
 cat <<EOT >>/mnt/etc/fstab
 /dev/sda1               /               ext4            rw,relatime     0 1
-/dev/sdb1               /tmp            ext4            rw,relatime     0 2
 EOT
+# /dev/sdb1               /tmp            ext4            rw,relatime     0 2
 
-cp -r /root/.ssh /mnt/root/
+# cp -r /root/.ssh /mnt/root/
 
 cp arch-install-chroot /mnt/
 chmod +x /mnt/arch-install-chroot
