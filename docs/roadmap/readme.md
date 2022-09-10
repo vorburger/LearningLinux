@@ -210,6 +210,9 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 ## Security
 
+1. Secure Boot, see https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot
+   with https://man.archlinux.org/man/systemd-stub.7 ?
+
 1. selinux/apparmor? (cri-o supported)
 
 

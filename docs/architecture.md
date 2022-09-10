@@ -29,6 +29,9 @@ _TODO Introduce a [Makefile like this](https://github.com/iximiuz/docker-to-linu
 It can launc a default lightweight fast starting one, or your custom kind of VM built using the tools above.
 This VM has access to all files under the current working directory of the host on a `/work` mount,
 but none outside of it. This is a safer alternative to `sudo` and non-rootless containers.
+_TODO Study [systemd-machined](https://www.freedesktop.org/software/systemd/man/systemd-machined.service.html#)
+and [podman machine](https://docs.podman.io/en/latest/markdown/podman-machine.1.html); also note
+the (now deprecated) [boot2podman](https://github.com/boot2podman/boot2podman)._
 
 `suco ...`, like `sudo`, runs the remaining arguments inside a `--privileged --cap-add SYS_ADMIN` container.
 _(TODO This may never get implemented. As far as I understand, this is basically inherently insecure, by design?)_

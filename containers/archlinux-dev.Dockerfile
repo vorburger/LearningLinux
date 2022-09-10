@@ -1,4 +1,4 @@
-FROM archlinux
+FROM index.docker.io/library/archlinux:latest
 
 RUN pacman --noconfirm -Syu
 
