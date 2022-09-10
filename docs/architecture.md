@@ -4,9 +4,14 @@ _TODO Make this the repo's root README, once this is actually fully implemented 
 
 ## Linux Distro Tools
 
+`arch-install` (and similar future scripts) create the root FS in a directory on the host.
+
+`run-dir` runs a directory with a root FS (including a Kernel+initrd in its `/boot`) with KVM.
+
 `build-tgz` _(TBD)_ builds a userland root filesystem from a `Dockerfile`[^containerfile].
 We prepare it in `/mnt`, to separate it from the build container to avoid[^hostfs] conflicts,
 and then export that as a `tgz`. This cannot be booted on bare metal. (This tool runs rootless[^root].)
+__This is a PITA; see e.g. [archlinux-pacstrap.Dockerfile](../containers/archlinux-pacstrap.Dockerfile).__
 
 `run-tgz` _(TBD)_ extracts _(TODO cached)_ a `tgz`'s Kernel+initrd from `/boot` to 2 local files,
 and the remaining files to a disk image (without boot loader), and runs this using `qemu -kernel ... -initrd ...`.

@@ -2,8 +2,8 @@
 # https://wiki.archlinux.org/index.php/Installation_guide
 set -euox pipefail
 
-pacstrap /mnt base linux linux-firmware openssh syslinux nano which git
-# archiso qemu-headless edk2-ovmf
+pacstrap /mnt base linux openssh syslinux nano which git
+# archiso qemu-headless edk2-ovmf linux-firmware
 
 # genfstab -U /mnt >> /mnt/etc/fstab
 cat <<EOT >>/mnt/etc/fstab
