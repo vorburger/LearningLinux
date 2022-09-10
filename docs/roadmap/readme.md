@@ -5,19 +5,16 @@ _See also [what's done](done.md), as well as the [TODO](../todo.md) for a more "
 
 ## Arch ⩓ Kube :wheel_of_dharma:
 
+1. first baremetal install - easy, now -- or is it, with x2 USB keys for Arch ISO & cloud-init; git clone and launch?
+
+1. Something like `dinstall` from https://github.com/vorburger/LearningLinux/compare/WIP-arch-iso-dinstall
+   to install from USB to persistent bare-metal. But test it in VM first.
+
 1. Few `kubeadm join` Vagrant VMs, with different hostnames, on same subnet, form a working Kube cluster
 
 1. [Cluster API-based](https://cluster-api.sigs.k8s.io) machine management, notably [CABPK](https://cluster-api.sigs.k8s.io/tasks/kubeadm-bootstrap.html)
 
 1. Host & [Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/) work out-of-the-box
-
-1. installer script using ArchISO with cloud-init instead of using arch-boxes cloud image
-   (when its released tomorrow on Feb 1st; else need to build in VM and scp out of it),
-   tested using https://gitlab.archlinux.org/archlinux/archiso/-/issues/93,
-   basically just cleaning up https://github.com/vorburger/LearningLinux/tree/develop/archlinux;
-   ditch custom ISO idea?  Remove https://github.com/vorburger/LearningLinux/compare/WIP-arch-iso-dinstall?
-
-1. first baremetal install - easy, now -- or is it, with x2 USB keys for Arch ISO & cloud-init; git clone and launch?
 
 1. Service, LoadBalancer, Ingress.. how to expose on LAN and external public IP?!  VIIP? (HAProxy? [seesaw](https://github.com/google/seesaw)?)
 
