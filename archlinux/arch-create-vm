@@ -32,12 +32,18 @@ qemu-system-x86_64 \
 # see https://github.com/vorburger/vorburger.ch-Notes/blob/develop/linux/systemd-analyze.md
 sleep 60
 
-sshpass -p arch scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=60 arch-install* arch@localhost:
-sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo bash ./arch-install-sda-mnt
+# TODO make ssh() + scp() local bash functions instead of this
+sshpass -p arch ssh -p 2222 -o PubkeyAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost \
+    'bash -c "mkdir -p .ssh/ && chmod 700 .ssh/"'
+sshpass -p arch scp -P 2222 -o PubkeyAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $HOME/.ssh/authorized_keys arch@localhost:.ssh/
+sshpass -p arch ssh -p 2222 -o PubkeyAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost 'sudo bash -c "mkdir -p /root/.ssh/ && chmod 700 /root/.ssh/ && cp /home/arch/.ssh/authorized_keys /root/.ssh/"'
 
-sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo umount -R /mnt
+sshpass -p arch scp -P 2222 -o PubkeyAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch-install* arch@localhost:
+sshpass -p arch ssh -p 2222 -o PubkeyAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo bash ./arch-install-sda-mnt
 
-sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo shutdown now || true
+sshpass -p arch ssh -p 2222 -o PubkeyAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo umount -R /mnt
+
+sshpass -p arch ssh -p 2222 -o PubkeyAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo shutdown now || true
 sleep 3
 
 ./start $1
