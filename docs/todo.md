@@ -2,13 +2,16 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 New
 
-1. Implement the [Architecture](architecture.md);
-   replacing https://github.com/vorburger/LearningLinux/tree/develop/archlinux by [creating FS in container](https://wiki.archlinux.org/title/Install_Arch_Linux_via_Docker), and boot .img in qemu, like on https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md (cp Kernel from /boot in .img, later mounted separately)
+1. Clean doc by mv archiso stuff from archlinux/ to docs/
+1. Clean-up duplications in this repo, implement the [Architecture](architecture.md) consistently.
+
+1. Try `pacstrap -N` instead sudo on Fedora 36 (on Fedora 34: "unshare: unrecognized option '--map-auto'").
 
 1. Build a distro which allows to "dogfood" the [Architecture](architecture.md)
 1. Make this distro have a read-only root filesystem, and writable ephemeral /var and /home etc.
    on another volume. Remember systemd does some one-time first boot initialization - how, stored where?
 1. Make this distro entirely completely uterly rootless - sudo is impossible!!
+1. Remove pacman completely, incl. sudo rm rootfs/var/cache/pacman/pkg/*
 
 1. Unify `run-serial` and `run-gtk` into a `run serial | gtk [linux | bios | uefi]`
 1. Try UEFI with uefistub... needs https://wiki.archlinux.org/title/Unified_kernel_image ?
@@ -29,10 +32,9 @@ New
 
 First
 
+* ssh "harden", like on https://github.com/vorburger/vorburger-dotfiles-bin-etc/blob/master/container/sshd/Dockerfile, or https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md#build-an-arch-linux-rootfs
 * https://wiki.archlinux.org/index.php/Security#SSH
 * https://wiki.archlinux.org/index.php/OpenSSH#Deny
-
-* readonly root filesystem!
 
 * new _archlinux-cn_ repo, with initial text from Notes/ToDo/MyOS.md
 

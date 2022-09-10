@@ -30,13 +30,6 @@ The `arch-install` copies `~[vorburger]/.ssh/authorized_keys` from the host it r
 
      bin/ssh-2222
 
-TODO:
-
-1. mv archiso stuff below to Archive/
-1. ssh "harden", like on dotfiles, or https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md#build-an-arch-linux-rootfs
-1. remove pacman completely, incl. sudo rm rootfs/var/cache/pacman/pkg/*
-1. Try `pacstrap -N` instead sudo on Fedora 36 (on Fedora 34: "unshare: unrecognized option '--map-auto'").
-
 
 ## Create OS Image using a VM
 
