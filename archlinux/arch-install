@@ -2,17 +2,6 @@
 # https://wiki.archlinux.org/index.php/Installation_guide
 set -euox pipefail
 
-pacman -Sy --noconfirm arch-install-scripts parted
-
-# TODO mklabel gpt
-parted --script /dev/sda \
-    mklabel msdos \
-    mkpart primary ext4 0G 100%
-
-mkfs.ext4 /dev/sda1
-
-mount /dev/sda1 /mnt
-
 pacstrap /mnt base linux linux-firmware openssh syslinux nano which git
 # archiso qemu-headless edk2-ovmf
 

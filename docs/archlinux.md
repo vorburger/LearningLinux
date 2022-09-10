@@ -2,7 +2,9 @@
 
 This is for "my own distro"; whereas [archinstall](archinstall.md) documents a "normal install".
 
-## Create Initial VM
+## Create OS Image using a VM
+
+This is currently slow (sleeps 60s) due to [this bug](https://gitlab.archlinux.org/archlinux/arch-boxes/-/issues/153), see [this post](https://github.com/vorburger/vorburger.ch-Notes/blob/develop/linux/systemd-analyze.md):
 
     ./arch-create ~/VM-Disks/arch1
 
@@ -14,6 +16,7 @@ This is for "my own distro"; whereas [archinstall](archinstall.md) documents a "
 
 TODO:
 
+1. use pacstrap on host, without VM?
 1. use Reflector, like on https://github.com/vorburger/LearningLinux/compare/pacstrap-from-container?expand=1
 1. boot using `qemu -kernel` as on https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md
    Obtaining bzImage extracted from container like on https://github.com/vorburger/LearningLinux/compare/pacstrap-from-container?expand=1

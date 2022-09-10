@@ -1,7 +1,9 @@
 *.log
 *.gz
 *.iso
+*.cow
 *.qcow2
+*.SHA256
 meta-data
 user-data
 .vagrant/

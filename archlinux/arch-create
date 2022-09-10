@@ -28,10 +28,12 @@ qemu-system-x86_64 \
 
 # NB: It's pointless to await port 2222 (e.g. à la https://stackoverflow.com/a/70985361/421602),
 # because QEMU is immediately forwarding it already anyway - even if the VM isn't actually listening, yet.
-sleep 3
+# 60s because of https://gitlab.archlinux.org/archlinux/arch-boxes/-/issues/153
+# see https://github.com/vorburger/vorburger.ch-Notes/blob/develop/linux/systemd-analyze.md
+sleep 60
 
 sshpass -p arch scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=60 arch-install* arch@localhost:
-sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo bash ./arch-install
+sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo bash ./arch-install-sda-mnt
 
 sshpass -p arch ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null arch@localhost sudo umount -R /mnt
 
