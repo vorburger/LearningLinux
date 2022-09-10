@@ -27,7 +27,6 @@ and, more interestingly, for our custom new Linux distro:
 
 TODO:
 
-1. run: Open window, not console. Later: Just run in backgroud and log to a file?
 1. Fix: arch-install's + cp arch-install-chroot /mnt/
    cp: cannot stat 'arch-install-chroot': No such file or directory
 1. Actually target directory in arch-install, mkdir it, and change /mnt/ to /tmp/pacstrap/, instead of hard-coded /mnt/

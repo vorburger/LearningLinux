@@ -6,14 +6,15 @@ New
    replacing https://github.com/vorburger/LearningLinux/tree/develop/archlinux by [creating FS in container](https://wiki.archlinux.org/title/Install_Arch_Linux_via_Docker), and boot .img in qemu, like on https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md (cp Kernel from /boot in .img, later mounted separately)
 
 1. Build a distro which allows to "dogfood" the [Architecture](architecture.md)
+1. Make this distro have a read-only root filesystem, and writable ephemeral /var and /home etc.
+   on another volume. Remember systemd does some one-time first boot initialization - how, stored where?
 1. Make this distro entirely completely uterly rootless - sudo is impossible!!
-1. Make this distro have a read-only root filesystem, and writable ephemeral /var and /home etc. on another volume
 
 1. Try UEFI with uefistub... needs https://wiki.archlinux.org/title/Unified_kernel_image ?
 1. Try [booster](https://wiki.archlinux.org/title/Booster)
 1. Try [pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore) from qemu
 1. Test automation with... bash? ch.vorburger.exec? https://github.com/anatol/vmtest?
-
+   See also https://fadeevab.com/how-to-setup-qemu-output-to-console-and-automate-using-shell-script.
 1. Check out https://github.com/libguestfs/supermin/blob/master/examples/build-basic-vm.sh ?
 
 
