@@ -20,10 +20,11 @@ EOT
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# NB syslinux.cfg must be cp BEFORE syslinux-install_update runs (in arch-install-chroot)
+cp $SCRIPT_DIR/arch-install-syslinux.cfg $1/boot/syslinux/syslinux.cfg
+cp $SCRIPT_DIR/arch-install-20-ethernet.network $1/etc/systemd/network/
+
 cp $SCRIPT_DIR/arch-install-chroot $1
 chmod +x $1/arch-install-chroot
 arch-chroot $1 ./arch-install-chroot
 rm $1/arch-install-chroot
-
-cp $SCRIPT_DIR/arch-install-syslinux.cfg $1/boot/syslinux.cfg
-cp $SCRIPT_DIR/arch-install-20-ethernet.network $1/etc/systemd/network/

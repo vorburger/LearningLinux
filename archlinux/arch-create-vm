@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 set -euox pipefail
 
+# TODO Build and use my own minimal faster arch builder VM image
 # https://gitlab.archlinux.org/archlinux/arch-boxes
 if [ ! -f Arch-Linux-x86_64-basic.qcow2 ]; then
   curl -fSL# https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 \
