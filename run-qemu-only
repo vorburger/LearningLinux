@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euox pipefail
 
+# TODO @Deprecated Replace caller with the newer ./run script, and delete this.
+
 qemu-system-x86_64 \
     -nodefaults -no-user-config \
     -enable-kvm  -cpu host  -m 2048  -smp 2 \

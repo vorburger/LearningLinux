@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euox pipefail
+
+# TODO Eventually merge this with the older run-qemu-only, and delete that one.
+# But NB it has an --append which we do not need here, and must use rdinit= instead of init= for -initrd!
+
+# Args Input (removes trailing slash)
+DIR="${1%/}"
+
+# Internal (must match build-image's)
+NAME=$(basename "$DIR")
+TARGET="$DIR/../"
+KERNEL="$TARGET/$NAME.kernel"
+INITRD="$TARGET/$NAME.initrd.img"
+IMAGE="$DIR.img"
+
+qemu-system-x86_64 \
+    -nodefaults -no-user-config \
+    -enable-kvm  -cpu host  -m 512  -smp 2 \
+    -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
+    -serial stdio  -nographic  -display none \
+    -kernel "$KERNEL"  -append " console=ttyS0 rdinit=/init root=/dev/sda rw debug earlyprintk=serial"  -initrd "$INITRD" \
+    -drive file="$IMAGE",format=raw
+
+#    -display gtk,zoom-to-fit=on \
+#    -append "root=/dev/ram ???"
+#    -serial stdio  -nographic  -display none \
+
+# TODO How to open window? Or, better, just run in backgroud and log to a file?

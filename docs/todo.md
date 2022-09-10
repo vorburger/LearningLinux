@@ -13,6 +13,8 @@ New
 1. Try [pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore) from qemu
 1. Test automation with... bash? ch.vorburger.exec? https://github.com/anatol/vmtest?
 
+1. Check out https://github.com/libguestfs/supermin/blob/master/examples/build-basic-vm.sh ?
+
 
 [ArchInstall](archinstall.md)
 

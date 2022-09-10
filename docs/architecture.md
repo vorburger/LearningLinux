@@ -4,29 +4,34 @@ _TODO Make this the repo's root README, once this is actually fully implemented 
 
 ## Linux Distro Tools
 
-`arch-install` (and similar future scripts) create the root FS in a directory on the host.
+`arch-install` (and similar scripts; e.g. `debootstrap`) create the root FS in a directory on the host.
+These tools usually require to run as root[^root] (but note `pacstrap -N`), and produce a directory
+tree with files owned by root, and some but not all files readable rootless.
 
-`run-dir` runs a directory with a root FS (including a Kernel+initrd in its `/boot`) with KVM.
+`build-image` builds QEMU disk images from such a root FS directory. This tool needs to run as root[^root].
+One of its arguments is the UID of a non-root user which will own the built disk image.
+It also copies the `/boot` Kernel and `initramfs` to files owned by the non-root user.
 
-`build-tgz` _(TBD)_ builds a userland root filesystem from a `Dockerfile`[^containerfile].
-We prepare it in `/mnt`, to separate it from the build container to avoid[^hostfs] conflicts,
-and then export that as a `tgz`. This cannot be booted on bare metal. (This tool runs rootless[^root].)
-__This is a PITA; see e.g. [archlinux-pacstrap.Dockerfile](../containers/archlinux-pacstrap.Dockerfile).__
-
-`run-tgz` _(TBD)_ extracts _(TODO cached)_ a `tgz`'s Kernel+initrd from `/boot` to 2 local files,
-and the remaining files to a disk image (without boot loader), and runs this using `qemu -kernel ... -initrd ...`.
+`run` runs such an image (without boot loader) with KVM using `qemu* -kernel ... -initrd ...`.
 (This tool runs rootless[^root].)
 
-`build-syslinux-bios` _(TBD)_ converts _(TODO cached)_ a `tgz` to a disk image with Syslinux for BIOS as the boot loader. This image can then be booted on bare metal or in a VM. (This tool requires root[^root].)
+`build-syslinux-bios` _(TBD)_ converts a disk image to another image with Syslinux for BIOS as the boot loader.
+This image can then be booted on bare metal or in a VM. (This tool requires root[^root].)
 
 `run-bios` _(TBD)_ runs a disk image with a BIOS launching a boot loader in a KVM VM.
 
-`build-efistub` _(TBD)_ converts _(TODO cached)_ a `tgz` to a disk image with an ESP[^ESP].
+`build-efistub` _(TBD)_ converts a disk image to another image with an ESP[^ESP].
 
 `run-uefi` _(TBD)_ runs a disk image with an ESP[^ESP] with UEFI in a KVM VM.
 
 _TODO Introduce a [Makefile like this](https://github.com/iximiuz/docker-to-linux/blob/master/Makefile) with targets for each command above, and respective dependencies, so that e.g. `make run xxx` builds and runs.
 (Or use `bazel` for this? Or start `be`?)_
+
+**LATER? Never??** ~~`build-tgz`~~ _(TBD)_ builds a userland root filesystem from a `Dockerfile`[^containerfile].
+We prepare it in `/mnt`, to separate it from the build container to avoid[^hostfs] conflicts,
+and then export that as a `tgz`. This cannot be booted on bare metal. (This tool runs rootless[^root].)
+__This is a PITA; see e.g. [archlinux-pacstrap.Dockerfile](../containers/archlinux-pacstrap.Dockerfile).__
+
 
 ## Root Tools
 

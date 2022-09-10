@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 set -euox pipefail
 
+# mv archlinux/start ../run-bios  because that's what this really is
+
 # TMP=$1.tmp
 # if [ ! -f $TMP ]; then
 #  qemu-img create -f raw $TMP 10G

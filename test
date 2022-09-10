@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euox pipefail
+
+shellcheck run
+# TODO add all others scripts here, once they pass shellcheck
+
+# TODO test archlinux - once it's possible without sudo?
+
+# TODO test.tcl?

@@ -16,13 +16,14 @@ or (better) install the latest from source: Install its own pre-requisites with 
 then `git clone git@github.com:archlinux/arch-install-scripts.git` and `sudo make install` that.
 You also need to `sudo pacman-key --init && sudo pacman-key --populate archlinux`. Now you can:
 
-    sudo pacstrap /tmp/pacstrap/ base linux
-    ../run-dir /tmp/pacstrap/
+    mkdir /tmp/pacstrap && sudo pacstrap /tmp/pacstrap/ base linux
+    sudo ../build-image /tmp/pacstrap vorburger:vorburger
+    ../run /tmp/pacstrap
 
-or, for our custom one:
+or, for our custom new Linux distro:
 
-    sudo ./arch-install ./BUILD/
-    ../run-dir ./BUILD/
+    sudo ./arch-install ./BUILD
+    ../run ./BUILD
 
 TODO:
 
