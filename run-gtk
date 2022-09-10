@@ -14,17 +14,11 @@ KERNEL="$TARGET/$NAME.kernel"
 INITRD="$TARGET/$NAME.initrd.img"
 IMAGE="$DIR.img"
 
-export KERNEL INITRD IMAGE
-gnome-terminal -- bash -c '\
-  qemu-system-x86_64 \
+qemu-system-x86_64 \
     -nodefaults -no-user-config \
     -enable-kvm  -cpu host  -m 512  -smp 2 \
     -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
-    -serial stdio  -nographic  -display none \
+    -display gtk,zoom-to-fit=on \
     -kernel "$KERNEL"  -append " console=ttyS0 rdinit=/init root=/dev/sda rw debug earlyprintk=serial" \
     -initrd "$INITRD" \
-    -drive file="$IMAGE",format=raw,index=0 ; \
-  read -p "Hi, $IMAGE QEMU has exited - press any key to close this window..."'
-
-#    -display gtk,zoom-to-fit=on \
-# Beware, this ^^^ does not work e.g. for the basic archlinux image - it's missing to init console?
+    -drive file="$IMAGE",format=raw,index=0

@@ -18,12 +18,12 @@ You also need to `sudo pacman-key --init && sudo pacman-key --populate archlinux
 
     mkdir /tmp/pacstrap && sudo pacstrap /tmp/pacstrap/ base linux
     sudo ../build-image /tmp/pacstrap vorburger:vorburger
-    ../run /tmp/pacstrap
+    ../run-serial /tmp/pacstrap
 
 and, more interestingly, for our custom new Linux distro:
 
     sudo ./arch-install ./BUILD
-    ../run ./BUILD
+    ../run-serial ./BUILD
 
 TODO:
 
