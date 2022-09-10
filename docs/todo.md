@@ -3,7 +3,7 @@ _see also [Roadmap](roadmap/) & GTasks!_
 New
 
 1. Clean-up duplications in this repo, implement the [Architecture](architecture.md) consistently.
-1. Re-add https://github.com/vorburger/LearningLinux/blob/develop/archlinux/iso/packages.x86_64 to new VM
+1. Re-add https://github.com/vorburger/LearningLinux/blob/develop/archlinux/iso/packages.x86_64 to a new (!) image
 1. Try `pacstrap -N` instead sudo on Fedora 36 (on Fedora 34: "unshare: unrecognized option '--map-auto'").
 
 1. Build a distro which allows to "dogfood" the [Architecture](architecture.md)
