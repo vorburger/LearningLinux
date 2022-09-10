@@ -2,21 +2,23 @@
 # https://wiki.archlinux.org/index.php/Installation_guide
 set -euox pipefail
 
-pacstrap /mnt base linux openssh syslinux nano which git
+mkdir -p $1
+
+pacstrap $1 base linux openssh syslinux nano which git
 # archiso qemu-headless edk2-ovmf linux-firmware
 
-# genfstab -U /mnt >> /mnt/etc/fstab
-cat <<EOT >>/mnt/etc/fstab
+# genfstab -U $1 >> $1/etc/fstab
+cat <<EOT >>$1/etc/fstab
 /dev/sda1               /               ext4            rw,relatime     0 1
 EOT
 # /dev/sdb1               /tmp            ext4            rw,relatime     0 2
 
-# cp -r /root/.ssh /mnt/root/
+# cp -r /root/.ssh $1/root/
 
-cp arch-install-chroot /mnt/
-chmod +x /mnt/arch-install-chroot
-arch-chroot /mnt ./arch-install-chroot
-rm /mnt/arch-install-chroot
+cp arch-install-chroot $1
+chmod +x $1/arch-install-chroot
+arch-chroot $1 ./arch-install-chroot
+rm $1/arch-install-chroot
 
-cp arch-install-syslinux.cfg /mnt/boot/syslinux.cfg
-cp arch-install-20-ethernet.network /mnt/etc/systemd/network/
+cp arch-install-syslinux.cfg $1/boot/syslinux.cfg
+cp arch-install-20-ethernet.network $1/etc/systemd/network/

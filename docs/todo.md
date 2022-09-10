@@ -10,6 +10,7 @@ New
    on another volume. Remember systemd does some one-time first boot initialization - how, stored where?
 1. Make this distro entirely completely uterly rootless - sudo is impossible!!
 
+1. Unify `run-serial` and `run-gtk` into a `run serial | gtk [linux | bios | uefi]`
 1. Try UEFI with uefistub... needs https://wiki.archlinux.org/title/Unified_kernel_image ?
 1. Try [booster](https://wiki.archlinux.org/title/Booster)
 1. Try [pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore) from qemu

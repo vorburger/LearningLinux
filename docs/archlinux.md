@@ -29,7 +29,6 @@ TODO:
 
 1. Fix: arch-install's + cp arch-install-chroot /mnt/
    cp: cannot stat 'arch-install-chroot': No such file or directory
-1. Actually target directory in arch-install, mkdir it, and change /mnt/ to /tmp/pacstrap/, instead of hard-coded /mnt/
 1. ssh-copy-id from host into vm:/mnt/
 1. ssh from host into rebooted VM; doc how to ssh into VM.
 1. mv archiso stuff below to Archive/
