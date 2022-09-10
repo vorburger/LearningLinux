@@ -9,6 +9,7 @@ New
 1. Make this distro entirely completely uterly rootless - sudo is impossible!!
 1. Make this distro have a read-only root filesystem, and writable ephemeral /var and /home etc. on another volume
 
+1. Try UEFI with uefistub... needs https://wiki.archlinux.org/title/Unified_kernel_image ?
 1. Try [booster](https://wiki.archlinux.org/title/Booster)
 1. Try [pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore) from qemu
 1. Test automation with... bash? ch.vorburger.exec? https://github.com/anatol/vmtest?

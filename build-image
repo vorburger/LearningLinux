@@ -16,7 +16,7 @@ INITRD="$TARGET/$NAME.initrd.img"
 
 # cp Kernel & InitFS + chown it
 cp "$DIR/boot/vmlinuz-linux" "$KERNEL"
-cp "$DIR/boot/initramfs-linux.img" "$INITRD"
+cp "$DIR/boot/initramfs-linux-fallback.img" "$INITRD"
 chown "$UID_GID" "$KERNEL" "$INITRD"
 
 # Create Raw Disk Image from DIR
@@ -24,13 +24,14 @@ chown "$UID_GID" "$KERNEL" "$INITRD"
 # to avoids needing to be root, because it leaks /dev/loop* devices if script fails; and (more importantly) is async and timing is PITA.
 # Neither libguestfs's guestmount, or gnome-disk-image-mounter; both https://askubuntu.com/questions/670701/how-to-mount-an-image-file-without-root.
 # NB: We don't need losetup, as in https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md#build-an-arch-linux-rootfs, as directory exists already.
-SIZE=$(expr $(du -bs "$DIR" | cut -f1) "*" 2)
+SIZE_APPROXIMATION=$(du -bs "$DIR" | cut -f1)
+SIZE=$(( "$SIZE_APPROXIMATION" * 2 ))
 rm -f "$IMAGE"
 truncate -s "$SIZE" "$IMAGE"
 mkfs.ext4 -v -L LinuxRootFS -F "$IMAGE"
 MOUNT="$DIR.mnt"
 mount "$IMAGE" "$MOUNT"
-cp -rpa $DIR/* "$MOUNT"
+cp -rpa "$DIR"/* "$MOUNT"
 umount "$MOUNT"
 # rmdir "$MOUNT" can cause "Device or resource busy"
 chown "$UID_GID" "$IMAGE"

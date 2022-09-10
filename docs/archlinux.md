@@ -20,20 +20,19 @@ You also need to `sudo pacman-key --init && sudo pacman-key --populate archlinux
     sudo ../build-image /tmp/pacstrap vorburger:vorburger
     ../run /tmp/pacstrap
 
-or, for our custom new Linux distro:
+and, more interestingly, for our custom new Linux distro:
 
     sudo ./arch-install ./BUILD
     ../run ./BUILD
 
 TODO:
 
-1. boot using `qemu -kernel` as on https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md
-   Obtaining bzImage extracted from container like on https://github.com/vorburger/LearningLinux/compare/pacstrap-from-container?expand=1
-1. Fix: + cp arch-install-chroot /mnt/
+1. run: Open window, not console. Later: Just run in backgroud and log to a file?
+1. Fix: arch-install's + cp arch-install-chroot /mnt/
    cp: cannot stat 'arch-install-chroot': No such file or directory
 1. Actually target directory in arch-install, mkdir it, and change /mnt/ to /tmp/pacstrap/, instead of hard-coded /mnt/
 1. ssh-copy-id from host into vm:/mnt/
-1. ssh from host into rebooted VM
+1. ssh from host into rebooted VM; doc how to ssh into VM.
 1. mv archiso stuff below to Archive/
 1. ssh "harden", like on dotfiles, or https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md#build-an-arch-linux-rootfs
 1. remove pacman completely, incl. sudo rm rootfs/var/cache/pacman/pkg/*

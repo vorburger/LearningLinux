@@ -20,10 +20,8 @@ qemu-system-x86_64 \
     -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
     -serial stdio  -nographic  -display none \
     -kernel "$KERNEL"  -append " console=ttyS0 rdinit=/init root=/dev/sda rw debug earlyprintk=serial"  -initrd "$INITRD" \
-    -drive file="$IMAGE",format=raw
+    -drive file="$IMAGE",format=raw,index=0
 
 #    -display gtk,zoom-to-fit=on \
 #    -append "root=/dev/ram ???"
 #    -serial stdio  -nographic  -display none \
-
-# TODO How to open window? Or, better, just run in backgroud and log to a file?
