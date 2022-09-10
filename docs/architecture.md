@@ -53,7 +53,7 @@ _TODO Once implemented, and root checks are added to start of the tool, both req
 
 ## File Formats
 
-* `tgz` is the `/mnt` directory from a container image (`docker export`, not `save`).
+* Unused: ~~`tgz`~~ is the `/mnt` directory from a container image (`docker export`, not `save`).
   It contains a Kernel and `initrd` in `/boot`, and a "userland" in `/`.
   This is not a "disk" or a "partition" nor a "filesystem".
 
