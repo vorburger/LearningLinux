@@ -6,7 +6,7 @@ This is for "my own distro"; whereas [archinstall](archinstall.md) documents a "
 
 This is currently slow (sleeps 60s) due to [this bug](https://gitlab.archlinux.org/archlinux/arch-boxes/-/issues/153), see [this post](https://github.com/vorburger/vorburger.ch-Notes/blob/develop/linux/systemd-analyze.md):
 
-    ./arch-create ~/VM-Disks/arch1
+    ./arch-create-vm ~/VM-Disks/arch1
 
 
 ## Launch and enter Initial VM
