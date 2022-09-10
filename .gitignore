@@ -2,7 +2,6 @@
 *.gz
 *.iso
 *.img
-*.cow
 *.qcow2
 *.SHA256
 meta-data

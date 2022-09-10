@@ -7,9 +7,9 @@ if [ ! -f Arch-Linux-x86_64-basic.qcow2 ]; then
           -o Arch-Linux-x86_64-basic.qcow2
 fi
 
-rm -f Arch-Linux-x86_64-basic_OVERLAY.cow && \
+rm -f Arch-Linux-x86_64-basic_OVERLAY.qcow2 && \
   qemu-img create -o backing_file=Arch-Linux-x86_64-basic.qcow2,backing_fmt=qcow2 \
-  -f qcow2 Arch-Linux-x86_64-basic_OVERLAY.cow
+  -f qcow2 Arch-Linux-x86_64-basic_OVERLAY.qcow2
 
 # TODO truncate instead dd?
 # TODO? dd if=/dev/zero of=rootfs.raw bs=1G count=1
@@ -22,7 +22,7 @@ qemu-system-x86_64 \
      -enable-kvm  -cpu host  -m 2047  -smp 2 \
      -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
      -drive file=$1,format=raw,index=0 \
-     -drive file=Arch-Linux-x86_64-basic_OVERLAY.cow,index=1,if=none,id=disk2 \
+     -drive file=Arch-Linux-x86_64-basic_OVERLAY.qcow2,index=1,if=none,id=disk2 \
      -device virtio-blk-pci,drive=disk2,bootindex=1 &
 #    -cdrom ~/Downloads/archlinux-2020.12.01-x86_64.iso
 # https://www.qemu.org/docs/master/system/bootindex.html
