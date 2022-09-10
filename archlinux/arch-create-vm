@@ -3,7 +3,7 @@ set -euox pipefail
 
 # https://gitlab.archlinux.org/archlinux/arch-boxes
 if [ ! -f Arch-Linux-x86_64-basic.qcow2 ]; then
-  curl -fsSL https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 \
+  curl -fSL# https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 \
           -o Arch-Linux-x86_64-basic.qcow2
 fi
 
@@ -11,10 +11,8 @@ rm -f Arch-Linux-x86_64-basic_OVERLAY.qcow2 && \
   qemu-img create -o backing_file=Arch-Linux-x86_64-basic.qcow2,backing_fmt=qcow2 \
   -f qcow2 Arch-Linux-x86_64-basic_OVERLAY.qcow2
 
-# TODO truncate instead dd?
-# TODO? dd if=/dev/zero of=rootfs.raw bs=1G count=1
 mkdir -p "$(dirname $1)"
-rm -f $1 && qemu-img create -f raw $1 10G
+rm -f $1 && truncate -s 10G $1
 
 qemu-system-x86_64 \
      -no-user-config \
