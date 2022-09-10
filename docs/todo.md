@@ -2,10 +2,16 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 New
 
-1. Replace https://github.com/vorburger/LearningLinux/tree/develop/archlinux by [creating FS in container](https://wiki.archlinux.org/title/Install_Arch_Linux_via_Docker), and boot .img in qemu, like on https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md (cp Kernel from /boot in .img, later mounted separately)
+1. Implement the [Architecture](architecture.md);
+   replacing https://github.com/vorburger/LearningLinux/tree/develop/archlinux by [creating FS in container](https://wiki.archlinux.org/title/Install_Arch_Linux_via_Docker), and boot .img in qemu, like on https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md (cp Kernel from /boot in .img, later mounted separately)
+
+1. Build a distro which allows to "dogfood" the [Architecture](architecture.md)
+1. Make this distro entirely completely uterly rootless - sudo is impossible!!
+1. Make this distro have a read-only root filesystem, and writable ephemeral /var and /home etc. on another volume
+
 1. Try [booster](https://wiki.archlinux.org/title/Booster)
 1. Try [pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore) from qemu
-1. Test autoation with... bash? ch.vorburger.exec? https://github.com/anatol/vmtest?
+1. Test automation with... bash? ch.vorburger.exec? https://github.com/anatol/vmtest?
 
 
 [ArchInstall](archinstall.md)
