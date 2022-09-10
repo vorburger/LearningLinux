@@ -22,7 +22,7 @@ https://bugs.launchpad.net/cloud-utils/+bug/1912904
 2. start as per doc below
 
 3. `ssh -o StrictHostKeyChecking=no -o "UserKnownHostsFile /dev/null" -p 2222 localhost`
-
+   This will SSH to the VM into account named like the host's $USER (not root), which is what we want here.
 
 ### With ArchLinux
 

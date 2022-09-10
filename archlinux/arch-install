@@ -4,6 +4,11 @@ set -euox pipefail
 
 rm -rf $1 || true && mkdir -p $1
 
+# TODO Review this and think it through again...
+mkdir -p $1/root/.ssh
+cp -r /home/vorburger/.ssh/authorized_keys $1/root/.ssh/ ||
+          cp -r $HOME/.ssh/authorized_keys $1/root/.ssh/ || true
+
 pacstrap $1 base linux openssh syslinux nano which git
 # archiso qemu-headless edk2-ovmf linux-firmware
 
@@ -12,8 +17,6 @@ cat <<EOT >>$1/etc/fstab
 /dev/sda1               /               ext4            rw,relatime     0 1
 EOT
 # /dev/sdb1               /tmp            ext4            rw,relatime     0 2
-
-# cp -r /root/.ssh $1/root/
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 

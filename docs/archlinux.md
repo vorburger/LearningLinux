@@ -26,10 +26,12 @@ and, more interestingly, for our custom new Linux distro:
     sudo ../build-image ./BUILD vorburger:vorburger
     ../run-serial ./BUILD
 
+The `arch-install` copies `~[vorburger]/.ssh/authorized_keys` from the host it runs on into the VM image, so now:
+
+     bin/ssh-2222
+
 TODO:
 
-1. ssh-copy-id from host into vm:/mnt/
-1. ssh from host into rebooted VM; doc how to ssh into VM.
 1. mv archiso stuff below to Archive/
 1. ssh "harden", like on dotfiles, or https://github.com/anatol/vmtest/blob/master/docs/prepare_image.md#build-an-arch-linux-rootfs
 1. remove pacman completely, incl. sudo rm rootfs/var/cache/pacman/pkg/*
