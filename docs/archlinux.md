@@ -23,6 +23,7 @@ You also need to `sudo pacman-key --init && sudo pacman-key --populate archlinux
 and, more interestingly, for our custom new Linux distro:
 
     sudo ./arch-install ./BUILD
+    sudo ../build-image ./BUILD vorburger:vorburger
     ../run-serial ./BUILD
 
 TODO:
