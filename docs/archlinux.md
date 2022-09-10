@@ -27,8 +27,6 @@ and, more interestingly, for our custom new Linux distro:
 
 TODO:
 
-1. Fix: arch-install's + cp arch-install-chroot /mnt/
-   cp: cannot stat 'arch-install-chroot': No such file or directory
 1. ssh-copy-id from host into vm:/mnt/
 1. ssh from host into rebooted VM; doc how to ssh into VM.
 1. mv archiso stuff below to Archive/

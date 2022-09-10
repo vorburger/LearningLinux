@@ -11,7 +11,11 @@ systemctl enable sshd
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 
-syslinux-install_update -i -a -m
+# It's OK & expected for systlinux to fail if this script was
+# actually called directly from arch-install running on a host,
+# instead of via arch-create-vm where this runs in a chroot that is mounted on a separate drive.
+# TODO This will later be move to a new build-syslinux-bios script, see architecture.md
+syslinux-install_update -i -a -m || true
 
 echo "en_US.UTF-8 UTF-8" >>/etc/locale.gen
 locale-gen

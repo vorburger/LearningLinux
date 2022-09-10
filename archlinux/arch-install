@@ -2,7 +2,7 @@
 # https://wiki.archlinux.org/index.php/Installation_guide
 set -euox pipefail
 
-mkdir -p $1
+rm -rf $1 || true && mkdir -p $1
 
 pacstrap $1 base linux openssh syslinux nano which git
 # archiso qemu-headless edk2-ovmf linux-firmware
@@ -15,10 +15,12 @@ EOT
 
 # cp -r /root/.ssh $1/root/
 
-cp arch-install-chroot $1
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+cp $SCRIPT_DIR/arch-install-chroot $1
 chmod +x $1/arch-install-chroot
 arch-chroot $1 ./arch-install-chroot
 rm $1/arch-install-chroot
 
-cp arch-install-syslinux.cfg $1/boot/syslinux.cfg
-cp arch-install-20-ethernet.network $1/etc/systemd/network/
+cp $SCRIPT_DIR/arch-install-syslinux.cfg $1/boot/syslinux.cfg
+cp $SCRIPT_DIR/arch-install-20-ethernet.network $1/etc/systemd/network/
