@@ -68,7 +68,7 @@ expect {
 puts "\n\n"
 }
 
-spawn ./run-dev
+spawn ./run-dev-container
 expect {
   "tux@kernel-dev ~]$ " {
     send "exit\n"

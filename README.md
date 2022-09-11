@@ -21,7 +21,7 @@ as initrd.  You can quit it using `poweroff -f`.  Also see [networking](docs/net
 
 1. The `/tmp/bzImage-busybox-init.img` disk image can be written to a USB key (e.g. using `dd`, or, easier, GNOME Disks), and will boot on bare metal.
 
-1. [`./run-dev`](./run-dev) will run an interactive dev container to explore `[tux@kernel-dev ~]`.
+1. [`./run-dev-container`](./run-dev-container) will run an interactive dev container to explore `[tux@kernel-dev ~]`.
 Its root password is empty, so you can e.g. `sudo dnf install -y ..`, but it's (intentionally) ephemeral - script it! ;)
 
 1. [`./test.tcl`](./test.tcl) automatically tests everything that's described above; run it after making any changes (and extend it when adding new features).
