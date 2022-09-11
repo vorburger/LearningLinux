@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Args Input (removes trailing slash)
+DIR="${1%/}"
+
+# Internal (must match build-image & image2initrd)
+IMAGE="$DIR.img"
+
+
+
+qemu-system-x86_64 \
+    -nodefaults -no-user-config \
+    -enable-kvm  -cpu host  -m 512  -smp 2 \
+    -nic user,net=10.0.99.0/24,model=virtio,hostfwd=tcp::2222-:22,hostfwd=tcp::5900-:5900,ipv6=off \
+    -serial stdio  -nographic  -display none \
+    -drive file="$IMAGE",format=raw,index=0 &
