@@ -76,6 +76,8 @@ Later
 
 Dev
 
+* https://github.com/cirosantilli/linux-kernel-module-cheat/
+
 * read https://0xax.gitbooks.io/linux-insides/content/
 * read https://tldp.org/HOWTO/Linux-i386-Boot-Code-HOWTO/index.html
 
