@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # TODO Eventually merge this with the older run-qemu-only, and delete that one.
-# But NB it has an --append which we do not need here, and must use rdinit= instead of init= for -initrd!
+# But NB it needs root=/dev/ram instead of root=/dev/sda.
 
 # Args Input (removes trailing slash)
 DIR="${1%/}"
@@ -25,3 +25,5 @@ gnome-terminal -- bash -c '\
     -initrd "$INITRD" \
     -drive file="$IMAGE",format=raw,index=0 ; \
   read -p "Hi, $IMAGE QEMU has exited - press any key to close this window..."'
+
+# NB: We must use rdinit= instead of init= for -initrd!
