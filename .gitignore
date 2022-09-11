@@ -3,6 +3,8 @@
 *.iso
 *.img
 *.qcow2
+*.kernel
+*.initrd
 *.SHA256
 meta-data
 user-data

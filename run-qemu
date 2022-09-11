@@ -7,11 +7,14 @@ podman build -t kernel-qemu     -f containers/kernel-qemu.Dockerfile     /tmp
 
 # Copy Kernel out of container image (by briefly running the container; TODO how to copy out of an image without run?)
 podman run --detach --name kernel-qemu-cp kernel-qemu
-podman cp kernel-qemu-cp:/home/tux/linux-stable/arch/x86/boot/bzImage /tmp/
+podman cp kernel-qemu-cp:/home/tux/linux-stable/arch/x86/boot/bzImage "$1.kernel"
 podman rm --force kernel-qemu-cp
 
 # Prepare InitRD (from container image which was created in `./build`)
-./image2initrd $1
+./image2initrd "$1"
+
+# Create empty (0 bytes) disk image file (we don't need it here, but run-serial requires one)
+touch "$1.img"
 
 # Actually run Kernel + InitRD
-./run-qemu-only $1-initrd.gz
+./run-serial "$1"

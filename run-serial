@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# TODO Eventually merge this with the older run-qemu-only, and delete that one.
-# But NB it needs root=/dev/ram instead of root=/dev/sda.
-
 # Args Input (removes trailing slash)
 DIR="${1%/}"
 
-# Internal (must match build-image's)
-NAME=$(basename "$DIR")
-TARGET="$DIR/../"
-KERNEL="$TARGET/$NAME.kernel"
-INITRD="$TARGET/$NAME.initrd.img"
+# Internal (must match build-image & image2initrd)
+KERNEL="$DIR.kernel"
+INITRD="$DIR.initrd"
 IMAGE="$DIR.img"
 
 export KERNEL INITRD IMAGE

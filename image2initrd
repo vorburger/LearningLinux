@@ -2,13 +2,13 @@
 set -euox pipefail
 
 TAR="$(dirname "$0")"/$1.tgz
-CPIO="$(dirname "$0")"/$1-initrd.gz
+INITRD="$(dirname "$0")"/$1.initrd
 
 # Extract container image to directory (through temporary non-running container)
 ID=$(podman create $1)
 podman export $ID | gzip > $TAR
 podman rm $ID
 
-fakeroot ./image2initrd-fakeroot $TAR $CPIO
+fakeroot ./image2initrd-fakeroot $TAR $INITRD
 
-echo "Initial RAM Disk CPIO archive written to $CPIO"
+echo "Initial RAM Disk CPIO archive written to $INITRD"

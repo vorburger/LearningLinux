@@ -12,7 +12,7 @@ IMAGE="$DIR.img"
 # Internal (must match run's)
 NAME=$(basename "$DIR")
 KERNEL="$TARGET/$NAME.kernel"
-INITRD="$TARGET/$NAME.initrd.img"
+INITRD="$TARGET/$NAME.initrd"
 
 # cp Kernel & InitFS + chown it
 cp "$DIR/boot/vmlinuz-linux" "$KERNEL"
