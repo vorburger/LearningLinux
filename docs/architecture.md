@@ -32,7 +32,7 @@ _TODO Introduce a [Makefile like this](https://github.com/iximiuz/docker-to-linu
 **LATER? Never??** ~~`build-tgz`~~ _(TBD)_ builds a userland root filesystem from a `Dockerfile`[^containerfile].
 We prepare it in `/mnt`, to separate it from the build container to avoid[^hostfs] conflicts,
 and then export that as a `tgz`. This cannot be booted on bare metal. (This tool runs rootless[^root].)
-__This is a PITA; see e.g. [archlinux-pacstrap.Dockerfile](../containers/archlinux-pacstrap.Dockerfile).__
+__This is a PITA; see e.g. [archlinux-pacstrap.Dockerfile](../ARCHIVE/archlinux-pacstrap.Dockerfile).__
 
 
 ## Root Tools

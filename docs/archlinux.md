@@ -5,7 +5,7 @@ This is for "my own distro"; whereas [archinstall](archinstall.md) documents a "
 ## Create OS Image with a container
 
 This is a PITA / not (easily) possible, yet;
-see [archlinux-pacstrap.Dockerfile](../containers/archlinux-pacstrap.Dockerfile),
+see [archlinux-pacstrap.Dockerfile](../ARCHIVE/archlinux-pacstrap.Dockerfile),
 and https://github.com/archlinux/arch-install-scripts/issues/25.
 
 
