@@ -36,7 +36,7 @@ The `arch-install` copies `~[vorburger]/.ssh/authorized_keys` from the host it r
 This works, but is currently slow (sleeps 60s) due to [this bug](https://gitlab.archlinux.org/archlinux/arch-boxes/-/issues/153), see [this post](https://github.com/vorburger/vorburger.ch-Notes/blob/develop/linux/systemd-analyze.md):
 
     ./arch-create-vm BUILD/arch-create-vm1.img
-    ./start BUILD/arch-create-vm1.img
+    ../run-gtk-bios BUILD/arch-create-vm1.img
     ../bin/ssh-2222
 
 _TODO Dogfood this project by creating my own more lightweight faster VM!_

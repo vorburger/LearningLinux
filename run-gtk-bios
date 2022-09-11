@@ -1,8 +1,6 @@
 #!/usr/bin/bash
 set -euox pipefail
 
-# TODO mv archlinux/start ../run-bios, because that's what this really is
-
 qemu-system-x86_64 \
      -no-user-config \
      -display gtk,zoom-to-fit=on \

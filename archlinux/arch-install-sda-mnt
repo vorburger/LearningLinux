@@ -13,4 +13,4 @@ mkfs.ext4 /dev/sda1
 
 mount /dev/sda1 /mnt
 
-/usr/bin/bash ./arch-install /mnt
+./arch-install /mnt

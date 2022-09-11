@@ -50,4 +50,4 @@ vm-ssh sudo umount -R /mnt
 vm-ssh sudo shutdown now || true
 sleep 3
 
-./start $1
+../run-gtk-bios $1
