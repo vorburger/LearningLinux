@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 set -euox pipefail
+shopt -s globstar
+
+for f in **/*.fish; do fish -n "$f"; done
+for f in **/*.test.fish; do "$f"; done
 
 shellcheck run-gtk-linux run-serial-linux build-image
 # TODO add all others scripts here, once they pass shellcheck
