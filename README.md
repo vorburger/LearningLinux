@@ -16,9 +16,8 @@ with an _initrd_ containing our [`hello`](containers/src/hello.c) demo.
 using the busybox container image plus our own [`init`](containers/busybox-init)
 as initrd.  You can quit it using `poweroff -f`.  Also see [networking](docs/networking.md).
 
-1. [`./run-qemu-syslinux /tmp/bzImage hello | busybox-init`](./run-qemu-syslinux) starts this Kernel
-and the hello | busybox-init container initrd in a virtual machine by building a real disk image
-with a SYSLINUX bootloader.  (Whereas `run-qemu` uses `qemu* -kernel -initrd`.)
+1. [`./run-qemu-syslinux hello | busybox-init`](./run-qemu-syslinux) builds a disk image with SYSLINUS bootloader, and starts virtual machine.
+(Whereas `run-qemu` uses `qemu* -kernel -initrd`.)
 
 1. The `/tmp/bzImage-busybox-init.img` disk image can be written to a USB key (e.g. using `dd`, or, easier, GNOME Disks), and will boot on bare metal.
 

@@ -3,17 +3,16 @@ set -euox pipefail
 cd "$(dirname "$0")"
 
 # Skipping Kernel re-build (so this is different from run-qemu, which still does that)
-# $1 is that path of a Kernel bzImage
-# $2 of the userland container image
 
-# Prepare InitRD (from container image named "hello" which was created in `./build`)
-./image2initrd $2
-CPIO="$(dirname "$0")"/$2-initrd.gz
+# Prepare InitRD (from container image named e.g. "hello" which was created in `./build`)
+./image2initrd $1
+KERNEL="$(dirname "$0")"/$1.kernel
+INITRD="$(dirname "$0")"/$1.initrd
 
 # Create boot disk image
 # inspired by https://wiki.syslinux.org/wiki/index.php?title=Development/Testing
 # TODO use guestfish (guestmount) here, like in archlinux/*.sh?
-IMG=$1-$2.img
+IMG=$1.img
 rm -f $IMG
 qemu-img create -f raw $IMG 20M
 mkfs.ext4 -v -L LinuxRootFS $IMG
@@ -21,8 +20,8 @@ udisksctl loop-setup --no-user-interaction -f $IMG
 sudo extlinux --install /run/media/$USER/LinuxRootFS
 sudo cp syslinux/* /run/media/$USER/LinuxRootFS
 sudo mkdir /run/media/$USER/LinuxRootFS/boot/
-sudo cp $1 /run/media/$USER/LinuxRootFS/boot/bzImage
-sudo cp $CPIO /run/media/$USER/LinuxRootFS/boot/initrd.gz
+sudo cp $KERNEL /run/media/$USER/LinuxRootFS/boot/bzImage
+sudo cp $INITRD /run/media/$USER/LinuxRootFS/boot/initrd.gz
 sudo ls -alR /run/media/$USER/LinuxRootFS/
 umount /run/media/$USER/LinuxRootFS/
 
