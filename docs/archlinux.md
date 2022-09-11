@@ -58,4 +58,4 @@ Install additional packages (this will eventually be removed):
     reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
     pacman-key --init
     pacman-key --populate archlinux
-    pacman -Sy yq
+    pacman -S yq

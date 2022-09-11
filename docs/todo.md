@@ -2,7 +2,7 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 New
 
-1. separate syslinux scripting from in-VM; should be possible on-host as well
+1. separate syslinux scripting from in-VM; should be possible to build on-host as well
 1. Clean-up duplications in this repo, implement the [Architecture](architecture.md) consistently.
 
 1. Re-add https://github.com/vorburger/LearningLinux/blob/develop/archlinux/iso/packages.x86_64 to a new (!) image

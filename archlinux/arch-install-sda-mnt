@@ -2,7 +2,7 @@
 # https://wiki.archlinux.org/index.php/Installation_guide
 set -euox pipefail
 
-pacman -Sy --noconfirm arch-install-scripts parted
+pacman -S --noconfirm arch-install-scripts parted
 
 # TODO mklabel gpt
 parted --script /dev/sda \
