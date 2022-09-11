@@ -89,7 +89,6 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
   or e.g. https://elixir.bootlin.com/glibc/latest/source/io/symlink.c "call the kernel"? (`man syscalls`)
 * build a "hello, world" without any *lib* just "raw direct syscall" (`man syscall`)
 
-* https://buildroot.org/downloads/manual/manual.html#_init_system
   https://git.busybox.net/busybox/tree/init/init.c?h=1_25_stable
 * https://bootlin.com/docs/ ?
 * use side car data volume container (see podman's Pod support..) to keep Kernel sources persistent
@@ -134,7 +133,6 @@ Workstation
 Physical (Bare Metal)
 
 * support PXE booting in qemu
-* https://buildroot.org ?
 * Dracut? https://fedoramagazine.org/initramfs-dracut-and-the-dracut-emergency-shell/
   https://github.com/dracutdevs/dracut (also https://fedoraproject.org/wiki/Dracut)
 * boot a NUC with it (through BIOS' PXE, or iPXE)

@@ -17,7 +17,3 @@ podman build -t busybox-init   -f containers/busybox-init.Dockerfile   ./contain
 # ASM
 podman build -t pause.asm      -f containers/pause.asm.Dockerfile      ./containers/
 podman build -t hello.asm      -f containers/hello.asm.Dockerfile      ./containers/
-
-# buildroot.org
-# podman build -t buildroot -f containers/buildroot.Dockerfile
-# podman run --name buildroot-it --rm --hostname buildroot -it buildroot
