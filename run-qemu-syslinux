@@ -26,9 +26,5 @@ sudo cp $CPIO /run/media/$USER/LinuxRootFS/boot/initrd.gz
 sudo ls -alR /run/media/$USER/LinuxRootFS/
 umount /run/media/$USER/LinuxRootFS/
 
-# Actually run Kernel + InitRD
-qemu-system-x86_64 \
-    -no-user-config \
-    -enable-kvm  -cpu host  -m 512  -smp 2 \
-    -nic user,ipv6=off \
-    -drive file=$IMG,format=raw
+# Actually run image in VM
+./run-gtk-bios "$IMG"
