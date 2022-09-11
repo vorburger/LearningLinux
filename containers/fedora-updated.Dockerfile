@@ -1,3 +1,3 @@
-FROM fedora:36
+FROM fedora:32
 
 RUN dnf update -y
