@@ -14,7 +14,8 @@ New
 1. Make this distro have a read-only root filesystem, and writable ephemeral /var and /home etc.
    on another volume. Remember systemd does some one-time first boot initialization - how, stored where?
 1. Make this distro entirely completely uterly rootless - sudo is impossible!!
-1. Remove pacman completely, incl. sudo rm rootfs/var/cache/pacman/pkg/*
+1. Remove pacman completely, incl. sudo rm rootfs/var/cache/pacman/pkg/*.
+   This avoids the [Arch Keys](archkeys.md) distro problem.
 
 1. Try UEFI with uefistub... needs https://wiki.archlinux.org/title/Unified_kernel_image ?
 1. Try [booster](https://wiki.archlinux.org/title/Booster)

@@ -1,9 +1,24 @@
-# Arch Linux Key Troubleshooting
+# Arch Linux Keys for Packaging Signing
+
+https://wiki.archlinux.org/title/Pacman/Package_signing and
+https://wiki.archlinux.org/title/DeveloperWiki:Package_signing have background.
+
+https://gitlab.archlinux.org/archlinux/arch-boxes/-/issues/153#note_75956 points to
+https://gitlab.archlinux.org/archlinux/archlinux-docker/#principles which explains:
+
+_"NOTE: For Security Reasons, these images strip the pacman lsign key.
+This is because the same key would be spread to all containers of the same
+image, allowing for malicious actors to inject packages (via, for example,
+a man-in-the-middle). In order to create an lsign-key run `pacman-key
+--init` on the first execution, but be careful to not redistribute that
+key."_
+
+
+## Troubleshooting
 
 * https://gitlab.archlinux.org/archlinux/archiso/-/issues/191 is an open issue
 
 * https://gitlab.archlinux.org/archlinux/arch-boxes/-/issues/153 (from me) is because of above
-
 
 In `index.docker.io/library/archlinux:latest` containers there are problems sometimes:
 
