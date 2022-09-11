@@ -4,16 +4,16 @@ set -euo pipefail
 # Args Input (removes trailing slash)
 DIR="${1%/}"
 
-# Internal (must match build-image's)
+# Internal (must match build-image & image2initrd)
+IMAGE="$DIR.img"
 KERNEL="$DIR.kernel"
 INITRD="$DIR.initrd"
-IMAGE="$DIR.img"
 
 qemu-system-x86_64 \
     -nodefaults -no-user-config \
     -enable-kvm  -cpu host  -m 512  -smp 2 \
-    -nic user,model=virtio,hostfwd=tcp::2222-:22,ipv6=off \
+    -nic user,net=10.0.99.0/24,model=virtio,hostfwd=tcp::2222-:22,hostfwd=tcp::5900-:5900,ipv6=off \
     -display gtk,zoom-to-fit=on \
+    -drive file="$IMAGE",format=raw,index=0 \
     -kernel "$KERNEL"  -append " console=ttyS0 rdinit=/init root=/dev/sda rw debug earlyprintk=serial" \
-    -initrd "$INITRD" \
-    -drive file="$IMAGE",format=raw,index=0
+    -initrd "$INITRD"

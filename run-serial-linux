@@ -5,11 +5,12 @@ set -euo pipefail
 DIR="${1%/}"
 
 # Internal (must match build-image & image2initrd)
+IMAGE="$DIR.img"
 KERNEL="$DIR.kernel"
 INITRD="$DIR.initrd"
-IMAGE="$DIR.img"
 
 export KERNEL INITRD IMAGE
+# shellcheck disable=SC1004,SC2016
 gnome-terminal -- bash -c '\
   qemu-system-x86_64 \
     -nodefaults -no-user-config \
