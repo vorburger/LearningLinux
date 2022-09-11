@@ -7,11 +7,13 @@ DIR="${1%/}"
 # Internal (must match build-image & image2initrd)
 IMAGE="$DIR.img"
 
-
-
-qemu-system-x86_64 \
+export KERNEL INITRD IMAGE
+# shellcheck disable=SC1004,SC2016
+gnome-terminal -- bash -c '\
+  qemu-system-x86_64 \
     -nodefaults -no-user-config \
     -enable-kvm  -cpu host  -m 512  -smp 2 \
     -nic user,net=10.0.99.0/24,model=virtio,hostfwd=tcp::2222-:22,hostfwd=tcp::5900-:5900,ipv6=off \
     -serial stdio  -nographic  -display none \
-    -drive file="$IMAGE",format=raw,index=0 &
+    -drive file="$IMAGE",format=raw,index=0 ; \
+  read -p "Hi, $IMAGE QEMU has exited - press any key to close this window..."'
