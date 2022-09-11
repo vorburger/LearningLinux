@@ -179,21 +179,6 @@ Optimize
 * apply https://github.com/qemu/qemu/blob/master/docs/microvm.rst#triggering-a-guest-initiated-shut-down
 
 
-UML
-
-* fix UML crashing on host (outside of container) with "Aborted (core dumped)" using
-  https://www.kernel.org/doc/Documentation/virtual/uml/UserModeLinux-HOWTO.txt
-  (it may be because of `tinyconfig`?)
-
-* UML NB `ldd linux` - make statically linked (otherwise it may not work on an Ubuntu host, given build on Fedora?)
-  by making script set `CONFIG_STATIC_LINK` in /home/tux/linux-stable/.config
-
-* fix UML crashing in-container (not on host) due to:
-
-    Checking that ptrace can change system call numbers...ptrace: Operation not permitted
-    check_ptrace : expected SIGSTOP, got status = 9_
-
-
 Later (if ever)
 
 * https://godarch.com?

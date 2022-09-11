@@ -79,17 +79,5 @@ expect {
 }
 puts "\n\n"
 
-puts "./run-uml launched in background, because it messes up the console; output is in run-uml.log"
-log_user 0
-log_file -noappend -a run-uml.log
-spawn ./run-uml
-expect {
-  "(core dumped) /tmp/linux" {
-    puts "run-uml core dumped, as expected"
-  }
-  timeout { handle_timeout }
-  eof { handle_eof }
-}
-
 puts "\n\nPASS: All tests successfully completed.\n"
 exit 0

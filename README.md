@@ -25,9 +25,6 @@ with a SYSLINUX bootloader.  (Whereas `run-qemu` uses `qemu* -kernel -initrd`.)
 
 1. The `/tmp/bzImage-busybox-init.img` disk image can be written to a USB key (e.g. using `dd`, or, easier, GNOME Disks), and will boot on bare metal.
 
-1. [`./run-uml`](./run-uml) builds a User Mode Linux Kernel image in a container and then starts it in user mode.
-_Currently, the UML kernel will crash fairly early (and mess up your console)._
-
 1. [`./run-dev`](./run-dev) will run an interactive dev container to explore `[tux@kernel-dev ~]`.
 Its root password is empty, so you can e.g. `sudo dnf install -y ..`, but it's (intentionally) ephemeral - script it! ;)
 
