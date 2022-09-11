@@ -13,8 +13,8 @@ podman rm --force kernel-qemu-cp
 # Prepare InitRD (from container image which was created in `./build`)
 ./image2initrd "$1"
 
-# Create empty (0 bytes) disk image file (we don't need it here, but run-serial requires one)
+# Create empty (0 bytes) disk image file (we don't need it here, but run* requires one)
 touch "$1.img"
 
 # Actually run Kernel + InitRD
-./run-serial "$1"
+./run-serial-linux "$1"

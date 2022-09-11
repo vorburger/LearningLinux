@@ -18,13 +18,13 @@ You also need to `sudo pacman-key --init && sudo pacman-key --populate archlinux
 
     mkdir /tmp/pacstrap && sudo pacstrap /tmp/pacstrap/ base linux
     sudo ../build-image /tmp/pacstrap vorburger:vorburger
-    ../run-serial /tmp/pacstrap
+    ../run-serial-linux /tmp/pacstrap
 
 and, more interestingly, for our custom new Linux distro:
 
     sudo ./arch-install ./BUILD
     sudo ../build-image ./BUILD vorburger:vorburger
-    ../run-serial ./BUILD
+    ../run-serial-linux ./BUILD
 
 The `arch-install` copies `~[vorburger]/.ssh/authorized_keys` from the host it runs on into the VM image, so now:
 

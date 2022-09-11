@@ -2,6 +2,8 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 New
 
+1. Unify `run-serial-linux` and `run-gtk-linux` into a `run serial | gtk [linux | bios | uefi]`
+   like https://gitlab.archlinux.org/archlinux/archiso/-/blob/master/scripts/run_archiso.sh
 1. separate syslinux scripting from in-VM; should be possible to build on-host as well
 1. Clean-up duplications in this repo, implement the [Architecture](architecture.md) consistently.
 
@@ -14,8 +16,6 @@ New
 1. Make this distro entirely completely uterly rootless - sudo is impossible!!
 1. Remove pacman completely, incl. sudo rm rootfs/var/cache/pacman/pkg/*
 
-1. Unify `run-serial` and `run-gtk` into a `run serial | gtk [linux | bios | uefi]`
-   like https://gitlab.archlinux.org/archlinux/archiso/-/blob/master/scripts/run_archiso.sh
 1. Try UEFI with uefistub... needs https://wiki.archlinux.org/title/Unified_kernel_image ?
 1. Try [booster](https://wiki.archlinux.org/title/Booster)
 1. Try [pixiecore](https://github.com/danderson/netboot/tree/master/pixiecore) from qemu

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euox pipefail
 
-shellcheck run-gtk run-serial build-image
+shellcheck run-gtk-linux run-serial-linux build-image
 # TODO add all others scripts here, once they pass shellcheck
 
 # TODO test archlinux - once it's possible without sudo?

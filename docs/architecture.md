@@ -12,7 +12,7 @@ tree with files owned by root, and some but not all files readable rootless.
 One of its arguments is the UID of a non-root user which will own the built disk image.
 It also copies the `/boot` Kernel and `initramfs` to files owned by the non-root user.
 
-`run-serial` & `run-gtk` such an image (without boot loader) with KVM using `qemu* -kernel ... -initrd ...`.
+`run-serial-linux` & `run-gtk-linux` such an image (without boot loader) with KVM using `qemu* -kernel ... -initrd ...`.
 The `serial` variant opens a new terminal window which displays the VM's serial console,
 the `gtk` variant displays the VM's video output in a GTK window. This MAY not work for some basic VMs!
 (This tool runs rootless[^root].)
