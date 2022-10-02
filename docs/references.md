@@ -1,3 +1,4 @@
+* https://youtu.be/Sk9TatW9ino Rob Landley's https://landley.net/ Simplest Possible Linux System  
 
 * https://0xax.gitbooks.io/linux-insides/content/
 
