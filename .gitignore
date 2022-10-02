@@ -9,3 +9,5 @@
 meta-data
 user-data
 .vagrant/
+/bazel-*
+BUILD/
