@@ -25,7 +25,9 @@ putting iPXE on disk and booting that from a regular disk bootloader to let it d
 ## ToDo
 
 1. Play with VMs instead of metal: Add required config to the `dnsmasq` that QEMU is already running for DHCP,
-   and start QEMU with some options to launch a PXE client "firmware", instead of disk or Kernel directly.
+   and start QEMU with some options to launch a PXE client "firmware", instead of disk or Kernel directly;
+   `qemu-system-x86_64 -boot order=n` maybe with `-device e1000,netdev=n1 -netdev user,id=n1,tftp=/path/to/tftp/files,bootfile=/pxelinux.0`, or
+   `-kernel ipxe.lkrn` [as used here](https://wiki.archlinux.org/title/Netboot#Using_ipxe.lkrn)
 
 1. Build one of those fat uber Kernels with an embedded initrd that can run entirely from RAM without loading a root FS.
 
@@ -44,3 +46,4 @@ putting iPXE on disk and booting that from a regular disk bootloader to let it d
 * https://wiki.archlinux.org/title/Syslinux#PXELINUX - _I don't really understand what the point of this is_
 * https://github.com/danderson/netboot/tree/master/pixiecore looks neat, haven't tried it;
   [is not longer actively developed](https://github.com/danderson/netboot/blob/master/README.md)
+* https://github.com/pojntfx/ipxebuilderd
