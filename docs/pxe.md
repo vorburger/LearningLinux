@@ -46,4 +46,5 @@ putting iPXE on disk and booting that from a regular disk bootloader to let it d
 * https://wiki.archlinux.org/title/Syslinux#PXELINUX - _I don't really understand what the point of this is_
 * https://github.com/danderson/netboot/tree/master/pixiecore looks neat, haven't tried it;
   [is not longer actively developed](https://github.com/danderson/netboot/blob/master/README.md)
+* https://github.com/DongJeremy/pxesrv
 * https://github.com/pojntfx/ipxebuilderd
