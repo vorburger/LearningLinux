@@ -4,8 +4,9 @@
 
 ## Introduction & Overview
 
-Wayland ([Wikipedia](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol),
-[Homepage](https://wayland.freedesktop.org), [ArchLinux](https://wiki.archlinux.org/title/Wayland))) is the modern X11 successor.
+Wayland ([Wikipedia](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)),
+[Homepage](https://wayland.freedesktop.org), [ArchLinux](https://wiki.archlinux.org/title/Wayland)) is the modern successor to
+[the venerable X11](https://en.wikipedia.org/wiki/X_Window_System).
 
 It uses / builds on top of Linux Kernel Mode Setting (KMS)
 ([Kernel doc](https://www.kernel.org/doc/html/v4.15/gpu/drm-kms.html),
@@ -103,9 +104,27 @@ But this doesn't quite work, until [audio is set-up](audio.md).
 **ToDo:** https://wiki.archlinux.org/title/Hardware_video_acceleration
 
 
+## Modern Monitors
+
+`dmesg -w -d -t -H -x` will typically show a lot of interesting `info` and `debug` (but should
+not have any `err`) `pci*` and USB related messages when a modern (non-VGA) monitor is plugged in via a USB-C to USB-C,
+or USB-C to HDMI, or USB-C to DisplayPort (but not HDMI to HDMI; not sure about DisplayPort to DisplayPort).
+
+The following commands ([from here](https://gist.github.com/chrische/06d949d18af05765868ce7ca1855522a)) provide further details:
+
+     sudo i2cdetect -l
+     sudo i2cdetect 8
+
+     ddcutil -h
+     sudo ddcutil detect
+     sudo ddcutil detect -v
+     sudo ddcutil --bus 8 capabilities
+     sudo ddcutil getvcp known --bus 8
+
+
 ## Hacking
 
-**TODO: ** Hack a bunch of "hello, world" kind of graphical demos...
+**ToDo:** Hack a bunch of "hello, world" kind of graphical demos...
 
 * Start with something drawing pixels on KMS?
 * Then ideally initially only using just `libwayland-client`'s `wl_*` functions.
