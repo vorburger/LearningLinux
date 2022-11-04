@@ -5,8 +5,15 @@
     networkctl
     networkctl status ens3cat
 
-Note the `Network File`, e.g. `/etc/systemd/network/20-ethernet.network`.
-(If it missed to get the gateway IP by DHCP, workaround it using
+* Note the `Network File`, e.g. `/etc/systemd/network/20-ethernet.network`.
+* `systemctl status systemd-networkd` shows what IP etc. DHCP gave to an interface.
+* `ip link` shows all interfaces; check if state is UP? (NB: This shows the MAC, not IP.)
+* `ip addr` shows all IPs of all interfaces.
+* `ip route` shows the routing table. (Check it has a default.)
+* `ip route get 8.8.8.8` displays the route taken for that IP.
+* `resolvectl` shows DNS server. (Make sure you can ping it.)
+ 
+If it missed to get the gateway IP by DHCP, workaround it using
 e.g. `ip route add default via 192.168.1.10 dev wlan0`, or add
 a `Gateway=` to the `[Network]` of the the `*.network` file.)
 
