@@ -1,11 +1,14 @@
 # Networking
 
-## With systemd, e.g. in archlinux
+## With systemd's `systemd-networkd` + `systemd-resolved` e.g. in archlinux
 
     networkctl
     networkctl status ens3cat
 
 Note the `Network File`, e.g. `/etc/systemd/network/20-ethernet.network`.
+(If it missed to get the gateway IP by DHCP, workaround it using
+e.g. `ip route add default via 192.168.1.10 dev wlan0`, or add
+a `Gateway=` to the `[Network]` of the the `*.network` file.)
 
 
 ## DNS in nested VMs
@@ -56,7 +59,6 @@ We can fix this with `echo auto eth0 >/etc/network/interfaces` and `echo iface e
     ip link set eth0 up
     udhcpc -R -n -p /var/run/udhcpc.eth0.pid -i eth0
     run-parts /etc/network/if-up.d
-
 
 ## References
 
