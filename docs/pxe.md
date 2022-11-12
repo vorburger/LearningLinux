@@ -2,6 +2,24 @@
 
 ## TL;DR
 
+To run a _proxy DHCP_ just for PXE booting, create a `dnsmasq.conf` file containing:
+
+    interface=eno1
+    dhcp-range=192.168.1.1,proxy
+
+and then run it with (note the `192.168.1.100` IP, that's where a TFTP server must run on port 69):
+
+    sudo dnsmasq --keep-in-foreground --no-daemon --log-queries --log-dhcp \
+      --port=0 --dhcp-option=66,"192.168.1.100" --conf-file=dnsmasq.conf \
+      --dhcp-match=set:efi64,option:client-arch,9 --dhcp-boot=tag:efi64,ipxe.efi
+
+Note how (inspired [by here](https://github.com/poseidon/dnsmasq), but with server name and addres) we use
+pairs of `--dhcp-match=set:XXX,... --dhcp-boot=tag:XXX,...` instead of using `--dhcp-option=66,"1.2.3.4"` (like
+the single `next-server`, which is the DHCP Server-Name option 66, seen in ISC DHCP server configuration files).
+
+
+## Background
+
 Run [`dnsmasq`](https://thekelleys.org.uk/dnsmasq/doc.html), at home probably using [Proxy DHCP](https://wiki.archlinux.org/title/Dnsmasq#Proxy_DHCP),
 and to [break the loop](https://ipxe.org/howto/chainloading) configure `dhcp-match` and `dhcp-boot` [like this](https://github.com/poseidon/dnsmasq)
 using [`ipxe.efi`](http://boot.ipxe.org/ipxe.efi) (e.g. for ThinkPad, with UEFI PXE;
@@ -22,10 +40,19 @@ and disabling secure boot; takes some fiddling. Also seems needs an Ethernet wit
 It doesn't work over WiFi. (Although iPXE appears to have some WiFi support, untested; but perhaps
 putting iPXE on disk and booting that from a regular disk bootloader to let it do PXE boot over WiFi could work?)
 
-## libvirt
+## dnsmasq for libvirt
 
 Note that e.g. on a Fedora with KVM + libvirt, there is a `/var/lib/libvirt/dnsmasq/default.conf` 
-which is the DHCP server for `interface=virbr0` which gives VMs IPs from `192.168.122.2` onwards.
+which is the DHCP server for `interface=virbr0` which gives VMs IPs from `192.168.122.2` onwards;
+this [is started by `libvirtd` for each virtual network](https://wiki.libvirt.org/page/Libvirtd_and_dnsmasq).
+
+Note that this different from and unrelated to the `/usr/lib/systemd/system/dnsmasq.service`
+which `systemctl status dnsmasq.service` shows to be disabled (at least on a Fedora Workstation 36).
+
+There is also the default `/etc/dnsmasq.conf` which does not actually seem to be used,
+according to `sudo lsof /etc/dnsmasq.conf`.
+
+So we can run a `dnsmasq` on the `eno1` interface that's separate from all of the above.
 
 ## ToDo
 
