@@ -22,6 +22,11 @@ and disabling secure boot; takes some fiddling. Also seems needs an Ethernet wit
 It doesn't work over WiFi. (Although iPXE appears to have some WiFi support, untested; but perhaps
 putting iPXE on disk and booting that from a regular disk bootloader to let it do PXE boot over WiFi could work?)
 
+## libvirt
+
+Note that e.g. on a Fedora with KVM + libvirt, there is a `/var/lib/libvirt/dnsmasq/default.conf` 
+which is the DHCP server for `interface=virbr0` which gives VMs IPs from `192.168.122.2` onwards.
+
 ## ToDo
 
 1. Play with VMs instead of metal: Add required config to the `dnsmasq` that QEMU is already running for DHCP,
