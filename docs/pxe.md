@@ -11,6 +11,9 @@ and then run it with (note the `192.168.1.100` IP, that's where a TFTP server mu
 
     sudo dnsmasq --keep-in-foreground --no-daemon --log-queries --log-dhcp \
       --port=0 --dhcp-option=66,"192.168.1.100" --conf-file=dnsmasq.conf \
+      --dhcp-match=set:bios,option:client-arch,0  --dhcp-boot=tag:bios,undionly.kpxe \
+      --dhcp-match=set:efi32,option:client-arch,6 --dhcp-boot=tag:efi32,ipxe.efi \
+      --dhcp-match=set:efibc,option:client-arch,7 --dhcp-boot=tag:efibc,ipxe.efi \
       --dhcp-match=set:efi64,option:client-arch,9 --dhcp-boot=tag:efi64,ipxe.efi
 
 Note how (inspired [by here](https://github.com/poseidon/dnsmasq), but with server name and addres) we use
