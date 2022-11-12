@@ -9,15 +9,15 @@ To run a _proxy DHCP_ just for PXE booting, create a `dnsmasq.conf` file contain
 
 and then run it with (note the `192.168.1.100` IP, that's where a TFTP server must run on port 69):
 
-    sudo dnsmasq --keep-in-foreground --no-daemon --log-queries --log-dhcp \
-      --port=0 --dhcp-option=66,"192.168.1.100" --conf-file=dnsmasq.conf \
+    sudo dnsmasq --keep-in-foreground --no-daemon --log-queries --log-dhcp --log-debug \
+      --port=0 --conf-file=dnsmasq.conf \
       --dhcp-match=set:bios,option:client-arch,0  --dhcp-boot=tag:bios,undionly.kpxe \
       --dhcp-match=set:efi32,option:client-arch,6 --dhcp-boot=tag:efi32,ipxe.efi \
       --dhcp-match=set:efibc,option:client-arch,7 --dhcp-boot=tag:efibc,ipxe.efi \
       --dhcp-match=set:efi64,option:client-arch,9 --dhcp-boot=tag:efi64,ipxe.efi
 
-Note how (inspired [by here](https://github.com/poseidon/dnsmasq), but with server name and addres) we use
-pairs of `--dhcp-match=set:XXX,... --dhcp-boot=tag:XXX,...` instead of using `--dhcp-option=66,"1.2.3.4"` (like
+Note how (inspired [by here](https://github.com/poseidon/dnsmasq), but maybe with server name and address) we use
+pairs of `--dhcp-match=set:XXX,... --dhcp-boot=tag:XXX,...` instead of using `--dhcp-option=66,"1.2.3.4"` for all (like
 the single `next-server`, which is the DHCP Server-Name option 66, seen in ISC DHCP server configuration files).
 
 
