@@ -2,6 +2,8 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 New
 
+1. https://github.com/skiffos/SkiffOS
+
 1. Use https://github.com/anatol/vmtest; note https://github.com/Foxboron/sbctl
 1. Unify `run-serial-linux` and `run-gtk-linux` into a `run serial | gtk [linux | bios | uefi]`
    like https://gitlab.archlinux.org/archlinux/archiso/-/blob/master/scripts/run_archiso.sh
