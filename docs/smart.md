@@ -2,6 +2,8 @@
 
 ## TL;DR
 
+    sudo dnf install smartmontools
+    
     sudo smartctl --all /dev/nvme0
     sudo smartctl --capabilities /dev/nvme0
     sudo smartctl --test=short /dev/nvme0
