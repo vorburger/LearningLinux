@@ -2,6 +2,8 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 New
 
+1. see [hello](hello.md#todo)
+
 1. https://github.com/skiffos/SkiffOS
 
 1. Use https://github.com/anatol/vmtest; note https://github.com/Foxboron/sbctl
@@ -27,14 +29,12 @@ New
    See also https://fadeevab.com/how-to-setup-qemu-output-to-console-and-automate-using-shell-script.
 1. Check out https://github.com/libguestfs/supermin/blob/master/examples/build-basic-vm.sh ?
 
-
 [ArchInstall](archinstall.md)
 
 1. setup.sh: ssh-copy-id, disable password login, and doc to change vorburger's password
 1. desktop.sh
 1. sudo with yubikey (through PAM)
 1. avoid `passwd` through cloudinit
-
 
 First
 
@@ -46,7 +46,6 @@ First
 
 * RAM? https://gitlab.archlinux.org/archlinux/archiso/-/merge_requests/118/diffs
 
-
 NeXT
 
 * add kubelet with systemd unit, from https://wiki.archlinux.org/index.php/Kubernetes
@@ -56,7 +55,6 @@ NeXT
 * read https://cluster-api.sigs.k8s.io
 
 * kubevirt? Note https://github.com/kubevirt/kubevirt/blob/master/docs/cloud-init.md
-
 
 Later
 
@@ -77,7 +75,6 @@ Later
 
 * https://www.kernel.org/doc/html/latest/networking/netconsole.html
 
-
 Dev
 
 * https://github.com/cirosantilli/linux-kernel-module-cheat/
@@ -93,7 +90,7 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
 * build hello.c with klibc instead of glibc
 * where does https://git.kernel.org/pub/scm/libs/klibc/klibc.git/tree/usr/klibc
   or e.g. https://elixir.bootlin.com/glibc/latest/source/io/symlink.c "call the kernel"? (`man syscalls`)
-* build a "hello, world" without any *lib* just "raw direct syscall" (`man syscall`)
+* build a "hello, world" without any _lib_ just "raw direct syscall" (`man syscall`)
 
   https://git.busybox.net/busybox/tree/init/init.c?h=1_25_stable
 * https://bootlin.com/docs/ ?
@@ -107,13 +104,11 @@ https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-
   https://en.wikipedia.org/wiki/Bionic_(software), VS
   https://en.wikipedia.org/wiki/Klibc
 
-
 Storage
 
 * https://github.com/anatol/smart.go for monitoring, unless Prometheus Node monitoring thing already does this?
 * fully IPFS-based, see [Roadmap](roadmap/) - on [Local Persistent Volumes](https://www.google.com/search?q=Kubernetes+Local+Persistent+Volumes)? With [sig-storage-local-static-provisioner](https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner)
 * [Longhorn](https://longhorn.io)?
-
 
 Networking
 
@@ -122,7 +117,6 @@ Networking
 * learn details about `/etc/nsswitch.conf` and `/etc/resolv.conf`.. where's the "resolver"- in the libc? If "the Linux kernel doesn't care about DNS" and it's userspace libraries to do lookups, then what is https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/dns_resolver/dns_query.c?h=v5.6-rc5 for?
 * replace `-net user` with a TUN/TAP network bridged to the host's https://wiki.syslinux.org/wiki/index.php?title=Development/Testing#TUN.2FTAP_network
 * connect several VMs among themselves, using `-netdev socket` (or `-nic socket` or `-net socket`), see https://www.qemu.org/docs/master/system/net.html#connecting-emulated-networks-between-qemu-instances
-
 
 Workstation
 
@@ -134,7 +128,6 @@ Workstation
 * https://wiki.archlinux.org/index.php/intel_graphics
 * Wayland
 * VM that, pass through graphics card access
-
 
 Physical (Bare Metal)
 
@@ -149,7 +142,6 @@ Physical (Bare Metal)
   similarly to e.g. https://thekev.in/blog/2019-08-05-dockerfile-bootable-vm/index.html
   Automate this, and offer CI/CD?
 
-
 ARM
 
 * read https://www.kernel.org/doc/Documentation/arm/Booting and
@@ -158,17 +150,14 @@ ARM
     $ qemu-system-arm -machine virt
     $ qemu-system-arm -machine raspi2
 
-
 Android
 
 * How to make an old Android boot a self built Kernel and this project's "hello, world"?
 * https://elinux.org/Android_Portal
 
-
 Chrome OS
 
 * TBD
-
 
 Fun
 
@@ -176,12 +165,10 @@ Fun
 * start it using https://bellard.org/jslinux/
 * LOW: shared FS? like https://vfsync.org
 
-
 Optimize
 
 * build much smaller kernel than `x86_64_defconfig` (but not as small as `tinyconfig`, which doesn't work)
 * apply https://github.com/qemu/qemu/blob/master/docs/microvm.rst#triggering-a-guest-initiated-shut-down
-
 
 Later (if ever)
 

@@ -23,4 +23,43 @@ int main(void) {
 
 And build it using either `gcc hello.c -o hello` or `clang hello.c -o hello`, then run it with `./hello`.
 
-See also [src/](../containers/src).
+See also [src/](../containers/src), and its [`learn.c`](../containers/src/learn.c):
+
+    gcc -static learn.c -o learn
+
+    ./learn
+
+    strace ./learn
+
+## Background Notes
+
+- `gcc --target-help` is more interesting & useful than `gcc --help`
+
+- `man syscalls` is the entry point to find the `man 2 write` system call
+
+- Static linking (`man ld`) is used to avoid (quote `man strace`) _"tracing clutter is produced by systems employing shared libraries"._ (The resulting `learn` binary is therefore huge - 745 instead of 16 KB!)
+
+## TODO
+
+1. Why is it 745K - does't `gcc` or `ld` strip what's un-used?
+
+1. Install glibc sources, and let VSC find `*.c` implementation of e.g. `write()` or `fprintf()`
+
+1. How to without using and linking to glibc?
+
+   - Would this require writing (glibc-like) assembly code for `write` and `exit` syscalls?
+   - use `man 2 exit` instead of `main()`?
+
+1. Disassemble the `learn` binary and study its assembly code
+
+1. Build a Kernel (for `x86_64`) and run it and `learn` as init with `qemu`
+
+1. Play with `-march` and `-mtune` CPU types (see `gcc --target-help`)
+
+1. Cross compile `learn.c` for an ARM or RISC-V ISA, and disassemble
+
+1. Cross compile an ARM or RISC-V Linux Kernel and run it and `learn` as init with `qemu`
+
+1. https://strace.io
+
+1. Use https://enola.dev Executable Markdown in this README 😄
