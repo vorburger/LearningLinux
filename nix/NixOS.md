@@ -4,15 +4,30 @@
 
 1. Read https://nixos-and-flakes.thiscute.world
 
+1. https://nix.dev/install-nix#install-nix learn in Docker?
+
 1. [dotfiles](https://github.com/vorburger/vorburger-dotfiles-bin-etc)! https://nix-community.github.io/home-manager/ ?
 
-1. Containers! https://nixos.wiki/wiki/Podman?
+1. nixos-rebuild build-vm, and then ./result/bin/run-*-vm
 
-1. Is it now possible to build an even much more minimal VM? Without ANY userspace tools... JUST containers.
+1. Containers!
 
-1. Speed up `install` - could it read from a cache, somehow?
+1. https://nixos.wiki/wiki/Podman?
+https://github.com/nix-community/awesome-nix
+
+1. Immutable https://wiki.nixos.org/wiki/Impermanence
+
+1. Is it now possible to build an even much more minimal VM? Without ANY userspace tools... JUST containers. Without even systemd? ;-)
+
+1. https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/virtualization ...
 
 1. UEFI: Try with VMM or directly with `qemu`, or fix in Boxes
+
+1. NUC
+
+1. https://kubenix.org
+
+1. Speed up `install` - could it read from a cache, somehow?
 
 ## Initial Installation
 
