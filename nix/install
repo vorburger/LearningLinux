@@ -9,7 +9,7 @@ scp ./configuration.nix nixos@"$HOST":
 ssh nixos@"$HOST" 'sudo bash -s --' <<END
   set -euox pipefail
 
-  umount $DEVICE || true
+  umount ${DEVICE}1 || true
 
   parted --script $DEVICE \
       mklabel msdos \
@@ -22,5 +22,5 @@ ssh nixos@"$HOST" 'sudo bash -s --' <<END
 
   nixos-generate-config --root /mnt
   cp configuration.nix /mnt/etc/nixos/
-  nixos-install
+  nixos-install --no-root-passwd
 END

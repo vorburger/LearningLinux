@@ -2,13 +2,15 @@
 
 ## ToDo
 
-1. Test `nixos-install --no-root-passwd`
+1. Read https://nixos-and-flakes.thiscute.world
 
-1. Additional user, with SSH public key
+1. [dotfiles](https://github.com/vorburger/vorburger-dotfiles-bin-etc)! https://nix-community.github.io/home-manager/ ?
 
-1. Disable nixos@ user auto-login on console
+1. Containers! https://nixos.wiki/wiki/Podman?
 
-1. Install packages from a cache, instead of massive build each time
+1. Is it now possible to build an even much more minimal VM? Without ANY userspace tools... JUST containers.
+
+1. Speed up `install` - could it read from a cache, somehow?
 
 1. UEFI: Try with VMM or directly with `qemu`, or fix in Boxes
 
@@ -16,11 +18,12 @@
 
 1. Boot an ISO from https://nixos.org/download/#nixos-iso e.g. in Boxes (uses BIOS; as UEFI is NOK)
 
-1. `passwd` to set a password to be able to SSH into it
+1. On VM console: `passwd` to set a password to be able to SSH into it
 
-1. `./install` (change the VM's IP address, shown by `ip a`, in the script; or make it an argument)
+1. From host: `./install` (change the VM's IP address, shown by `ip a`, in the script; or make it an argument)
 
 1. Rebooting the VM, e.g. with `sudo reboot now` should now boot into a new NixOS mach!
+   (But do remember to disconnect the Install ISO before rebooting... 😄)
 
 ## Tips
 

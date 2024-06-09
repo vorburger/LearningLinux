@@ -16,13 +16,14 @@
 
   time.timeZone = "Europe/Zurich";
 
-  # TODO SSH public key...   users.extraUsers.vorburger.openssh.authorizedKeys.keys = [
   users.users.vorburger = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     packages = with pkgs; [
 
     ];
+    # https://github.com/vorburger.keys
+    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+qSqOeDos2pCI1Q0tm44FgghgvOaX5WuPAXKRIw1/bwahPXnvTwJbSNdnIbQyDWZCmvJaXr6wnDP8faQBZcIyBBjD4JOoVONfvTw2/RKPHBB9eb6h8q6Jl1STsCk/8+Qv5PXhSjCJQ2mJdaE56wKrrPL/bIyOInx1KQj0rygV96KFj67CeXpjpMqOxAxcJyjp6/cxAGJyL81lcjA2HFKhwjeHS71ipOstmG+n6cOjd2x5V5Qv7j1x2zKSnxCJOU7PHphm7UqPUlvCcrKLq+YZ2VWSjjHiu+GUIR7dp1HG73W5uSmhgAM2fQEhldT53Lc2tCYwyrMq/C1hAtq/S26BxmibR8jmAxIqJ4JB9Njv/r97/6amI8LxnzuRBnDhA6cW9JHUBrNoG41vTwopdAz9DjaklzeRAjStoQY9rE6Ck6GXzuqUuLaBryS1JETKpxWvbQrnFA/yS9qFl/oDlfjYT0dX4oeWK58tCgdDD42SF4fUP6zpQZzHx4iwKGukMV3e87DW5tKTs2yCQzeBgw664mlG0WbYdj1TZ0n7MRXAr9aKpPSiW0H94A+0cZS/VJdVAxrRgbPv3Uk9W7E/tq4aMySRTm6ZlU0HTKlkg5adnQl5yM8ZxyOdYybnsq9ZyyUlsc9cmEfyOvIOP9cvi2pN5cpmDNG+pZ+mEHJ5aU95WQ== SK" ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -40,9 +41,12 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+    settings.PermitRootLogin = "no";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
