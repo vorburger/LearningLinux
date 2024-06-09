@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+HOST=192.168.122.121
+DEVICE=/dev/vda
+
+scp ./configuration.nix nixos@"$HOST":
+
+ssh nixos@"$HOST" 'sudo bash -s --' <<END
+  set -euox pipefail
+
+  umount $DEVICE || true
+
+  parted --script $DEVICE \
+      mklabel msdos \
+      mkpart primary ext4 0G 100% \
+      set 1 boot on
+
+  mkfs.ext4 -L nixos ${DEVICE}1
+  sleep 1
+  mount /dev/disk/by-label/nixos /mnt
+
+  nixos-generate-config --root /mnt
+  cp configuration.nix /mnt/etc/nixos/
+  nixos-install
+END

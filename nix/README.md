@@ -2,6 +2,7 @@
 
 ## ToDo
 
+1. [NixOS](NixOS.md)
 1. READ! Manual, Pills, ... from _Learning_ links at the bottom
 1. https://github.com/nix-community/home-manager
 1. nix-shell --pure without reading existing dotfiles seems PITA... so use a container!
@@ -46,7 +47,6 @@ Nix [can GC](https://nixos.org/manual/nix/stable/#sec-garbage-collection)
 [Nix can be uninstalled](https://nixos.org/download.html#nix-uninstall)
 with `rm -rf /nix ~/.nix-profile` (`~/.nix-profile/` is just a symlink into `/nix`),
 note also [`nix.conf`](https://nixos.org/manual/nix/stable/#sec-conf-file) locations.
-
 
 ## Usage
 
@@ -132,7 +132,6 @@ https://nixos.org/guides/nix-pills/our-first-derivation.html then explains the r
   * `etc/`, `lib/`, `share` are like `/etc`, `/lib`, `/share`
 * `~/.nix-channels` _TODO, after [reading more about channels](https://nixos.org/manual/nix/stable/package-management/channels.html)_
 * `~/.nix-defexpr` _TODO_
-
 
 ## Resources
 
