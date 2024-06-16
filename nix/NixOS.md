@@ -10,16 +10,19 @@
 
 1. nixos-rebuild build-vm, and then ./result/bin/run-*-vm
 
-1. Containers!
+1. Containers! https://nixos.wiki/wiki/Podman?
 
-1. https://nixos.wiki/wiki/Podman?
-https://github.com/nix-community/awesome-nix
+1. https://github.com/nix-community/awesome-nix
 
 1. Immutable https://wiki.nixos.org/wiki/Impermanence
 
-1. Is it now possible to build an even much more minimal VM? Without ANY userspace tools... JUST containers. Without even systemd? ;-)
+1. How to build an even much more minimal VM? Without ANY userspace tools... JUST containers. Without even systemd? ;-)
 
 1. https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/virtualization ...
+
+1. https://reproducible.nixos.org (funded?)
+
+1. Speed up `install` - could it read from a cache, somehow?
 
 1. UEFI: Try with VMM or directly with `qemu`, or fix in Boxes
 
