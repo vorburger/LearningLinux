@@ -2,6 +2,8 @@
 
 ## ToDo
 
+1. Use https://github.com/nix-community/nixos-anywhere, which includes using https://github.com/nix-community/disko
+
 1. VM with https://nix.dev/tutorials/nixos/nixos-configuration-on-vm ?
 
 1. ssh with new key, not YK
