@@ -2,6 +2,8 @@ _see also [Roadmap](roadmap/) & GTasks!_
 
 New
 
+1. [sshd container](https://github.com/vorburger/vorburger-dotfiles-bin-etc/tree/main/container/sshd) with [guest-oslogin](https://github.com/GoogleCloudPlatform/guest-oslogin)-like `AuthorizedKeysCommand`
+
 1. see [hello](hello.md#todo)
 
 1. https://github.com/skiffos/SkiffOS
