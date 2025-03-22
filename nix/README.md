@@ -2,6 +2,10 @@
 
 ## ToDo
 
+1. https://github.com/enola-dev/enola/pull/1227
+1. https://github.com/vorburger/vorburger-dotfiles-bin-etc as https://flox.dev/docs/tutorials/default-environment/
+1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
+
 1. [NixOS](NixOS.md)
 1. READ! Manual, Pills, ... from _Learning_ links at the bottom
 1. https://github.com/nix-community/home-manager
@@ -26,6 +30,12 @@
 1. https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/games/minecraft-server.nix :)
 
 ## Installation
+
+* https://flox.dev/docs/install-flox/ (by https://github.com/refroni ? See https://nixos.org/blog/announcements/2025/foundation-board-2025/)
+* https://zero-to-nix.com/start/install/ == https://determinate.systems/ (by https://github.com/edolstra ?)
+* https://nixos.org/download/ (TODO Is that SELinux problem now solved?!)
+
+### Older Notes
 
 Nix's single user installation requires no root at all [except the `/nix` creation](https://nixos.org/guides/nix-pills/install-on-your-running-system.html#idm140737320758576):
 
@@ -148,6 +158,7 @@ https://nixos.org/guides/nix-pills/our-first-derivation.html then explains the r
 
 Recommended reading, in this order:
 
+1. https://nix.dev
 1. https://nixos-and-flakes.thiscute.world
 1. https://zero-to-nix.com
 1. https://nixery.dev/nix-1p.html is a great succinct intro to the Nix functional language
