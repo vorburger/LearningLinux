@@ -60,6 +60,14 @@ note also [`nix.conf`](https://nixos.org/manual/nix/stable/#sec-conf-file) locat
 
 ## Usage
 
+### Flakes
+
+Enabled with https://github.com/vorburger/vorburger-dotfiles-bin-etc/commit/b853a1becf993d26c7ca7c4b62fb117b895be232
+
+### Run
+
+    nix run nixpkgs#hello
+
 ### Packages 101
 
     nix-env -q
