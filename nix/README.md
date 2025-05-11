@@ -8,24 +8,14 @@
 
 Enable Flakes with `echo "extra-experimental-features = nix-command flakes" >>~/.config/nix/nix.conf` (if you don't have it already); see https://github.com/vorburger/vorburger-dotfiles-bin-etc/commit/b853a1becf993d26c7ca7c4b62fb117b895be232.
 
-### Older Notes
-
-Nix's single user installation requires no root at all [except the `/nix` creation](https://nixos.org/guides/nix-pills/install-on-your-running-system.html#idm140737320758576):
-
-    sudo mkdir -m 0755 /nix
-    sudo chown $USER /nix
-    mkdir -m 0755 /nix && chown vorburger /nix
-
-    # logout and log back in
-    alias n="nix "
-    n --version
+## Maintenance
 
 Nix (as in the `nix` CLI tool) [can be upgraded](https://nixos.org/manual/nix/stable/installation/upgrading.html)
 with `nix-channel --update; nix-env -iA nixpkgs.nix nixpkgs.cacert`.
 
 Nix [can GC](https://nixos.org/manual/nix/stable/#sec-garbage-collection)
 (and [the pill](https://nixos.org/guides/nix-pills/garbage-collector.html)):
-`du -h /nix; nix-collect-garbage -d; du -h /nix` (or `nix-store --gc`).
+`du -h /nix; read -p "Note current /nix disk usage..."; nix-collect-garbage -d; du -h /nix` (not directly `nix-store --gc`).
 
 [Nix can be uninstalled](https://nixos.org/download.html#nix-uninstall)
 with `rm -rf /nix ~/.nix-profile` (`~/.nix-profile/` is just a symlink into `/nix`),
