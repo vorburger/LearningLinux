@@ -35,6 +35,8 @@
 * https://zero-to-nix.com/start/install/ == https://determinate.systems/ (by https://github.com/edolstra ?)
 * https://nixos.org/download/ (TODO Is that SELinux problem now solved?!)
 
+Enable Flakes with `echo "extra-experimental-features = nix-command flakes" >>~/.config/nix/nix.conf` (if you don't have it already); see https://github.com/vorburger/vorburger-dotfiles-bin-etc/commit/b853a1becf993d26c7ca7c4b62fb117b895be232.
+
 ### Older Notes
 
 Nix's single user installation requires no root at all [except the `/nix` creation](https://nixos.org/guides/nix-pills/install-on-your-running-system.html#idm140737320758576):
@@ -60,13 +62,33 @@ note also [`nix.conf`](https://nixos.org/manual/nix/stable/#sec-conf-file) locat
 
 ## Usage
 
-### Flakes
-
-Enabled with https://github.com/vorburger/vorburger-dotfiles-bin-etc/commit/b853a1becf993d26c7ca7c4b62fb117b895be232
-
 ### Run
 
+Run `hello` from Nix:
+
     nix run nixpkgs#hello
+
+When run from a directory containing a `flake.nix` (see below), then its `nixpkgs` fixes the version.
+**TODO** Otherwise, what exactly determines which `nixpkgs` _"channel"_ (version) this uses?
+
+FYI, just for fun: Nix from Nix, Given that we have `nix`:
+
+    $ nix --version
+    nix (Nix) 2.24.12
+
+We can use it to run the latest `nix` from it:
+
+    $ nix run nixpkgs#nix -- --version
+    nix (Nix) 2.28.3
+
+### Flakes
+
+    nix flake new .
+    nix run
+
+This ran the _default output_ of our Flake.
+
+Replace `?ref=nixos-unstable` e.g. with `?ref=nixos-24.11`; now `nix run` still works (of course) - but it's more _"stable"._
 
 ### Packages 101
 
@@ -131,6 +153,10 @@ https://nixos.org/guides/nix-pills/functions-and-imports.html:
     [ 1 2 3 ]
 
 https://nixos.org/guides/nix-pills/our-first-derivation.html then explains the real power.
+
+### Eval
+
+    nix eval --raw --impure --expr 'builtins.currentSystem'
 
 ### Containers from [Nixery](https://nixery.dev)
 
