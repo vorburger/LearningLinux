@@ -112,8 +112,6 @@ If there is only 1 `inputs` then you could simplify it to `inputs.nixpkgs.url = 
 
 We can run e.g. `java`, see [flake1](flake1/flake.nix).
 
-**TODO** _Multiplatform support?_
-
 ## [Shell](https://nixos.org/manual/nix/stable/#sec-nix-shell)
 
     nix-shell -p hello
