@@ -2,9 +2,18 @@
 
 ## Nix
 
+1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
+
+1. How to manage the Nix user profile declarative instead of imperative?
+
+1. rm https://github.com/vorburger/vorburger-dotfiles-bin-etc/tree/main/dotfiles/.flox
+
+1. https://nixos.wiki/wiki/Visual_Studio_Code#Creating_development_environments_using_nix-shell
+
+1. https://github.com/numtide/treefmt-nix
+
 1. https://github.com/enola-dev/enola/pull/1227
 1. https://github.com/vorburger/vorburger-dotfiles-bin-etc as https://flox.dev/docs/tutorials/default-environment/
-1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
 
 1. [NixOS](NixOS.md)
 1. READ! Manual, Pills, ... from _Learning_ links at the bottom
