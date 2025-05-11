@@ -110,12 +110,20 @@ If there is only 1 `inputs` then you could simplify it to `inputs.nixpkgs.url = 
 
 `nix run` without arguments runs the `default` package. It's equivalent to `nix run .#` and `nix run .#default`. For now, remove the default package, and instead directly run `nix run .#hello`.
 
+We can run e.g. `java`, see [flake1](flake1/flake.nix).
+
 **TODO** _Multiplatform support?_
 
 ## [Shell](https://nixos.org/manual/nix/stable/#sec-nix-shell)
 
     nix-shell -p hello
     nix-shell --pure --packages hello
+
+## Lessons
+
+1. `nix-shell` (non-pure) doesn't really give the required isolation, because you may still use local packages - so don't use that.
+1. `nix-shell --pure` doesn't really work in practice, because it reads $HOME dotfiles, but then misses packages on `$PATH` - don't use.
+1. `nix develop` basically has the same problems - also don't use?!
 
 ## REPL 101
 
