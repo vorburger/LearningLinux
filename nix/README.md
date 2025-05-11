@@ -112,38 +112,10 @@ If there is only 1 `inputs` then you could simplify it to `inputs.nixpkgs.url = 
 
 **TODO** _Multiplatform support?_
 
-## Packages 101
-
-    nix-env -q
-    # nix-x.y.z
-
-    nix-env -qaP
-    time nix-env -vi hello
-    time nix-env -iA nixpkgs.hello
-    nix-env -q
-    hello -t
-    which hello
-    nix-env -e hello
-    hello
-
-## Upgrading
-
-    nix-channel --update nixpkgs
-    nix-env -uA nixpkgs.hello
-    nix-env -u --dry-run
-    nix-env -u
-
-## Generations
-
-    nix-env --list-generations
-    nix-env --switch-generation 13
-    nix-env --rollback
-
 ## [Shell](https://nixos.org/manual/nix/stable/#sec-nix-shell)
 
     nix-shell -p hello
     nix-shell --pure --packages hello
-    shell
 
 ## REPL 101
 
@@ -262,11 +234,11 @@ sudo chmod 755 /nix/var/nix/daemon-socket
     $ ll /nix/var/nix/profiles/per-user/vorburger/
     lsd: /nix/var/nix/profiles/per-user/vorburger/: No such file or directory (os error 2).
 
-    $ sudo mkdir /nix/var/nix/profiles/per-user/vorburger/
-    $ sudo chown vorburger:vorburger /nix/var/nix/profiles/per-user/vorburger/
+    $ sudo mkdir /nix/var/nix/profiles/per-user/$USER/
+    $ sudo chown vorburger:vorburger /nix/var/nix/profiles/per-user/$USER/
     $ sudo -K
     $ nix profile install nixpkgs#hello
-    $ ll /nix/var/nix/profiles/per-user/vorburger/profile/bin/
+    $ ll /nix/var/nix/profiles/per-user/$USER/profile/bin/
     .r-xr-xr-x. root root 62 KB 1970-01-01 01:00  hello
 
 ### error: unable to download 'https://api.github.com/repos/NixOS/nixpkgs/commits/nixos-unstable': Problem with the SSL CA cert (path? access rights?) (77)
