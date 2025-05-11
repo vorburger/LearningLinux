@@ -2,54 +2,6 @@
 
 ## ToDo
 
-1. Use https://github.com/nix-community/nixos-anywhere, which includes using https://github.com/nix-community/disko
-
-1. VM with https://nix.dev/tutorials/nixos/nixos-configuration-on-vm ?
-
-1. ssh with new key, not YK
-
-1. VSC SSH remote - fix why it didn't work; just needs Node?
-
-1. Custom ISO https://nix.dev/tutorials/nixos/building-bootable-iso-image and https://github.com/nix-community/nixos-generators#user-content-supported-formats
-
-1. Read https://nixos-and-flakes.thiscute.world
-
-1. https://nix.dev/install-nix#install-nix learn in Docker?
-
-1. [dotfiles](https://github.com/vorburger/vorburger-dotfiles-bin-etc)! https://nix-community.github.io/home-manager/ ?
-
-1. nixos-rebuild build-vm, and then ./result/bin/run-*-vm
-
-1. Disable `useradd` - there was some option for this
-
-1. Containers! https://nixos.wiki/wiki/Podman and https://nix.dev/tutorials/nixos/building-and-running-docker-images.html
-
-1. https://github.com/nix-community/awesome-nix
-
-1. Enable gc https://nixos-and-flakes.thiscute.world/nixos-with-flakes/other-useful-tips#reducing-disk-usage
-
-1. Immutable https://wiki.nixos.org/wiki/Impermanence
-
-1. Boot ISO to C64 ;) themed Blue Web Terminal! https://github.com/vorburger/cloudshell
-
-1. How to build an even much more minimal VM? Without ANY userspace tools... JUST containers. Without even systemd? ;-)
-
-       environment.systemPackages = with pkgs; [     # BusyBox provides a basic shell     busybox   ];
-
-1. https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/virtualization ...
-
-1. https://reproducible.nixos.org (funded?)
-
-1. Speed up `install` - could it read from a cache, somehow?
-
-1. UEFI: Try with VMM or directly with `qemu`, or fix in Boxes
-
-1. NUC
-
-1. https://kubenix.org
-
-1. Speed up `install` - could it read from a cache, somehow?
-
 ## Initial Installation
 
 1. Boot an ISO from https://nixos.org/download/#nixos-iso e.g. in Boxes (uses BIOS; as UEFI is NOK)
