@@ -199,29 +199,6 @@ https://nixos.org/guides/nix-pills/our-first-derivation.html then explains the r
 * `~/.nix-channels` _TODO, after [reading more about channels](https://nixos.org/manual/nix/stable/package-management/channels.html)_
 * `~/.nix-defexpr` _TODO_
 
-## Resources
-
-### References
-
-* https://nixos.wiki
-
-### News
-
-* https://weekly.nixos.org
-* https://twitter.com/nixos_org
-
-### Learning
-
-Recommended reading, in this order:
-
-1. https://nix.dev
-1. https://nixos-and-flakes.thiscute.world
-1. https://zero-to-nix.com
-1. https://nixery.dev/nix-1p.html is a great succinct intro to the Nix functional language
-1. https://nixos.org/guides/nix-pills/
-1. https://nixos.org/manual/nix/stable/#ssec-builtins documents the `builtins`
-1. https://nixos.org/manual/nixpkgs/stable/#sec-functions-library for `pkgs.lib` (AKA `import <nixpkgs/lib>`)
-
 ## Troubleshooting
 
 ### error: cannot connect to socket at '/nix/var/nix/daemon-socket/socket': No such file or directory
@@ -324,6 +301,29 @@ How to uninstall Flox:
 sudo dnf remove flox
 sudo rm /etc/nix/nix.conf
 ```
+
+## Resources
+
+### References
+
+* https://nixos.wiki
+
+### News
+
+* https://weekly.nixos.org
+* https://twitter.com/nixos_org
+
+### Learning
+
+Recommended reading, in this order:
+
+1. https://nix.dev
+1. https://nixos-and-flakes.thiscute.world
+1. https://zero-to-nix.com
+1. https://nixery.dev/nix-1p.html is a great succinct intro to the Nix functional language
+1. https://nixos.org/guides/nix-pills/
+1. https://nixos.org/manual/nix/stable/#ssec-builtins documents the `builtins`
+1. https://nixos.org/manual/nixpkgs/stable/#sec-functions-library for `pkgs.lib` (AKA `import <nixpkgs/lib>`)
 
 ## ToDo
 
