@@ -173,3 +173,11 @@ Recommended reading, in this order:
 1. https://nixos.org/guides/nix-pills/
 1. https://nixos.org/manual/nix/stable/#ssec-builtins documents the `builtins`
 1. https://nixos.org/manual/nixpkgs/stable/#sec-functions-library for `pkgs.lib` (AKA `import <nixpkgs/lib>`)
+
+## Troubleshooting
+
+### `error: path '/nix/store/...-source/flake.nix' does not exist`
+
+If the `flake.nix` is in the curent working directory (e.g. when running `nix run .#mvnw -- clean test` or `nix develop .`), but not in the `/nix/store/...-source/`, then it's probably a new one?
+
+You just need to `git add flake.nix` to fix this! You don't have to actually commit it, just stage is fine (it will whine about _"warning: Git tree '/home/vorburger/git/github.com/jline/jline3' is dirty"_ which makes sense).
