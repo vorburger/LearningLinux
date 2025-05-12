@@ -4,9 +4,18 @@
 
 1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
 
-1. How to manage the Nix user profile declarative instead of imperative?
+1. https://github.com/google/google-java-format with `flake.nix` from https://zero-to-nix.com/start/init-flake/
 
-1. rm https://github.com/vorburger/vorburger-dotfiles-bin-etc/tree/main/dotfiles/.flox
+1. GitHub Action to build e.g. `flake1`; see [Nix related Actions on GitHub Marketplace](https://github.com/search?q=nix&type=marketplace)
+    1. Caching? E.g. Nix package themselves, and Maven or Bazel etc. https://github.com/DeterminateSystems/magic-nix-cache costs ;(
+
+1. DevContainer from Flake
+
+1. `enola.git/flake.nix`
+    1. Add to https://github.com/NixOS/nixos-search/blob/main/flakes/manual.toml
+    1. Distribute on https://flakehub.com/flakes with https://github.com/DeterminateSystems/flakehub-push
+
+1. How to manage the Nix user profile declarative instead of imperative?
 
 1. https://nixos.wiki/wiki/Visual_Studio_Code#Creating_development_environments_using_nix-shell
 
@@ -14,6 +23,8 @@
 
 1. https://github.com/enola-dev/enola/pull/1227
 1. https://github.com/vorburger/vorburger-dotfiles-bin-etc as https://flox.dev/docs/tutorials/default-environment/
+
+1. What's the difference between _packages_ and _apps_ e.g. on https://flakehub.com/flake/0x5a4/nand2tetris-flake?view=outputs
 
 1. [NixOS](NixOS.md)
 1. READ! Manual, Pills, ... from _Learning_ links at the bottom
@@ -34,7 +45,6 @@
 1. create a simple bare minimal server config with a SSH container (as local VM & GCP GCE)
 1. https://nixbuild.net/#pricing
 1. https://github.com/nixos/hydra
-1. [Nix related Actions on GitHub Marketplace](https://github.com/search?q=user%3Avorburger+nix&type=marketplace)
 1. Local [Nixery](https://nixery.dev)
 1. https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/games/minecraft-server.nix :)
 

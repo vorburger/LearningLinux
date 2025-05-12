@@ -112,6 +112,18 @@ If there is only 1 `inputs` then you could simplify it to `inputs.nixpkgs.url = 
 
 We can run e.g. `java`, see [flake1](flake1/flake.nix).
 
+## Packages
+
+[`nix search`](https://zero-to-nix.com/start/nix-search/) evaluates locally.
+
+https://search.nixos.org/packages is simpler.
+
+`nix flake show` is useful. Run either in a directory with a `flake.nix`, or as e.g. `nix flake show "git+https://git.sr.ht/~kerstin/sway-timetracker?ref=main"` or of course even `nix flake -show -all-systems --legacy "github:nixos/nixpkgs?ref=nixos-24.11"` - because `nixpkgs` itself is also really just a (huge) Flake!
+
+https://flakehub.com/flakes is a sort of "Forge" (?) for many more other Flakes; e.g. `nix flake show "https://flakehub.com/f/0x5a4/nand2tetris-flake/1.0.0"`. It mirrors nixpks as https://flakehub.com/flake/NixOS/nixpkgs, so e.g. `nix run "https://flakehub.com/f/NixOS/nixpkgs/*#hello"` instead of `nix run nixpkgs#hello`.
+
+PS: The `legacyPackages` naming [here](https://github.com/vorburger/LearningLinux/blob/7dae2a2dde319170c7f99555522e1a95021a3dea/nix/flake1/flake.nix) is [just due to this](https://github.com/NixOS/nixpkgs/blob/fcc8ff7cc271c9652623dae2a9fcd1ba49232b57/flake.nix#L47-L55) (that's why `--legacy` above; the `--all-systems` is unrelated and for showing all "platforms").
+
 ## [Shell](https://nixos.org/manual/nix/stable/#sec-nix-shell)
 
     nix-shell -p hello
@@ -176,6 +188,10 @@ https://nixos.org/guides/nix-pills/our-first-derivation.html then explains the r
   * `etc/`, `lib/`, `share` are like `/etc`, `/lib`, `/share`
 * `~/.nix-channels` _TODO, after [reading more about channels](https://nixos.org/manual/nix/stable/package-management/channels.html)_
 * `~/.nix-defexpr` _TODO_
+
+## man
+
+It's pretty cool how (at least on Fedora) e.g. `man direnv` still works after `nix profile install nixpkgs#direnv` even though it's not a DNF system package.
 
 ## Troubleshooting
 
