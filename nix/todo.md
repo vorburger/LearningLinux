@@ -7,7 +7,9 @@
 1. https://github.com/google/google-java-format with `flake.nix` from https://zero-to-nix.com/start/init-flake/
 
 1. GitHub Action to build e.g. `flake1`; see [Nix related Actions on GitHub Marketplace](https://github.com/search?q=nix&type=marketplace)
-    1. Caching? E.g. Nix package themselves, and Maven or Bazel etc. https://github.com/DeterminateSystems/magic-nix-cache costs ;(
+    1. Caching? E.g. Nix package themselves, and Maven or Bazel etc.
+       * https://www.cachix.org ?
+       * https://github.com/DeterminateSystems/magic-nix-cache costs ;(
 
 1. DevContainer from Flake
 
