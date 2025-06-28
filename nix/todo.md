@@ -10,17 +10,9 @@
    - ... the rest here! ;)
 
 1. Nix language server `nil` via `flake.nix` in this directory!
-
-1. Formatting with Git Hook
-1. Formatting in VSC
 1. Formatting with https://github.com/numtide/treefmt-nix#flake-parts
 
-1. https://github.com/numtide/blueprint
-   or https://github.com/tgirlcloud/nix-templates
-   **or https://flake.parts**
-   and https://github.com/nix-community/templates
-
-1. Run `nix flake check` via https://github.com/cachix/git-hooks.nix
+1. Run `nix flake check` ... via https://github.com/cachix/git-hooks.nix?
 
 1. https://devenv.sh, or https://github.com/numtide/devshell, or ...
 
@@ -40,12 +32,35 @@
     1. Add to https://github.com/NixOS/nixos-search/blob/main/flakes/manual.toml
     1. Distribute on https://flakehub.com/flakes with https://github.com/DeterminateSystems/flakehub-push
 
+1. How to auto-update - does Dependabot and/or Renovate dig Nix?!
+
+1. Use https://github.com/DeterminateSystems/flake-checker ?
+
+1. Use another formatter instead? E.g. https://github.com/kamadorueda/alejandra or https://github.com/NixOS/nixfmt/
+
+1. Formatting in VSC with https://github.com/isbecker/treefmt-vscode via https://github.com/numtide/treefmt#ide-integration needs `treefmt.toml` instead of `treefmt.nix`, and `treefmt` on PATH; see https://github.com/numtide/treefmt-nix/issues/375.
+
+1. Formatting with Git Hook using https://github.com/cachix/git-hooks.nix ... but that needs contributing treefmt to https://github.com/cachix/git-hooks.nix#nix-1
+
+---
+
+1. https://github.com/numtide/blueprint
+   or https://github.com/tgirlcloud/nix-templates
+   **or https://flake.parts**
+   and https://github.com/nix-community/templates
+
 1. Set-up https://github.com/utensils/mcp-nixos for this project!
 
 1. https://github.com/nix-community/nix-direnv WITH `nix develop --command "$SHELL"`
    instead of https://github.com/nix-community/lorri
 1. https://marketplace.visualstudio.com/items?itemName=mkhl.direnv
 1. https://nixos.wiki/wiki/Visual_Studio_Code#Creating_development_environments_using_nix-shell
+
+---
+
+1. Adopt https://github.com/astro/deadnix ?
+
+1. Adopt https://github.com/oppiliappan/statix ?
 
 1. TODO What is "..." in outputs = { self, nixpkgs,...  }: used for?
 
@@ -56,8 +71,6 @@
 1. `ssh mac` for Multiplatform ... with flake-utils, as in e.g. https://github.com/NixOS/templates/blob/master/typescript/pnpm/flake.nix
 
 1. https://github.com/xzfc/cached-nix-shell or try https://garnix.io ? Or https://hercules-ci.com, or https://www.cachix.org, etc. Or do I not need any of this with https://determinate.systems/flakehub/ ?
-
-1. https://github.com/numtide/treefmt-nix
 
 1. https://github.com/google/google-java-format with `flake.nix` from https://zero-to-nix.com/start/init-flake/
 
