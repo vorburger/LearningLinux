@@ -98,7 +98,7 @@ https://nixos.org/guides/nix-pills/functions-and-imports.html:
 
     nix-repl> builtins.trace "hey" true
 
-    nix-repl> import ./first-test.nix { arg1 = "default"; }
+    nix-repl> import ./lang/first-test.nix { arg1 = "default"; }
     "same!"
 
     nix-repl> :l <nixpkgs>
