@@ -15,9 +15,11 @@
             fish
           ];
           shellHook = ''
-            protoc --version
-            # TODO How to use users preferred $SHELL in nix develop, instead of hard-code my fish preference?
-            exec fish
+            echo "Welcome to the Nix-based development environment shell! It has all required tools."
+
+            # NB: We CANNOT "exec fish" here, because this breaks `nix develop --command`.
+            # TODO How to enter the user's preferred $SHELL in nix develop, instead of hard-code my fish preference?
+            # exec fish
           '';
         };
       });

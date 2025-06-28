@@ -6,11 +6,7 @@
 
 1. Turn [README](README.md) into a slide deck? Make a YouTube video?? :)
 
-1. Pure Script!
-
 1. TODO What is "..." in outputs = { self, nixpkgs,...  }: used for?
-
-1. `nix develop` launch `fish` instead of `bash`
 
 1. https://github.com/numtide/blueprint
    or https://github.com/tgirlcloud/nix-templates
