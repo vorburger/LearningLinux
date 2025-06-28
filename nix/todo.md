@@ -4,6 +4,19 @@
 
 1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
 
+1. https://github.com/numtide/blueprint
+
+1. Combine https://nix.dev/tutorials/first-steps/reproducible-scripts
+   with https://nix.dev/tutorials/first-steps/declarative-shell
+
+1. https://devenv.sh ?
+
+1. Try https://garnix.io ?
+
+1. nix profile?
+
+1. https://github.com/nix-community/awesome-nix
+
 1. https://github.com/google/google-java-format with `flake.nix` from https://zero-to-nix.com/start/init-flake/
 
 1. GitHub Action to build e.g. `flake1`; see [Nix related Actions on GitHub Marketplace](https://github.com/search?q=nix&type=marketplace)
@@ -52,7 +65,10 @@
 
 ## NixOS
 
-1. Use https://github.com/nix-community/nixos-anywhere, which includes using https://github.com/nix-community/disko
+1. Try https://github.com/Mic92/nixos-shell
+
+1. Use https://github.com/nix-community/nixos-anywhere, which includes using https://github.com/nix-community/disko;
+   note https://github.com/nix-community/nixos-anywhere/blob/main/docs/howtos/no-os.md
 
 1. VM with https://nix.dev/tutorials/nixos/nixos-configuration-on-vm ?
 
