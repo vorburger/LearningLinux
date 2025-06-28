@@ -10,6 +10,10 @@
 
 1. `nixfmt` via `flake.nix` in this directory!
 
+1. Container?
+   - Base image?
+   - https://github.com/DeterminateSystems/nix-installer#in-a-container
+
 1. https://github.com/utensils/mcp-nixos
 
 1. https://github.com/numtide/blueprint
@@ -36,9 +40,10 @@
 1. https://github.com/google/google-java-format with `flake.nix` from https://zero-to-nix.com/start/init-flake/
 
 1. GitHub Action to build e.g. `flake1`; see [Nix related Actions on GitHub Marketplace](https://github.com/search?q=nix&type=marketplace)
+    1. https://github.com/DeterminateSystems/nix-installer#as-a-github-action
     1. Caching? E.g. Nix package themselves, and Maven or Bazel etc.
-       * https://www.cachix.org ?
-       * https://github.com/DeterminateSystems/magic-nix-cache costs ;(
+       - https://www.cachix.org ?
+       - https://github.com/DeterminateSystems/magic-nix-cache costs ;(
 
 1. DevContainer from Flake
 
@@ -76,6 +81,10 @@
 1. https://github.com/nixos/hydra
 1. Local [Nixery](https://nixery.dev)
 1. https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/games/minecraft-server.nix :)
+
+1. Lazy Trees?
+   - https://determinate.systems/posts/changelog-determinate-nix-352/
+   - https://determinate.systems/posts/changelog-determinate-nix-366/
 
 ## NixOS
 

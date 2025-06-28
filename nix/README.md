@@ -10,9 +10,11 @@ Run `hello` from Nix:
 
     nix run nixpkgs#hello
 
-Traditionally `nix-channel --list` would show which _channel_ this came from; e.g., `nixpkgs https://nixos.org/channels/nixos-unstable` (or a fixed version) - but channels shouldn't be used any more nowadays anyways.
+Traditionally `nix-channel --list` would show which _channel_ this came from; e.g., `nixpkgs https://nixos.org/channels/nixos-unstable` (or a fixed version) - but channels shouldn't be used any more nowadays anyway.
 
-If that is empty, such as in a modern Nix installation like [Determinate](docs/determinate.md)'s, then its _flake registry_ maps `nixpkgs` via the `extra-nix-path = nixpkgs=flake:nixpkgs` in `/etc/nix/nix.conf`. You can therefore also run: `nix run flake:nixpkgs#hello`. `nix flake metadata nixpkgs` will show the _Resolved_ and _Locked_ URLs; e.g., `github:NixOS/nixpkgs/nixpkgs-unstable`. With `nix run flake:nixpkgs#hello -- --version` we can see that the version of `hello` on `nixpkgs-unstable` is e.g. `2.12.2`.
+If that is empty, such as in a modern Nix installation like [Determinate](docs/determinate.md)'s, then its _flake registry_ maps `nixpkgs` via the `extra-nix-path = nixpkgs=flake:nixpkgs` in `/etc/nix/nix.conf`. You can therefore also run: `nix run flake:nixpkgs#hello`. `nix flake metadata nixpkgs` will show the _Resolved_ and _Locked_ URLs, e.g., `github:NixOS/nixpkgs/nixpkgs-unstable`; this comes from `nix registry list`. With `nix run flake:nixpkgs#hello -- --version` we can see that the version of `hello` on `nixpkgs-unstable` is e.g. `2.12.2`.
+
+Running `nix run github:NixOS/nixpkgs/24.11#hello -- --version` gives us `2.12.1` ... from https://github.com/NixOS/nixpkgs/blob/24.11/pkgs/by-name/he/hello/package.nix.
 
 ## Flakes 101
 
