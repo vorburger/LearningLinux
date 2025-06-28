@@ -4,14 +4,26 @@
 
 1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
 
+1. https://github.com/utensils/mcp-nixos
+
 1. https://github.com/numtide/blueprint
+   or https://github.com/tgirlcloud/nix-templates
+   or https://flake.parts
+   and https://github.com/nix-community/templates 
+
+1. https://mynixos.com
 
 1. Combine https://nix.dev/tutorials/first-steps/reproducible-scripts
    with https://nix.dev/tutorials/first-steps/declarative-shell
 
-1. https://devenv.sh ?
+1. https://devenv.sh, or https://github.com/numtide/devshell, or ...
 
-1. Try https://garnix.io ?
+1. https://github.com/nix-community/nix-direnv
+   instead of https://github.com/nix-community/lorri
+
+1. https://github.com/xzfc/cached-nix-shell
+
+1. Try https://garnix.io ? Or https://hercules-ci.com, or https://www.cachix.org, etc.
 
 1. nix profile?
 
@@ -115,3 +127,9 @@
 1. https://kubenix.org
 
 1. Speed up `install` - could it read from a cache, somehow?
+
+1. https://github.com/ibizaman/selfhostblocks (from https://awesome-selfhosted.net/platforms/nix.html)
+
+1. https://github.com/oddlama/nix-topology
+
+1. https://github.com/ryantm/agenix
