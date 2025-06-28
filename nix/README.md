@@ -40,7 +40,7 @@ TODO
 
 ## Flakes Java, multi-platform
 
-We can run e.g. `java`, see [flake1](flake1/flake.nix).
+Run `nix run ./flakes/java#java`, see [java](flakes/java/flake.nix).
 
 ## Packages
 
