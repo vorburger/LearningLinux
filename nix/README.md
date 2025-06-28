@@ -74,6 +74,10 @@ but entering the Dev Shell with the [`develop.sh`](flakes/java/develop.sh) scrip
 
 TODO FIXME it's broken...
 
+## Format
+
+Configuring https://github.com/numtide/treefmt-nix for https://github.com/NixOS/nixfmt, as in the [`flake.nix`](flake.nix), with a [`treefmt.nix`](treefmt.nix) allows running `nix flake check` (e.g. on CI) to validate formatting, and `nix fmt` to fix it (e.g. in a pre-commit).
+
 ## Packages
 
 [`nix search`](https://zero-to-nix.com/start/nix-search/) evaluates locally.

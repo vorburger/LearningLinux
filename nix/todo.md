@@ -9,12 +9,18 @@
    - All the open `TODO` in the `flake.nix` etc. files
    - ... the rest here! ;)
 
-1. `nixfmt` & Nix language server `nil` via `flake.nix` in this directory!
+1. Nix language server `nil` via `flake.nix` in this directory!
+
+1. Formatting with Git Hook
+1. Formatting in VSC
+1. Formatting with https://github.com/numtide/treefmt-nix#flake-parts
 
 1. https://github.com/numtide/blueprint
    or https://github.com/tgirlcloud/nix-templates
    **or https://flake.parts**
    and https://github.com/nix-community/templates
+
+1. Run `nix flake check` via https://github.com/cachix/git-hooks.nix
 
 1. https://devenv.sh, or https://github.com/numtide/devshell, or ...
 
