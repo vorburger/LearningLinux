@@ -1,3 +1,6 @@
 {
-  "recommendations": ["jnoortheen.nix-ide"]
+  "recommendations": [
+    "jnoortheen.nix-ide",
+    "christian-kohler.path-intellisense"
+  ]
 }

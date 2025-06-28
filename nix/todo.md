@@ -9,7 +9,7 @@
    - All the open `TODO` in the `flake.nix` etc. files
    - ... the rest here! ;)
 
-1. Nix language server `nil` via `flake.nix` in this directory!
+1. Use `systems` from root `flake.nix` in `java/flake.nix`
 1. Formatting with https://github.com/numtide/treefmt-nix#flake-parts
 
 1. Run `nix flake check` ... via https://github.com/cachix/git-hooks.nix?
@@ -21,6 +21,10 @@
    - Base image?
    - https://github.com/DeterminateSystems/nix-installer#in-a-container
 1. Container https://github.com/NixOS/templates/blob/master/simple-container/flake.nix
+
+1. https://github.com/nix-community/nix-direnv WITH `nix develop --command "$SHELL"`
+   instead of https://github.com/nix-community/lorri
+1. https://marketplace.visualstudio.com/items?itemName=mkhl.direnv
 
 1. GitHub Action to build e.g. `flake1`; see [Nix related Actions on GitHub Marketplace](https://github.com/search?q=nix&type=marketplace)
     1. https://github.com/DeterminateSystems/nix-installer#as-a-github-action
@@ -51,9 +55,6 @@
 
 1. Set-up https://github.com/utensils/mcp-nixos for this project!
 
-1. https://github.com/nix-community/nix-direnv WITH `nix develop --command "$SHELL"`
-   instead of https://github.com/nix-community/lorri
-1. https://marketplace.visualstudio.com/items?itemName=mkhl.direnv
 1. https://nixos.wiki/wiki/Visual_Studio_Code#Creating_development_environments_using_nix-shell
 
 ---

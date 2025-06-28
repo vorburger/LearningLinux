@@ -78,6 +78,18 @@ TODO FIXME it's broken...
 
 Configuring https://github.com/numtide/treefmt-nix for https://github.com/NixOS/nixfmt, as in the [`flake.nix`](flake.nix), with a [`treefmt.nix`](treefmt.nix) allows running `nix flake check` (e.g. on CI) to validate formatting, and `nix fmt` to fix it (e.g. in a pre-commit).
 
+## LSP
+
+Install https://github.com/oxalica/nil into the `devShell`, see [`flake.nix`](flake.nix).
+
+## VSC
+
+Install https://github.com/nix-community/vscode-nix-ide via [`extensions.json`](.vscode/extensions.json) and configure it via [`settings.json`](.vscode/settings.json).
+
+For VSC to find `nil` and `nixfmt`, you have to start it from the Terminal after entering `nix develop`.
+
+TODO https://marketplace.visualstudio.com/items?itemName=mkhl.direnv for `direnv`.
+
 ## Packages
 
 [`nix search`](https://zero-to-nix.com/start/nix-search/) evaluates locally.

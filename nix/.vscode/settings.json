@@ -1,0 +1,17 @@
+{
+  // https://github.com/nix-community/vscode-nix-ide#lsp-plugin-support
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nil",
+
+  // https://github.com/oxalica/nil/blob/main/docs/configuration.md
+  "nil": {
+    "nix": {
+      "maxMemoryMB": 2560,
+      "flake": {
+        "autoArchive": true,
+        "autoEvalInputs": true,
+        "nixpkgsInputName": "nixpkgs"
+      }
+    }
+  }
+}
