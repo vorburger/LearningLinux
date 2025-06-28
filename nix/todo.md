@@ -55,7 +55,6 @@
 
 1. What's the difference between _packages_ and _apps_ e.g. on https://flakehub.com/flake/0x5a4/nand2tetris-flake?view=outputs
 
-1. [NixOS](NixOS.md)
 1. READ! Manual, Pills, ... from _Learning_ links at the bottom
 1. nix-shell --pure without reading existing dotfiles seems PITA... so use a container!
 1. https://nixos.org/manual/nix/stable/command-ref/new-cli/nix.html#examples
@@ -77,6 +76,8 @@
 1. https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/games/minecraft-server.nix :)
 
 ## NixOS
+
+1. [NixOS](docs/NixOS.md)
 
 1. Try https://github.com/Mic92/nixos-shell
 
