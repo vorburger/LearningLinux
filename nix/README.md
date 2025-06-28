@@ -16,42 +16,29 @@ If that is empty, such as in a modern Nix installation like [Determinate](docs/d
 
 Running `nix run github:NixOS/nixpkgs/24.11#hello -- --version` gives us `2.12.1` ... from https://github.com/NixOS/nixpkgs/blob/24.11/pkgs/by-name/he/hello/package.nix.
 
-## Flakes 101
+## Flakes: Trivial Hello
 
-TODO _When run from a directory containing a `flake.nix` (see below), then its `nixpkgs` fixes the version._
+    nix flake new flakes/trivial
 
-## Flakes 102
+created [`flakes/trivial/flake.nix`](flakes/trivial/flake.nix), which we need to `git add .`.
 
-```nix
-{
-  description = "A very basic flake";
+Now we can `cd flakes/trivial/flake.nix` and then `nix run` (or just `nix run ./flakes/trivial`, without `cd`) the _default output_ and... voilà, `hello` again! (`nix run` without arguments runs the `default` package. It's equivalent to `nix run .#` and `nix run .#default`.)
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-  };
+If `nix run .#hello -- --version` shows e.g. `hello 2.12.2`, we could replace `unstable` in the `flake.nix` with e.g. `24.11` to get e.g. a `hello 2.12.1` again as above. The big difference is that, this time, it's more _"stable"_ because we've declaratively fixed this version.
 
-  outputs = { self, nixpkgs }: {
+BTW: This very first `flake.nix` comes from [the `trivial` template](https://github.com/NixOS/templates/blob/ad0e221dda33c4b564fad976281130ce34a20cb9/trivial/flake.nix#L1), because of [this](https://github.com/NixOS/templates/blob/ad0e221dda33c4b564fad976281130ce34a20cb9/flake.nix#L162).
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+## Flakes Go
 
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+`nix flake show templates` shows other templates. E.g. `nix flake new -t templates#go-hello flakes/go-hello` created [`flakes/go-hello/flake.nix`](flakes/trivial/flake.nix), which we can `nix run ./flakes/go-hello` again.
 
-  };
-}
-```
+TODO FIXME it's broken...
 
-    mkdir flake1 && cd flake1
-    nix flake new .
-    git add flake.nix
-    nix run
+## Flakes `devShell`
 
-This ran the _default output_ of our Flake.
+TODO
 
-Update (or remove) the default `description`, and replace `?ref=nixos-unstable` with e.g. `?ref=nixos-24.11`; now `nix run` again, it still works (of course) - but it's more _"stable"._
-
-If there is only 1 `inputs` then you could simplify it to `inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";`.
-
-`nix run` without arguments runs the `default` package. It's equivalent to `nix run .#` and `nix run .#default`. For now, remove the default package, and instead directly run `nix run .#hello`.
+## Flakes Java, multi-platform
 
 We can run e.g. `java`, see [flake1](flake1/flake.nix).
 
