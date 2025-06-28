@@ -26,7 +26,7 @@
 
 1. https://github.com/numtide/blueprint
    or https://github.com/tgirlcloud/nix-templates
-   or https://flake.parts
+   **or https://flake.parts**
    and https://github.com/nix-community/templates
 
 1. `ssh mac` for Multiplatform ... with flake-utils, as in e.g. https://github.com/NixOS/templates/blob/master/typescript/pnpm/flake.nix

@@ -28,15 +28,34 @@ If `nix run .#hello -- --version` shows e.g. `hello 2.12.2`, we could replace `u
 
 BTW: This very first `flake.nix` comes from [the `trivial` template](https://github.com/NixOS/templates/blob/ad0e221dda33c4b564fad976281130ce34a20cb9/trivial/flake.nix#L1), because of [this](https://github.com/NixOS/templates/blob/ad0e221dda33c4b564fad976281130ce34a20cb9/flake.nix#L162).
 
+## [Shell](https://nixos.org/manual/nix/stable/#sec-nix-shell)
+
+    $ hello
+    fish: hello: command not found...
+    $ nix shell ./flakes/trivial
+    $ hello
+    Hello, world!
+
+Before Flakes, old style, not recommended any more:
+
+    nix-shell -p hello
+    nix-shell --pure --packages hello
+
+## Check
+
+    nix flake check ./flakes/trivial --all-systems
+
+TODO Run this in a GitHub Action?
+
+## Flakes `devShell`
+
+TODO
+
 ## Flakes Go
 
 `nix flake show templates` shows other templates. E.g. `nix flake new -t templates#go-hello flakes/go-hello` created [`flakes/go-hello/flake.nix`](flakes/trivial/flake.nix), which we can `nix run ./flakes/go-hello` again.
 
 TODO FIXME it's broken...
-
-## Flakes `devShell`
-
-TODO
 
 ## Flakes Java, multi-platform
 
@@ -53,11 +72,6 @@ https://search.nixos.org/packages is simpler.
 https://flakehub.com/flakes is a sort of "Forge" (?) for many more other Flakes; e.g. `nix flake show "https://flakehub.com/f/0x5a4/nand2tetris-flake/1.0.0"`. It mirrors nixpks as https://flakehub.com/flake/NixOS/nixpkgs, so e.g. `nix run "https://flakehub.com/f/NixOS/nixpkgs/*#hello"` instead of `nix run nixpkgs#hello`.
 
 PS: The `legacyPackages` naming [here](https://github.com/vorburger/LearningLinux/blob/7dae2a2dde319170c7f99555522e1a95021a3dea/nix/flake1/flake.nix) is [just due to this](https://github.com/NixOS/nixpkgs/blob/fcc8ff7cc271c9652623dae2a9fcd1ba49232b57/flake.nix#L47-L55) (that's why `--legacy` above; the `--all-systems` is unrelated and for showing all "platforms").
-
-## [Shell](https://nixos.org/manual/nix/stable/#sec-nix-shell)
-
-    nix-shell -p hello
-    nix-shell --pure --packages hello
 
 ## Lessons
 
