@@ -10,20 +10,15 @@ Run `hello` from Nix:
 
     nix run nixpkgs#hello
 
-When run from a directory containing a `flake.nix` (see below), then its `nixpkgs` fixes the version.
-**TODO** _Otherwise, what exactly determines which `nixpkgs` _"channel"_ (version) this uses?_
+Traditionally `nix-channel --list` would show which _channel_ this came from; e.g., `nixpkgs https://nixos.org/channels/nixos-unstable` (or a fixed version) - but channels shouldn't be used any more nowadays anyways.
 
-FYI, just for fun: Nix from Nix, Given that we have `nix`:
-
-    $ nix --version
-    nix (Nix) 2.24.12
-
-We can use it to run the latest `nix` from it:
-
-    $ nix run nixpkgs#nix -- --version
-    nix (Nix) 2.28.3
+If that is empty, such as in a modern Nix installation like [Determinate](docs/determinate.md)'s, then its _flake registry_ maps `nixpkgs` via the `extra-nix-path = nixpkgs=flake:nixpkgs` in `/etc/nix/nix.conf`. You can therefore also run: `nix run flake:nixpkgs#hello`. `nix flake metadata nixpkgs` will show the _Resolved_ and _Locked_ URLs; e.g., `github:NixOS/nixpkgs/nixpkgs-unstable`. With `nix run flake:nixpkgs#hello -- --version` we can see that the version of `hello` on `nixpkgs-unstable` is e.g. `2.12.2`.
 
 ## Flakes 101
+
+TODO _When run from a directory containing a `flake.nix` (see below), then its `nixpkgs` fixes the version._
+
+## Flakes 102
 
 ```nix
 {

@@ -4,6 +4,8 @@
 
 1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
 
+1. Turn [README](README.md) into a slide deck? Make a YouTube video?? :)
+
 1. How to upgrade `nix` in Determinate?
 
 1. `nixfmt` via `flake.nix` in this directory!
