@@ -3,4 +3,10 @@ set -euox pipefail
 
 echo Hi
 protoc --version
-# TODO javac --version
+javac --version
+
+javac Hello.java
+java Hello
+
+# Bat is not in the Nix devShell, so this will fail:
+# bat --version

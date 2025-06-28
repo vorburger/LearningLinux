@@ -10,5 +10,11 @@
     packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
 
     packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+
+    packages.x86_64-linux.hoi = nixpkgs.legacyPackages.x86_64-linux.writeShellApplication {
+      name = "hoi";
+      # runtimeInputs = [ ... ];
+      text = "echo 'Hoi zämä!'";
+    };
   };
 }

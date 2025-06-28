@@ -28,6 +28,10 @@ If `nix run .#hello -- --version` shows e.g. `hello 2.12.2`, we could replace `u
 
 BTW: This very first `flake.nix` comes from [the `trivial` template](https://github.com/NixOS/templates/blob/ad0e221dda33c4b564fad976281130ce34a20cb9/trivial/flake.nix#L1), because of [this](https://github.com/NixOS/templates/blob/ad0e221dda33c4b564fad976281130ce34a20cb9/flake.nix#L162).
 
+## `writeShellApplication`
+
+    nix run ./flakes/trivial#hoi
+
 ## [Shell](https://nixos.org/manual/nix/stable/#sec-nix-shell)
 
     $ hello
@@ -49,7 +53,7 @@ TODO Run this in a GitHub Action?
 
 ## Flakes Java, multi-platform
 
-Run `nix run ./flakes/java#java`, see [java](flakes/java/flake.nix).
+Run `nix run ./flakes/java#hello`, see [java](flakes/java/flake.nix).
 
 ## Flakes `devShell`
 
