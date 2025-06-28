@@ -10,13 +10,19 @@
    - ... the rest here! ;)
 
 1. Use `systems` from root `flake.nix` in `java/flake.nix`
+1. https://flake.parts
 1. Formatting with https://github.com/numtide/treefmt-nix#flake-parts
 
-1. Run `nix flake check` ... via https://github.com/cachix/git-hooks.nix?
+1. Run `nix flake check`
+   - On GitHub
+   - Too Slow! ... via https://github.com/cachix/git-hooks.nix ? Or just "directly"?
 
-1. https://devenv.sh, or https://github.com/numtide/devshell, or ...
-
+1. https://zero-to-nix.com/start/learn-more/#containers
 1. DevContainer
+   - https://devenv.sh/integrations/codespaces-devcontainer/ try it?
+     With https://devenv.sh/guides/using-with-flakes/
+   - Alternatives? Write one myself...
+1. Codespace
 1. Container Dev Env
    - Base image?
    - https://github.com/DeterminateSystems/nix-installer#in-a-container
@@ -26,10 +32,13 @@
    instead of https://github.com/nix-community/lorri
 1. https://marketplace.visualstudio.com/items?itemName=mkhl.direnv
 
+1. https://hercules-ci.com ? See https://numtide.github.io/devshell/ci.html#hercules-ci
+
 1. GitHub Action to build e.g. `flake1`; see [Nix related Actions on GitHub Marketplace](https://github.com/search?q=nix&type=marketplace)
     1. https://github.com/DeterminateSystems/nix-installer#as-a-github-action
     1. Caching? E.g. Nix package themselves, and Maven or Bazel etc.
-       - https://www.cachix.org ?
+       - Why is https://cache.nixos.org not sufficient?!
+       - https://www.cachix.org ? See https://numtide.github.io/devshell/ci.html#github-actions
        - https://github.com/DeterminateSystems/magic-nix-cache costs ;(
 
 1. `enola.git/flake.nix` https://github.com/enola-dev/enola/pull/1227
@@ -93,6 +102,8 @@
 1. Lazy Trees?
    - https://determinate.systems/posts/changelog-determinate-nix-352/
    - https://determinate.systems/posts/changelog-determinate-nix-366/
+
+1. Nah... what for, really? https://devenv.sh, or https://github.com/numtide/devshell.
 
 ## NixOS
 
