@@ -4,12 +4,16 @@
 
 1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
 
+1. How to upgrade `nix` in Determinate?
+
+1. `nixfmt` via `flake.nix` in this directory!
+
 1. https://github.com/utensils/mcp-nixos
 
 1. https://github.com/numtide/blueprint
    or https://github.com/tgirlcloud/nix-templates
    or https://flake.parts
-   and https://github.com/nix-community/templates 
+   and https://github.com/nix-community/templates
 
 1. https://mynixos.com
 
@@ -24,8 +28,6 @@
 1. https://github.com/xzfc/cached-nix-shell
 
 1. Try https://garnix.io ? Or https://hercules-ci.com, or https://www.cachix.org, etc.
-
-1. nix profile?
 
 1. https://github.com/nix-community/awesome-nix
 
@@ -55,7 +57,6 @@
 
 1. [NixOS](NixOS.md)
 1. READ! Manual, Pills, ... from _Learning_ links at the bottom
-1. https://github.com/nix-community/home-manager
 1. nix-shell --pure without reading existing dotfiles seems PITA... so use a container!
 1. https://nixos.org/manual/nix/stable/command-ref/new-cli/nix.html#examples
 1. dotfiles: How to isolate from host? Then: Nano, [Starship](https://starship.rs/installing/#nix), ...
