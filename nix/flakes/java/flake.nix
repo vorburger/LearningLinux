@@ -5,14 +5,22 @@
 
   outputs = { self, nixpkgs }:
     let
+      jdkVersion = "jdk23";
+
       forAllSystems = f: nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-darwin" ]
-        (system: f { pkgs = import nixpkgs { inherit system; }; });
+        (system:
+          let
+            pkgs = import nixpkgs { inherit system; };
+            jdk = pkgs.${jdkVersion};
+          in
+            f { pkgs = pkgs; jdk = jdk; }
+        );
     in {
 
-      devShells = forAllSystems ({ pkgs }: {
+      devShells = forAllSystems ({ pkgs, jdk }: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            jdk23
+            jdk
             protobuf
           ];
           shellHook = ''
@@ -21,16 +29,14 @@
         };
       });
 
-
-      packages = forAllSystems ({ pkgs }: {
+      packages = forAllSystems ({ pkgs, jdk }: {
 
         hello = pkgs.stdenv.mkDerivation {
           name = "hello";
           src = self;
-          # TODO Avoid repeating the JDK (with version) here, but how?
-          # TODO Use JRE instead of JDK for runtime vs build
-          runtimeInputs = [ pkgs.jdk23 ];
-          buildInputs = [ pkgs.jdk23 ];
+           # TODO Use JRE instead of JDK for runtime vs build
+          runtimeInputs = [ jdk ];
+          buildInputs = [ jdk ];
           buildPhase = ''
             javac Hello.java
 
@@ -45,7 +51,7 @@
 
             cat > $out/bin/hello << EOF
             #!${pkgs.bash}/bin/bash
-            exec ${pkgs.jdk23}/bin/java -classpath $out/share/java/hello Hello "$@"
+            exec ${jdk}/bin/java -classpath $out/share/java/hello Hello "$@"
             EOF
 
             chmod +x $out/bin/hello
