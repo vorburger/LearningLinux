@@ -6,11 +6,22 @@
 
 1. Turn [README](README.md) into a slide deck? Make a YouTube video?? :)
 
-1. devShell
-
 1. Pure Script!
 
-1. `nixfmt` via `flake.nix` in this directory!
+1. TODO What is "..." in outputs = { self, nixpkgs,...  }: used for?
+
+1. `nix develop` launch `fish` instead of `bash`
+
+1. https://github.com/numtide/blueprint
+   or https://github.com/tgirlcloud/nix-templates
+   **or https://flake.parts**
+   and https://github.com/nix-community/templates
+
+1. `nixfmt` & Nix language server `nil` via `flake.nix` in this directory!
+
+1. Mix & match and grab newer protoc
+
+1. flake.nix in dotfiles, for base dev environment
 
 1. `stdenv.mkDerivation`, as e.g. in https://github.com/NixOS/templates/blob/master/bash-hello/flake.nix and then https://github.com/NixOS/templates/blob/master/c-hello/flake.nix
 
@@ -23,11 +34,6 @@
 1. Container https://github.com/NixOS/templates/blob/master/simple-container/flake.nix
 
 1. Set-up https://github.com/utensils/mcp-nixos for this project!
-
-1. https://github.com/numtide/blueprint
-   or https://github.com/tgirlcloud/nix-templates
-   **or https://flake.parts**
-   and https://github.com/nix-community/templates
 
 1. `ssh mac` for Multiplatform ... with flake-utils, as in e.g. https://github.com/NixOS/templates/blob/master/typescript/pnpm/flake.nix
 

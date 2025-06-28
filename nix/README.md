@@ -47,19 +47,22 @@ Before Flakes, old style, not recommended any more:
 
 TODO Run this in a GitHub Action?
 
+## Flakes Java, multi-platform
+
+Run `nix run ./flakes/java#java`, see [java](flakes/java/flake.nix).
+
 ## Flakes `devShell`
 
-TODO
+Note the `devShells` in [java](flakes/java/flake.nix); this allows us to:
+
+    nix develop
+    protoc --version
 
 ## Flakes Go
 
 `nix flake show templates` shows other templates. E.g. `nix flake new -t templates#go-hello flakes/go-hello` created [`flakes/go-hello/flake.nix`](flakes/trivial/flake.nix), which we can `nix run ./flakes/go-hello` again.
 
 TODO FIXME it's broken...
-
-## Flakes Java, multi-platform
-
-Run `nix run ./flakes/java#java`, see [java](flakes/java/flake.nix).
 
 ## Packages
 
