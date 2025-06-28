@@ -2,54 +2,27 @@
 
 ## Nix
 
-1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
-
 1. Turn [README](README.md) into a slide deck? Make a YouTube video?? :)
 
-1. TODO What is "..." in outputs = { self, nixpkgs,...  }: used for?
+1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
+   - How to get `nix develop` to respect `$SHELL` ? (Both directly and WITH `direnv` and `nix-direnv`.)
+   - All the open `TODO` in the `flake.nix` etc. files
+   - ... the rest here! ;)
+
+1. `nixfmt` & Nix language server `nil` via `flake.nix` in this directory!
 
 1. https://github.com/numtide/blueprint
    or https://github.com/tgirlcloud/nix-templates
    **or https://flake.parts**
    and https://github.com/nix-community/templates
 
-1. `nixfmt` & Nix language server `nil` via `flake.nix` in this directory!
+1. https://devenv.sh, or https://github.com/numtide/devshell, or ...
 
-1. Mix & match and grab newer protoc
-
-1. flake.nix in dotfiles, for base dev environment
-
-1. `stdenv.mkDerivation`, as e.g. in https://github.com/NixOS/templates/blob/master/bash-hello/flake.nix and then https://github.com/NixOS/templates/blob/master/c-hello/flake.nix
-
-1. How to upgrade `nix` in Determinate?
-
+1. DevContainer
 1. Container Dev Env
    - Base image?
    - https://github.com/DeterminateSystems/nix-installer#in-a-container
-
 1. Container https://github.com/NixOS/templates/blob/master/simple-container/flake.nix
-
-1. Set-up https://github.com/utensils/mcp-nixos for this project!
-
-1. `ssh mac` for Multiplatform ... with flake-utils, as in e.g. https://github.com/NixOS/templates/blob/master/typescript/pnpm/flake.nix
-
-1. https://devenv.sh, or https://github.com/numtide/devshell, or ...
-
-1. https://mynixos.com
-
-1. Combine https://nix.dev/tutorials/first-steps/reproducible-scripts
-   with https://nix.dev/tutorials/first-steps/declarative-shell
-
-1. https://github.com/nix-community/nix-direnv
-   instead of https://github.com/nix-community/lorri
-
-1. https://github.com/xzfc/cached-nix-shell
-
-1. Try https://garnix.io ? Or https://hercules-ci.com, or https://www.cachix.org, etc.
-
-1. https://github.com/nix-community/awesome-nix
-
-1. https://github.com/google/google-java-format with `flake.nix` from https://zero-to-nix.com/start/init-flake/
 
 1. GitHub Action to build e.g. `flake1`; see [Nix related Actions on GitHub Marketplace](https://github.com/search?q=nix&type=marketplace)
     1. https://github.com/DeterminateSystems/nix-installer#as-a-github-action
@@ -57,38 +30,41 @@
        - https://www.cachix.org ?
        - https://github.com/DeterminateSystems/magic-nix-cache costs ;(
 
-1. DevContainer from Flake
-
-1. `enola.git/flake.nix`
+1. `enola.git/flake.nix` https://github.com/enola-dev/enola/pull/1227
     1. Add to https://github.com/NixOS/nixos-search/blob/main/flakes/manual.toml
     1. Distribute on https://flakehub.com/flakes with https://github.com/DeterminateSystems/flakehub-push
 
-1. How to manage the Nix user profile declarative instead of imperative?
+1. Set-up https://github.com/utensils/mcp-nixos for this project!
 
+1. https://github.com/nix-community/nix-direnv WITH `nix develop --command "$SHELL"`
+   instead of https://github.com/nix-community/lorri
+1. https://marketplace.visualstudio.com/items?itemName=mkhl.direnv
 1. https://nixos.wiki/wiki/Visual_Studio_Code#Creating_development_environments_using_nix-shell
+
+1. TODO What is "..." in outputs = { self, nixpkgs,...  }: used for?
+
+1. Mix & match and grab newer protoc
+
+1. How to upgrade `nix` in Determinate?
+
+1. `ssh mac` for Multiplatform ... with flake-utils, as in e.g. https://github.com/NixOS/templates/blob/master/typescript/pnpm/flake.nix
+
+1. https://github.com/xzfc/cached-nix-shell or try https://garnix.io ? Or https://hercules-ci.com, or https://www.cachix.org, etc. Or do I not need any of this with https://determinate.systems/flakehub/ ?
 
 1. https://github.com/numtide/treefmt-nix
 
-1. https://github.com/enola-dev/enola/pull/1227
-1. https://github.com/vorburger/vorburger-dotfiles-bin-etc as https://flox.dev/docs/tutorials/default-environment/
+1. https://github.com/google/google-java-format with `flake.nix` from https://zero-to-nix.com/start/init-flake/
+
+1. How to manage the Nix user profile declarative instead of imperative? Have a `flake.nix` in my https://github.com/vorburger/vorburger-dotfiles-bin-etc, for the base dev environment, with https://nix-community.github.io/home-manager/options.xhtml for something like (but without using) https://flox.dev/docs/tutorials/default-environment/. With [Starship](https://starship.rs/installing/#nix).
+
+1. https://github.com/nix-community/awesome-nix
 
 1. What's the difference between _packages_ and _apps_ e.g. on https://flakehub.com/flake/0x5a4/nand2tetris-flake?view=outputs
 
 1. READ! Manual, Pills, ... from _Learning_ links at the bottom
-1. nix-shell --pure without reading existing dotfiles seems PITA... so use a container!
-1. https://nixos.org/manual/nix/stable/command-ref/new-cli/nix.html#examples
-1. dotfiles: How to isolate from host? Then: Nano, [Starship](https://starship.rs/installing/#nix), ...
-1. [`nix build`](https://nixos.org/manual/nix/stable/command-ref/nix-build.html)
 1. sandbox? Explore.. try accessing file, and network via `curl` `set sandbox = true` in `/etc/nix/nix.conf`
-1. `nix run` missing `./default.nix` what's that?
 1. use https://nixos.org/manual/nix/stable/#sec-nix-shell in my scripts
 1. https://nixos.wiki/wiki/Applications, notably LSP
-1. write a `shell.nix` for `man nix-shell` (in https://github.com/vorburger/vorburger-dotfiles-bin-etc/)
-1. containers build?
-1. create a NixOS VM: `nixos-rebuild build-vm`, and then `./result/bin/run-*-vm`
-1. install NixOS baremetal server, fully automated
-1. install NixOS server on GCP GCE, using https://nixops.readthedocs.io/en/latest/?
-1. create a simple bare minimal server config with a SSH container (as local VM & GCP GCE)
 1. https://nixbuild.net/#pricing
 1. https://github.com/nixos/hydra
 1. Local [Nixery](https://nixery.dev)
@@ -101,6 +77,11 @@
 ## NixOS
 
 1. [NixOS](docs/NixOS.md)
+
+1. create a NixOS VM: `nixos-rebuild build-vm`, and then `./result/bin/run-*-vm`
+1. install NixOS baremetal server, fully automated
+1. install NixOS server on GCP GCE, using https://nixops.readthedocs.io/en/latest/?
+1. create a simple bare minimal server config with a SSH container (as local VM & GCP GCE)
 
 1. Try https://github.com/Mic92/nixos-shell
 

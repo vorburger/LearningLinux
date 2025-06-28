@@ -40,7 +40,7 @@ BTW: This very first `flake.nix` comes from [the `trivial` template](https://git
     $ hello
     Hello, world!
 
-Before Flakes, old style, not recommended any more:
+Before Flakes, old style, not recommended anymore:
 
     nix-shell -p hello
     nix-shell --pure --packages hello
@@ -55,12 +55,18 @@ TODO Run this in a GitHub Action?
 
 Run `nix run ./flakes/java#hello`, see [java](flakes/java/flake.nix).
 
+Using `nix build ./flakes/java#hello` (instead of `run`) produces the installed output that can be run with `result/bin/hello`.
+
 ## Flakes `devShell`
 
 Note the `devShells` in [java](flakes/java/flake.nix); this allows us to:
 
+    cd flakes/java
     nix develop
     protoc --version
+
+Unfortunately `nix develop` does not respect your `$SHELL` (it always lands you `bash`),
+but entering the Dev Shell with the [`develop.sh`](flakes/java/develop.sh) script fixes that.
 
 ## Flakes Go
 

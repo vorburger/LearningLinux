@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+if ! [ -x "$(command -v nix)" ]; then
+  echo "Please first install Nix; see https://github.com/vorburger/LearningLinux/blob/develop/nix/docs/install.md"
+  exit 255
+fi
+
 # TODO How to avoid needing this script at all?!
 
 # NB: This starts the user's $SHELL (which may not be Bash but e.g. Fish)
@@ -8,4 +13,6 @@
 # It is only useful for testing the devShell interactively.
 # Real builds should use the `package` script instead.
 
-nix develop --command "$SHELL"
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+nix develop "$SCRIPT_DIR" --command "$SHELL"

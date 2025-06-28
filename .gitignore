@@ -12,4 +12,5 @@ user-data
 .vagrant/
 
 # Nix & Demos
+result
 *.class

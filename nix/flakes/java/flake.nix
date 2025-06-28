@@ -1,4 +1,6 @@
 {
+  description = "Nix Flake for Java development with JDK, Protobuf, and a simple Hello World example";
+
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
 
   outputs = { self, nixpkgs }:
@@ -22,13 +24,33 @@
 
       packages = forAllSystems ({ pkgs }: {
 
-        # TODO Use real `stdenv.mkDerivation` instead of this... which is "impure" anyway!
-        hello = pkgs.writeShellApplication {
+        hello = pkgs.stdenv.mkDerivation {
           name = "hello";
+          src = self;
           # TODO Avoid repeating the JDK (with version) here, but how?
+          # TODO Use JRE instead of JDK for runtime vs build
           runtimeInputs = [ pkgs.jdk23 ];
-          # TODO /nix/store/yrxi27xf7rv5lxj32mfr5favk4530nj1-hello/bin/hello: line 8: script.sh: command not found
-          text = "script.sh";
+          buildInputs = [ pkgs.jdk23 ];
+          buildPhase = ''
+            javac Hello.java
+
+            mkdir -p $out/src
+            cp -r ${self}/*.java $out/src/
+            javac -d $out/bin $out/src/Hello.java
+          '';
+          installPhase = ''
+            mkdir -p $out/share/java/hello
+            cp Hello.class $out/share/java/hello/
+            mkdir -p $out/bin
+
+            cat > $out/bin/hello << EOF
+            #!${pkgs.bash}/bin/bash
+            exec ${pkgs.jdk23}/bin/java -classpath $out/share/java/hello Hello "$@"
+            EOF
+
+            chmod +x $out/bin/hello
+            echo "Installation complete. The application can be run via '$out/bin/hello'."
+          '';
         };
       });
     };
