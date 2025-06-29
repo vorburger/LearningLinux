@@ -198,7 +198,7 @@ Recommended reading, in this order:
 1. https://nix.dev
 1. https://nixos-and-flakes.thiscute.world
 1. https://zero-to-nix.com
-1. https://nixery.dev/nix-1p.html is a great succinct intro to the Nix functional language
+1. https://code.tvl.fyi/about/nix/nix-1p/README.md is a great succinct intro to the Nix functional language
 1. https://nixos.org/guides/nix-pills/
 1. https://nixos.org/manual/nix/stable/#ssec-builtins documents the `builtins`
 1. https://nixos.org/manual/nixpkgs/stable/#sec-functions-library for `pkgs.lib` (AKA `import <nixpkgs/lib>`)
