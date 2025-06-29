@@ -19,10 +19,21 @@
 
 ## Cache
 
+* https://cache.nixos.org
 * https://flakehub.com
+* https://www.cachix.org
+
+## Ops
+
+* https://clan.lol
+* https://github.com/zhaofengli/colmena
 
 ## Alternative
 
 * https://github.com/NixOS/nix/ AKA CppNix
 * https://lix.systems #rust
 * https://tvix.dev #rust @[flokli](https://flokli.de/) and @[tazjin](https://tazj.in/)
+
+## Learning
+
+[See README](README.md#learning.md] <-- TODO Move here... -->
