@@ -17,11 +17,14 @@
 * https://www.jetify.com/devbox
 * https://flox.dev (with a `.flox/env/manifest.toml` for `flox`)
 
-## Cache
+## Cache & CI
 
 * https://cache.nixos.org
 * https://flakehub.com
 * https://www.cachix.org
+* https://garnix.io 
+* https://nixbuild.net
+* https://hercules-ci.com
 
 ## Ops
 
