@@ -30,9 +30,20 @@
 
 ## Alternative
 
+### Nix Language Implementation
+
 * https://github.com/NixOS/nix/ AKA CppNix
 * https://lix.systems #rust
 * https://tvix.dev #rust @[flokli](https://flokli.de/) and @[tazjin](https://tazj.in/)
+
+###  Configuration Language
+
+* [Nix Language](https://nix.dev/manual/nix/2.28/language/index.html)
+* https://cuelang.org ##cue
+* https://hofstadter.io #cue
+* https://nickel-lang.org
+* https://dhall-lang.org
+* https://jsonnet.org
 
 ## Learning
 
