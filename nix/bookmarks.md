@@ -28,6 +28,11 @@
 * https://clan.lol
 * https://github.com/zhaofengli/colmena
 
+## Integration 
+
+* https://github.com/nix-community/nixago #cue
+* https://github.com/jmgilman/nix-cue #cue
+
 ## Alternative
 
 ### Nix Language Implementation
@@ -47,6 +52,7 @@
 * [Starlark](https://github.com/bazelbuild/starlark)
 * https://www.kcl-lang.io
 * https://github.com/hashicorp/hcl
+* https://pkl-lang.org
 
 ## Learning
 
