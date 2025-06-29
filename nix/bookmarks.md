@@ -44,7 +44,10 @@
 * https://nickel-lang.org
 * https://dhall-lang.org
 * https://jsonnet.org
+* [Starlark](https://github.com/bazelbuild/starlark)
+* https://www.kcl-lang.io
+* https://github.com/hashicorp/hcl
 
 ## Learning
 
-[See README](README.md#learning.md] <-- TODO Move here... -->
+[See README](README.md#learning.md) <-- TODO Move here... -->
