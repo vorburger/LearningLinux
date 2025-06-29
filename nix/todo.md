@@ -47,6 +47,14 @@
 
 1. How to auto-update - does Dependabot and/or Renovate dig Nix?!
 
+1.https://github.com/nix-community/comma
+
+1. https://github.com/nix-community/lanzaboote
+
+1. https://github.com/nix-community/mavenix ?
+
+1. https://github.com/nix-community/ZurichZHF
+
 1. Use https://github.com/DeterminateSystems/flake-checker ?
 
 1. Use another formatter instead? E.g. https://github.com/kamadorueda/alejandra or https://github.com/NixOS/nixfmt/
@@ -99,6 +107,12 @@
 1. Local [Nixery](https://nixery.dev)
 1. https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/games/minecraft-server.nix :)
 
+1. https://github.com/maralorn/nix-output-monitor
+
+1. https://github.com/nix-community/nh
+
+1. https://github.com/nix-community/NUR but why, for what? With flakes, can just depend on any Git repo, no?
+
 1. Lazy Trees?
    - https://determinate.systems/posts/changelog-determinate-nix-352/
    - https://determinate.systems/posts/changelog-determinate-nix-366/
@@ -108,6 +122,8 @@
 ## NixOS
 
 1. [NixOS](docs/NixOS.md)
+
+1. https://github.com/nix-community/impermanence
 
 1. create a NixOS VM: `nixos-rebuild build-vm`, and then `./result/bin/run-*-vm`
 1. install NixOS baremetal server, fully automated
@@ -170,3 +186,7 @@
 1. https://github.com/oddlama/nix-topology
 
 1. https://github.com/ryantm/agenix
+
+## Android 
+
+* https://github.com/nix-community/nix-on-droid
