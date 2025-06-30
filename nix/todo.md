@@ -19,6 +19,9 @@
 
 1. https://zero-to-nix.com/start/learn-more/#containers
 1. DevContainer
+   - https://github.com/devcontainers/features/tree/main/src/nix
+   - https://github.com/zombiezen/codespaces-nix
+   - https://github.com/xtruder/nix-devcontainer
    - https://devenv.sh/integrations/codespaces-devcontainer/ try it?
      With https://devenv.sh/guides/using-with-flakes/
    - Alternatives? Write one myself...
