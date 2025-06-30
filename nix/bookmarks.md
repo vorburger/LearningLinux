@@ -12,6 +12,7 @@
 ## Dev
 
 * `nix develop` (with `devShells` in `flake.nix`)
+* https://garn.io #ts (with a `garn.ts`)
 * https://github.com/numtide/devshell for `nix develop` (with a `devshell.toml`)
 * https://devenv.sh #cachix #[tvix](https://devenv.sh/blog/2024/10/22/devenv-is-switching-its-nix-implementation-to-tvix/) #[flakes-compatible](https://devenv.sh/guides/using-with-flakes/) (with a `devenv.nix`, and `devenv.yaml`, for `devenv`)
 * https://www.jetify.com/devbox
