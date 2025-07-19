@@ -17,6 +17,9 @@
    - On GitHub
    - Too Slow! ... via https://github.com/cachix/git-hooks.nix ? Or just "directly"?
 
+1. https://nix-community.github.io/home-manager/
+
+1. https://flake.parts/options/make-shell.html
 1. https://zero-to-nix.com/start/learn-more/#containers
 1. DevContainer
    - https://github.com/devcontainers/features/tree/main/src/nix
