@@ -22,7 +22,7 @@ Running `nix run github:NixOS/nixpkgs/24.11#hello -- --version` gives us `2.12.1
 
 created [`flakes/trivial/flake.nix`](flakes/trivial/flake.nix), which we need to `git add .`.
 
-Now we can `cd flakes/trivial/flake.nix` and then `nix run` (or just `nix run ./flakes/trivial`, without `cd`) the _default output_ and... voilà, `hello` again! (`nix run` without arguments runs the `default` package. It's equivalent to `nix run .#` and `nix run .#default`.)
+Now we can `cd flakes/trivial` and then `nix run` (or just `nix run ./flakes/trivial`, without `cd`) the _default output_ and... voilà, `hello` again! (`nix run` without arguments runs the `default` package. It's equivalent to `nix run .#` and `nix run .#default`.)
 
 If `nix run .#hello -- --version` shows e.g. `hello 2.12.2`, we could replace `unstable` in the `flake.nix` with e.g. `24.11` to get e.g. a `hello 2.12.1` again as above. The big difference is that, this time, it's more _"stable"_ because we've declaratively fixed this version.
 
