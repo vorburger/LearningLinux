@@ -184,6 +184,7 @@ My [docs](docs/)!
 
 ### References
 
+* https://noogle.dev
 * https://nixos.wiki
 
 ### News
