@@ -23,7 +23,7 @@
 * https://cache.nixos.org
 * https://flakehub.com
 * https://www.cachix.org
-* https://garnix.io 
+* https://garnix.io
 * https://nixbuild.net
 * https://hercules-ci.com
 
@@ -32,7 +32,7 @@
 * https://clan.lol
 * https://github.com/zhaofengli/colmena
 
-## Integration 
+## Integration
 
 * https://github.com/nix-community/nixago #cue
 * https://github.com/jmgilman/nix-cue #cue
@@ -45,7 +45,7 @@
 * https://lix.systems #rust
 * https://tvix.dev #rust @[flokli](https://flokli.de/) and @[tazjin](https://tazj.in/)
 
-###  Configuration Language
+### Configuration Language
 
 * [Nix Language](https://nix.dev/manual/nix/2.28/language/index.html)
 * https://cuelang.org ##cue
@@ -57,6 +57,21 @@
 * https://www.kcl-lang.io
 * https://github.com/hashicorp/hcl
 * https://pkl-lang.org
+
+## Community
+
+* @zimbatm Geneva ?
+* https://socal-nug.com
+
+## Consulting
+
+* https://numtide.com
+* https://www.tweag.io
+* https://determinate.systems
+* https://flox.dev
+* https://nixcademy.com
+* https://cyberus-technology.de ("NixOS LTS")
+* https://helsinki-systems.de
 
 ## Learning
 
