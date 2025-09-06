@@ -12,6 +12,7 @@
 ## Dev
 
 * `nix develop` (with `devShells` in `flake.nix`)
+* https://github.com/nix-community/nix-direnv
 * https://garn.io #ts (with a `garn.ts`)
 * https://github.com/numtide/devshell for `nix develop` (with a `devshell.toml`)
 * https://devenv.sh #cachix #[tvix](https://devenv.sh/blog/2024/10/22/devenv-is-switching-its-nix-implementation-to-tvix/) #[flakes-compatible](https://devenv.sh/guides/using-with-flakes/) (with a `devenv.nix`, and `devenv.yaml`, for `devenv`)
@@ -26,16 +27,33 @@
 * https://garnix.io
 * https://nixbuild.net
 * https://hercules-ci.com
+* https://github.com/NixOS/hydra
 
 ## Ops
 
 * https://clan.lol
+* https://nixos.org/manual/nixos/stable/
+* https://nixops.dev & https://github.com/nixops4/nixops4
+* https://github.com/nix-community/srvos
+* https://github.com/nix-community/disko
+* https://github.com/NixOS/nixos-hardware
 * https://github.com/zhaofengli/colmena
+* https://nix-community.github.io/nixos-anywhere/
+* https://nix-community.github.io/home-manager/
 
 ## Integration
 
 * https://github.com/nix-community/nixago #cue
 * https://github.com/jmgilman/nix-cue #cue
+
+## Mac
+
+* https://nix-darwin.org
+
+## Patterns
+
+* https://flake.parts
+* https://github.com/mightyiam/dendritic
 
 ## Alternative
 
@@ -60,8 +78,15 @@
 
 ## Community
 
+### Meetups & User Groups
+
 * @zimbatm Geneva ?
 * https://socal-nug.com
+
+### Conferences
+
+* https://nixcon.org
+* https://planetnix.com
 
 ## Consulting
 
@@ -72,6 +97,18 @@
 * https://nixcademy.com
 * https://cyberus-technology.de ("NixOS LTS")
 * https://helsinki-systems.de
+* https://obsidian.systems
+
+### References
+
+* https://noogle.dev
+* https://nixos.wiki
+
+### News
+
+* https://fulltimenix.com
+* https://weekly.nixos.org
+* https://twitter.com/nixos_org
 
 ## Learning
 

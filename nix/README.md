@@ -182,16 +182,6 @@ It's pretty cool how (at least on Fedora) e.g. `man direnv` still works after `n
 
 My [docs](docs/)!
 
-### References
-
-* https://noogle.dev
-* https://nixos.wiki
-
-### News
-
-* https://weekly.nixos.org
-* https://twitter.com/nixos_org
-
 ### Learning
 
 See [§Learning Bookmarks](bookmarks.md#learning).
