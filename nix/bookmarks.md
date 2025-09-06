@@ -21,6 +21,7 @@
 
 ## Cache & CI
 
+* https://nix-ci.com
 * https://cache.nixos.org
 * https://flakehub.com
 * https://www.cachix.org
@@ -85,8 +86,8 @@
 
 ### Conferences
 
-* https://nixcon.org
-* https://planetnix.com
+* https://nixcon.org #europe
+* https://planetnix.com #america
 
 ## Consulting
 
