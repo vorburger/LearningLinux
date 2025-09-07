@@ -110,7 +110,7 @@ PS: The `legacyPackages` naming [here](https://github.com/vorburger/LearningLinu
 
 ## Profile
 
-To "globally" install packages (like a traditional package manager would):
+To "globally" install packages (like a traditional package manager would) imperatively:
 
     $ nix profile install nixpkgs#hello
     $ ~/.nix-profile/bin/hello
@@ -118,7 +118,13 @@ To "globally" install packages (like a traditional package manager would):
 
 You would normally [put `~/.nix-profile/bin/` on your PATH](https://github.com/vorburger/vorburger-dotfiles-bin-etc/commit/5b8b1b364154e50a3ec6ec592b4edb5a7277143e#diff-44b95e9c6b0542d36f6a0e72f1d0be03f81d7afa9bf7ac4c7451164f1fb54323R4).
 
-**TODO** _How to replace "imperative" Profile management with a fully "declarative" one?__
+But don't ever [manage profiles](https://nix.dev/manual/nix/2.25/package-management/profiles) imperatively like this, but use [Home Manager](#home-manager) instead fully declaratively.
+
+PS: `nix-env -i hello` is the "old" way.
+
+## Home Manager
+
+See https://github.com/vorburger/vorburger-dotfiles-bin-etc#nix for https://nix-community.github.io/home-manager.
 
 ## REPL 101
 
