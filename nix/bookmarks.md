@@ -113,6 +113,7 @@
 
 ## Examples
 
+* https://github.com/splitbrain/infra-nas-nixos
 * https://github.com/thefossguy/prathams-nixos
 * https://github.com/Joker9944/nix-config
 * https://github.com/pl-misuw/nixos_config
