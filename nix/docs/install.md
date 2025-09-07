@@ -13,7 +13,7 @@ We currently recommend using [Determinate Nix](determinate.md), instead of:
   * Uninstall with: `sudo systemctl disable --now nix-daemon && sudo dnf remove nix && sudo rm -rf /nix && sudo dnf copr remove petersen/nix && sudo groupdel nixbld`
 * [NOT Flox](flox.md)
 
-Enable Flakes with `echo "extra-experimental-features = nix-command flakes" >>~/.config/nix/nix.conf` (if you don't have it already); see https://github.com/vorburger/vorburger-dotfiles-bin-etc/commit/b853a1becf993d26c7ca7c4b62fb117b895be232.
+Enable Flakes with `mkdir ~/.config/nix && echo "extra-experimental-features = nix-command flakes" >>~/.config/nix/nix.conf` (if you don't have it already); see https://github.com/vorburger/vorburger-dotfiles-bin-etc/commit/b853a1becf993d26c7ca7c4b62fb117b895be232.
 
 PS: [Gemini 🔮 Tips](https://gemini.google.com/app/69ffbf8c55cb1264) re. SELinux on Fedora.
 
