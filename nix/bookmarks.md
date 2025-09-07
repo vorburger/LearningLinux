@@ -42,11 +42,6 @@
 * https://nix-community.github.io/nixos-anywhere/
 * https://nix-community.github.io/home-manager/
 
-## Integration
-
-* https://github.com/nix-community/nixago #cue
-* https://github.com/jmgilman/nix-cue #cue
-
 ## Mac
 
 * https://nix-darwin.org
@@ -57,10 +52,19 @@
 * https://flake.parts
 * https://github.com/mightyiam/dendritic
 
-## Format, Pre-Commit, etc.
+## Tools
+
+* https://github.com/nix-community/comma for `, anything` is `nix run` with https://github.com/nix-community/nix-index
+
+### Format, Pre-Commit, etc.
 
 * https://github.com/NixOS/nixfmt
 * https://github.com/cachix/git-hooks.nix
+
+## Integration
+
+* https://github.com/nix-community/nixago #cue
+* https://github.com/jmgilman/nix-cue #cue
 
 ## Alternative
 
