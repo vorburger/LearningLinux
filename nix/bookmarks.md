@@ -113,6 +113,7 @@
 
 ## Examples
 
+* https://github.com/thefossguy/prathams-nixos
 * https://github.com/Joker9944/nix-config
 
 ## References
