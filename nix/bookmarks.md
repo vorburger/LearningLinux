@@ -53,8 +53,14 @@
 
 ## Patterns
 
+* https://github.com/nix-systems/nix-systems, and https://github.com/numtide/flake-utils (which uses `nix-systems`)
 * https://flake.parts
 * https://github.com/mightyiam/dendritic
+
+## Format, Pre-Commit, etc.
+
+* https://github.com/NixOS/nixfmt
+* https://github.com/cachix/git-hooks.nix
 
 ## Alternative
 
@@ -100,12 +106,16 @@
 * https://helsinki-systems.de
 * https://obsidian.systems
 
-### References
+## Examples
+
+* https://github.com/Joker9944/nix-config
+
+## References
 
 * https://noogle.dev
 * https://nixos.wiki
 
-### News
+## News
 
 * https://fulltimenix.com
 * https://weekly.nixos.org
@@ -115,9 +125,10 @@
 
 Recommended reading, in this order:
 
-1. https://nix.dev
-1. https://nixos-and-flakes.thiscute.world
 1. https://zero-to-nix.com
+1. https://nix.dev
+1. https://vtimofeenko.com/posts/practical-nix-flake-anatomy-a-guided-tour-of-flake.nix
+1. https://nixos-and-flakes.thiscute.world
 1. https://code.tvl.fyi/about/nix/nix-1p/README.md is a great succinct intro to the Nix functional language
 1. https://nixos.org/guides/nix-pills/
 1. https://nixos.org/manual/nix/stable/#ssec-builtins documents the `builtins`
