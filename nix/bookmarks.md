@@ -136,6 +136,7 @@ Recommended reading, in this order:
 1. https://zero-to-nix.com
 1. https://nix.dev
 1. https://vtimofeenko.com/posts/practical-nix-flake-anatomy-a-guided-tour-of-flake.nix
+1. https://serokell.io/blog/practical-nix-flakes
 1. https://nixos-and-flakes.thiscute.world
 1. https://code.tvl.fyi/about/nix/nix-1p/README.md is a great succinct intro to the Nix functional language
 1. https://nixos.org/guides/nix-pills/
