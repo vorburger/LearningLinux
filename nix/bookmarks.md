@@ -92,7 +92,8 @@
 
 ### Meetups & User Groups
 
-* @zimbatm Geneva ?
+* @zimbatm Geneva / Lausanne ?
+* https://zurich.nix.ug
 * https://socal-nug.com
 
 ### Conferences
