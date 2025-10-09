@@ -1,5 +1,11 @@
 # Troubleshoot
 
+### warning: ignoring the client-specified setting 'sandbox', because it is a restricted setting and you are not a trusted user
+
+You need to add your username to the `trusted-users` list in `/etc/nix/nix.conf` (e.g., `trusted-users = root your-username-here`), and then restart the Nix daemon with `sudo systemctl restart nix-daemon.service`.
+
+PS: Originally from http://docs.enola.dev/use#nix, but since https://github.com/enola-dev/enola/issues/1730 no longer required there.
+
 ### error: cannot connect to socket at '/nix/var/nix/daemon-socket/socket': No such file or directory
 
     sudo systemctl enable --now nix-daemon
