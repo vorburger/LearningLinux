@@ -90,6 +90,14 @@
 
 ## Community
 
+### Chat
+
+* https://matrix.to/#/#space:nixos.org supposedly, but https://github.com/NixOS/nixos-homepage/issues/1865
+
+### Forums
+
+* https://discourse.nixos.org
+
 ### Meetups & User Groups
 
 * @zimbatm Geneva / Lausanne ?
@@ -103,6 +111,7 @@
 
 ## Consulting
 
+* https://nixos.org/community/commercial-support/
 * https://numtide.com
 * https://www.tweag.io
 * https://determinate.systems
@@ -119,7 +128,6 @@
 * https://github.com/thefossguy/prathams-nixos (offered to help on email)
 * https://github.com/drupol/infra (from [here](https://mathstodon.xyz/@Pol/115168596288038824))
 * https://github.com/splitbrain/infra-nas-nixos
-
 * https://github.com/Joker9944/nix-config
 * https://github.com/pl-misuw/nixos_config
 
