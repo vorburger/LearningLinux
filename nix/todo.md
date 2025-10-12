@@ -1,37 +1,39 @@
 # ToDo
 
+* [NixOS README ToDo](os/trivial-vm/README.md#todo)
+
 ## Nix
 
 1. Turn [README](README.md) into a slide deck? Make a YouTube video?? :)
 
 1. https://2025.nixcon.org, in CH; watch https://github.com/NixOS/org/issues/70
-   - How to get `nix develop` to respect `$SHELL` ? (Both directly and WITH `direnv` and `nix-direnv`.)
-   - All the open `TODO` in the `flake.nix` etc. files
-   - ... the rest here! ;)
+   * How to get `nix develop` to respect `$SHELL` ? (Both directly and WITH `direnv` and `nix-direnv`.)
+   * All the open `TODO` in the `flake.nix` etc. files
+   * ... the rest here! ;)
 
 1. Use `systems` from root `flake.nix` in `java/flake.nix`
 1. https://flake.parts
 1. Formatting with https://github.com/numtide/treefmt-nix#flake-parts
 
 1. Run `nix flake check`
-   - On GitHub
-   - Too Slow! ... via https://github.com/cachix/git-hooks.nix ? Or just "directly"?
+   * On GitHub
+   * Too Slow! ... via https://github.com/cachix/git-hooks.nix ? Or just "directly"?
 
 1. https://nix-community.github.io/home-manager/
 
 1. https://flake.parts/options/make-shell.html
 1. https://zero-to-nix.com/start/learn-more/#containers
 1. DevContainer
-   - https://github.com/devcontainers/features/tree/main/src/nix
-   - https://github.com/zombiezen/codespaces-nix
-   - https://github.com/xtruder/nix-devcontainer
-   - https://devenv.sh/integrations/codespaces-devcontainer/ try it?
+   * https://github.com/devcontainers/features/tree/main/src/nix
+   * https://github.com/zombiezen/codespaces-nix
+   * https://github.com/xtruder/nix-devcontainer
+   * https://devenv.sh/integrations/codespaces-devcontainer/ try it?
      With https://devenv.sh/guides/using-with-flakes/
-   - Alternatives? Write one myself...
+   * Alternatives? Write one myself...
 1. Codespace
 1. Container Dev Env
-   - Base image?
-   - https://github.com/DeterminateSystems/nix-installer#in-a-container
+   * Base image?
+   * https://github.com/DeterminateSystems/nix-installer#in-a-container
 1. Container https://github.com/NixOS/templates/blob/master/simple-container/flake.nix
 
 1. https://github.com/nix-community/nix-direnv WITH `nix develop --command "$SHELL"`
@@ -43,9 +45,9 @@
 1. GitHub Action to build e.g. `flake1`; see [Nix related Actions on GitHub Marketplace](https://github.com/search?q=nix&type=marketplace)
     1. https://github.com/DeterminateSystems/nix-installer#as-a-github-action
     1. Caching? E.g. Nix package themselves, and Maven or Bazel etc.
-       - Why is https://cache.nixos.org not sufficient?!
-       - https://www.cachix.org ? See https://numtide.github.io/devshell/ci.html#github-actions
-       - https://github.com/DeterminateSystems/magic-nix-cache costs ;(
+       * Why is https://cache.nixos.org not sufficient?!
+       * https://www.cachix.org ? See https://numtide.github.io/devshell/ci.html#github-actions
+       * https://github.com/DeterminateSystems/magic-nix-cache costs ;(
 
 1. `enola.git/flake.nix` https://github.com/enola-dev/enola/pull/1227
     1. Add to https://github.com/NixOS/nixos-search/blob/main/flakes/manual.toml
@@ -120,8 +122,8 @@
 1. https://github.com/nix-community/NUR but why, for what? With flakes, can just depend on any Git repo, no?
 
 1. Lazy Trees?
-   - https://determinate.systems/posts/changelog-determinate-nix-352/
-   - https://determinate.systems/posts/changelog-determinate-nix-366/
+   * https://determinate.systems/posts/changelog-determinate-nix-352/
+   * https://determinate.systems/posts/changelog-determinate-nix-366/
 
 1. Nah... what for, really? https://devenv.sh, or https://github.com/numtide/devshell.
 
@@ -193,6 +195,6 @@
 
 1. https://github.com/ryantm/agenix
 
-## Android 
+## Android
 
 * https://github.com/nix-community/nix-on-droid
