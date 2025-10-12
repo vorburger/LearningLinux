@@ -2,6 +2,16 @@
 
 ## NixOS
 
+### Debug
+
+TODO Why does `nix build .#default.driverInteractive` not work?
+
+* https://github.com/tfc/nixos-integration-test-example/blob/94d79acf3abe9fb30abed5f534d897b3086dab20/echo/test.nix#L21C20-L21C21 ?
+* https://nix.dev/tutorials/nixos/integration-testing-using-virtual-machines#interactive-python-shell-in-the-virtual-machine ?
+* https://nixos.org/manual/nixos/stable/#sec-running-nixos-tests-interactively ?
+* https://nixos.org/manual/nixos/stable/#test-opt-interactive ?
+* https://nixos.org/manual/nixos/stable/#test-opt-sshBackdoor.enable ?
+
 ### References
 
 * https://github.com/tfc/nixos-integration-test-example
