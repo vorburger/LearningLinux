@@ -35,6 +35,10 @@
 
       apps.x86_64-linux.run-vm1 = {
         type = "app";
+        meta = with pkgs.lib; {
+          description = "Run NixOS VM1";
+          platforms = platforms.linux;
+        };
         program = pkgs.lib.getExe (
           pkgs.writeShellScriptBin "run-vm1" ''
             rm -f *.qcow2
