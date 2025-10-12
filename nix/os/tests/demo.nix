@@ -9,10 +9,10 @@
   };
 
   testScript = ''
-    machine1.systemctl("start network-online.target")
-    machine2.systemctl("start network-online.target")
-    machine1.wait_for_unit("network-online.target")
-    machine2.wait_for_unit("network-online.target")
+    start_all()
+    for m in [machine1, machine2]:
+      m.systemctl("start network-online.target")
+      m.wait_for_unit("network-online.target")
 
     machine1.succeed("ping -c 1 machine2")
     machine2.succeed("ping -c 1 machine1")
