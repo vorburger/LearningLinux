@@ -28,12 +28,16 @@
         ];
       };
 
-      # x86_64-linux only (for now), so intentionally omitted
-      packages.run-vm1 = pkgs.writeShellScriptBin "run-vm1" ''
-        rm -f *.qcow2
-        QEMU_NET_OPTS="hostfwd=tcp::2222-:22" exec "${self.nixosConfigurations.vm1.config.system.build.vm}/bin/run-nixos-vm" "$@"
-      '';
-      packages.x86_64-linux.default = self.packages.run-vm1;
+      apps.x86_64-linux.run-vm1 = {
+        type = "app";
+        program = pkgs.lib.getExe (
+          pkgs.writeShellScriptBin "run-vm1" ''
+            rm -f *.qcow2
+            QEMU_NET_OPTS="hostfwd=tcp::2222-:22" exec "${self.nixosConfigurations.vm1.config.system.build.vm}/bin/run-nixos-vm" "$@"
+          ''
+        );
+      };
+      apps.x86_64-linux.default = self.apps.x86_64-linux.run-vm1;
 
       formatter.x86_64-linux = pkgs.nixfmt-tree;
     };
