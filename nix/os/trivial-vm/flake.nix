@@ -17,6 +17,11 @@
           (
             { pkgs, ... }:
             {
+              boot.loader.grub.enable = true;
+              boot.loader.grub.devices = [ "/dev/vda" ];
+              fileSystems."/" = {
+                device = "/dev/vda";
+              };
               services.openssh.enable = true;
               # users.users.root.password = ""; # TESTING, only!
               users.users.root.openssh.authorizedKeys.keys = [
