@@ -7,7 +7,35 @@
     { self, nixpkgs }:
     let
       system = "x86_64-linux";
+      # TODO Vs. pkgs = nixpkgs.legacyPackages.${system};
       pkgs = import nixpkgs { inherit system; };
+
+      mkApp =
+        name:
+        { run }:
+        {
+          type = "app";
+          meta = with pkgs.lib; {
+            platforms = platforms.linux;
+            description = "Run ${name}";
+          };
+          program = pkgs.lib.getExe (
+            pkgs.writeShellScriptBin name ''
+              ${run}
+            ''
+          );
+        };
+
+      simplifiedApps = {
+        vm1 = {
+          run = ''
+            rm -f *.qcow2
+            QEMU_NET_OPTS="hostfwd=tcp::2222-:22" exec "${self.nixosConfigurations.vm1.config.system.build.vm}/bin/run-nixos-vm" "$@"
+          '';
+        };
+      };
+
+      finalApps = pkgs.lib.mapAttrs mkApp simplifiedApps;
     in
     {
       nixosConfigurations.vm1 = nixpkgs.lib.nixosSystem {
@@ -32,20 +60,9 @@
         ];
       };
 
-      apps.x86_64-linux.run-vm1 = {
-        type = "app";
-        meta = with pkgs.lib; {
-          description = "Run NixOS VM1";
-          platforms = platforms.linux;
-        };
-        program = pkgs.lib.getExe (
-          pkgs.writeShellScriptBin "run-vm1" ''
-            rm -f *.qcow2
-            QEMU_NET_OPTS="hostfwd=tcp::2222-:22" exec "${self.nixosConfigurations.vm1.config.system.build.vm}/bin/run-nixos-vm" "$@"
-          ''
-        );
+      apps.${system} = finalApps // {
+        default = finalApps.vm1;
       };
-      apps.x86_64-linux.default = self.apps.x86_64-linux.run-vm1;
 
       formatter.x86_64-linux = pkgs.nixfmt-tree;
     };
