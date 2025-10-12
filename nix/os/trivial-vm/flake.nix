@@ -34,5 +34,7 @@
         QEMU_NET_OPTS="hostfwd=tcp::2222-:22" exec "${self.nixosConfigurations.vm1.config.system.build.vm}/bin/run-nixos-vm" "$@"
       '';
       packages.x86_64-linux.default = self.packages.run-vm1;
+
+      formatter.x86_64-linux = pkgs.nixfmt-tree;
     };
 }
