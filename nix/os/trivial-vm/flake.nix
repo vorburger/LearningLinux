@@ -5,8 +5,13 @@
 
   outputs =
     { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+      lib = nixpkgs.lib;
+    in
     {
-      nixosConfigurations.vm1 = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.vm1 = lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           (
@@ -23,10 +28,11 @@
         ];
       };
 
-      packages.x86_64-linux.run-vm1 = nixpkgs.legacyPackages.x86_64-linux.writeShellScriptBin "run-vm1" ''
+      # x86_64-linux only (for now), so intentionally omitted
+      packages.run-vm1 = pkgs.writeShellScriptBin "run-vm1" ''
         rm -f *.qcow2
         QEMU_NET_OPTS="hostfwd=tcp::2222-:22" exec "${self.nixosConfigurations.vm1.config.system.build.vm}/bin/run-nixos-vm" "$@"
       '';
-      packages.x86_64-linux.default = self.packages.x86_64-linux.run-vm1;
+      packages.x86_64-linux.default = self.packages.run-vm1;
     };
 }
