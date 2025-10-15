@@ -1,5 +1,10 @@
 # Testing
 
+## Nix
+
+* https://nix-community.github.io/nix-unit/ (with https://flake.parts/options/nix-unit.html)
+* https://github.com/vic/checkmate
+
 ## NixOS
 
 ### Debug
