@@ -163,7 +163,6 @@
   * https://github.com/dliberalesso/nix-config/
   * https://github.com/drupol/infra (from [here](https://mathstodon.xyz/@Pol/115168596288038824))
   * https://github.com/henrysipp/nix-setup
-  * https://github.com/Maka-77x/nixconf7
   * https://codeberg.org/quasigod/nixconfig
   * https://codeberg.org/vic/quasigod-nixconfig
 * https://github.com/RGBCube/ncc
