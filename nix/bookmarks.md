@@ -198,3 +198,5 @@ Recommended reading, in this order:
 1. https://nixos.org/guides/nix-pills/
 1. https://nixos.org/manual/nix/stable/#ssec-builtins documents the `builtins`
 1. https://nixos.org/manual/nixpkgs/stable/#sec-functions-library for `pkgs.lib` (AKA `import <nixpkgs/lib>`)
+1. https://nix.dev/manual/nix/2.18/command-ref/new-cli/nix3-flake#flake-format
+1. https://nixos.wiki/wiki/Flakes
