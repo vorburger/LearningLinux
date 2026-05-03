@@ -1,5 +1,7 @@
 # Installation
 
+See [vorburger/nixfiles/nix-cli](https://nixfiles.vorburger.ch/reference/nix-cli/).
+
 See [Nix Installers Bookmarks](../bookmarks.md#install).
 
 We currently recommend using [Determinate Nix](determinate.md), instead of:
