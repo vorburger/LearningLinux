@@ -99,8 +99,8 @@
 ### Nix Language Implementation
 
 * https://github.com/NixOS/nix AKA CppNix
-* https://lix.systems #rust
-* https://tvix.dev #rust @[flokli](https://flokli.de/) and @[tazjin](https://tazj.in/)
+* https://lix.systems #c++
+* https://github.com/tvlfyi/tvix/ #rust @[flokli](https://flokli.de/) and @[tazjin](https://tazj.in/)
 * https://snix.dev #rust forkOf:tvix
 
 ### Configuration Language
